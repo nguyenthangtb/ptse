@@ -6,31 +6,38 @@ use App\Models\Category;
 use App\Models\News;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        // Lấy danh mục sản phẩm đang active
-        $categories = Category::where('is_active', true)
-            ->orderBy('order')
-            ->take(6)
-            ->get();
+        // Cache categories for 24 hours
+        $categories = Cache::remember('home_categories', 60*24, function () {
+            return Category::where('is_active', true)
+                ->orderBy('order')
+                ->take(6)
+                ->get();
+        });
 
-        // Lấy sản phẩm nổi bật đang active
-        $featuredProducts = Product::where('is_active', true)
-            ->where('is_featured', true)
-            ->orderBy('order')
-            ->take(8)
-            ->get();
+        // Cache featured products for 24 hours
+        $featuredProducts = Cache::remember('home_featured_products', 60*24, function () {
+            return Product::where('is_active', true)
+                ->where('is_featured', true)
+                ->orderBy('order')
+                ->take(8)
+                ->get();
+        });
 
-        // Lấy tin tức mới nhất đang active và đã publish
-        $news = News::where('is_active', true)
-            ->whereNotNull('published_at')
-            ->where('published_at', '<=', now())
-            ->latest('published_at')
-            ->take(3)
-            ->get();
+        // Cache news for 6 hours since it's more time-sensitive
+        $news = Cache::remember('home_news', 60*6, function () {
+            return News::where('is_active', true)
+                ->whereNotNull('published_at')
+                ->where('published_at', '<=', now())
+                ->latest('published_at')
+                ->take(3)
+                ->get();
+        });
 
         return view('welcome', compact('categories', 'featuredProducts', 'news'));
     }

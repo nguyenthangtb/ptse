@@ -2,10 +2,10 @@
 
 @section('content')
     <!-- Breadcrumb -->
-    <nav class="bg-white py-3 mt-[72px] md:mt-[116px] border-b">
+    <nav class="hidden lg:block bg-white py-3 mt-[116px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
-                <ol role="list" class="flex items-center space-x-2 md:space-x-4">
+                <ol role="list" class="flex items-center space-x-4">
                     <li>
                         <div>
                             <a href="{{ route('home') }}" class="text-gray-400 hover:text-gray-500">

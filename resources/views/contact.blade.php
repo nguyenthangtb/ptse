@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Breadcrumb -->
-    <nav class="bg-gray-50 py-3">
+    <nav class="hidden lg:block bg-white py-3 mt-[72px] md:mt-[116px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ol class="flex items-center space-x-2 text-sm">
                 <li>
@@ -28,7 +28,7 @@
     </nav>
 
     <!-- Contact Section -->
-    <section class="py-12 md:py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <section class="py-12 md:py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 mt-[70px] lg:mt-0">
         <div class="container mx-auto px-4">
             <div class="max-w-xl mx-auto text-center mb-12">
                 <h1 class="text-3xl md:text-4xl font-bold mb-4">Liên hệ với chúng tôi</h1>

@@ -48,7 +48,7 @@
     <!-- Categories Section -->
     <div id="categories" class="bg-gray-100">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-16">
+            <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-8">
                 <h2 class="text-2xl font-bold text-center mb-10 reveal">Danh mục sản phẩm</h2>
                 <div class="mt-6 grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-8">
                     @foreach($categories ?? [] as $category)
@@ -102,7 +102,7 @@
     </div>
 
     <!-- Featured Products -->
-    <section id="featured-products" class="py-16 bg-secondary">
+    <section id="featured-products" class="py-8 bg-secondary">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl font-bold text-center mb-10 reveal">Sản phẩm nổi bật</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
@@ -133,7 +133,7 @@
     </section>
 
     <!-- News Section -->
-    <section class="py-16">
+    <section class="py-8">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl font-bold text-center mb-10 reveal">Tin tức</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -158,7 +158,7 @@
     </section>
 
     <!-- Contact Form -->
-    <section class="py-16 bg-gray-50" id="contact-us">
+    <section class="py-8 bg-gray-50" id="contact-us">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-2 reveal">Liên hệ với tôi</h2>
             <p class="text-gray-600 text-center mb-12 reveal">Bạn có dự án cần thực hiện? Hãy liên hệ ngay để nhận tư vấn và báo giá miễn phí.</p>

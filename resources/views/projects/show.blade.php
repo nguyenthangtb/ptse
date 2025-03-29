@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Breadcrumb -->
-    <nav class="bg-white py-4 md:py-3 mt-[72px] md:mt-[116px] border-b">
+    <nav class="hidden lg:block bg-white py-4 md:py-3 mt-[72px] md:mt-[116px] border-b">
         <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-1.5 md:space-x-4">
@@ -37,7 +37,7 @@
             </nav>
         </div>
     </nav>
-    <section class="py-12 md:py-8">
+    <section class="py-12 md:py-8 mt-[70px] lg:mt-0">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Main Content -->

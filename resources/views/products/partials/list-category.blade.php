@@ -1,5 +1,5 @@
 <!-- Category Section -->
-<section class="bg-gray-50 py-4 md:py-8">
+<section class="mt-[70px] lg:mt-0 py-6 md:py-2">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             @foreach($categories as $category)

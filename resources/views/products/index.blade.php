@@ -2,10 +2,10 @@
 
 @section('content')
     <!-- Breadcrumb -->
-    <nav class="bg-white py-3 mt-[72px] md:mt-[116px] md:mt-[116px] border-b">
+    <nav class="hidden lg:block bg-white py-3 mt-[116px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
-                <ol role="list" class="flex items-center space-x-2 md:space-x-4">
+                <ol role="list" class="flex items-center space-x-4">
                     <li>
                         <div>
                             <a href="{{ route('home') }}" class="text-gray-400 hover:text-gray-500">
@@ -20,7 +20,7 @@
                             <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                             </svg>
-                            <a href="{{ route('products.index') }}" class="ml-2 md:ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Sản phẩm</a>
+                            <a href="{{ route('products.index') }}" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Sản phẩm</a>
                         </div>
                     </li>
                 </ol>

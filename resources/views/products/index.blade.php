@@ -2,33 +2,34 @@
 
 @section('content')
     <!-- Breadcrumb -->
-    <nav class="bg-white py-3">
+    <nav class="bg-white py-3 mt-[72px] md:mt-[116px] md:mt-[116px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <ol class="flex items-center space-x-2 text-sm">
-                <li>
-                    <a href="{{ route('home') }}" class="text-gray-600 hover:text-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('home') }}" class="text-gray-600 hover:text-primary">Trang chủ</a>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </li>
-                <li>
-                    <a href="{{ route('solutions.index') }}" class="text-gray-600 hover:text-primary">Sản phẩm</a>
-                </li>
-            </ol>
+            <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
+                <ol role="list" class="flex items-center space-x-2 md:space-x-4">
+                    <li>
+                        <div>
+                            <a href="{{ route('home') }}" class="text-gray-400 hover:text-gray-500">
+                                <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <a href="{{ route('products.index') }}" class="ml-2 md:ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Sản phẩm</a>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
         </div>
     </nav>
-
+    @include('products.partials.list-category')
     <!-- Products Section -->
-    <section class="py-12 md:py-16">
+    <section class="py-6 md:py-2">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
             <!-- Product Category Title -->
             <h1 class="text-3xl font-bold text-gray-800 mb-4">Bơm chống nghẹt</h1>
@@ -62,16 +63,18 @@
             </div>
 
             <!-- Product Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                 @foreach($products as $product)
                     <div class="group relative reveal">
                         @if($product->image)
-                            <img src="{{$product->image}}" alt="{{ $product->name }}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+                            <img src="{{$product->image}}" alt="{{ $product->name }}" 
+                                class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75">
                         @else
-                            <img src="https://placehold.co/800x400" alt="{{ $product->name }}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+                            <img src="https://placehold.co/800x400" alt="{{ $product->name }}" 
+                                class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75">
                         @endif
                         <div class="mt-4">
-                            <h3 class="text-[14px] font-bold text-center text-gray-700">
+                            <h3 class="text-base md:text-[14px] font-bold text-center text-gray-700">
                                 <a href="{{ route('products.show', $product->slug) }}" class="hover:text-[#1E4ED8] transition-colors">
                                     {{ $product->name ?? 'Tên sản phẩm' }}
                                 </a>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $page = request()->get('page', 1);
         $products = Cache::remember('products_page_' . $page, 60*24, function () {
@@ -20,7 +20,19 @@ class ProductController extends Controller
                 ->paginate(20);
         });
 
-        return view('products.index', compact('products'));
+        $categories = Cache::remember('all_categories', 60*24, function () {
+            return Category::orderBy('order', 'asc')
+                ->get();
+        });
+        if ($request->ajax()) {
+            $view = view('products.partials._list', compact('products'))->render();
+            return response()->json([
+                'html' => $view,
+                'hasMore' => $products->hasMorePages()
+            ]);
+        }
+
+        return view('products.index', compact('products', 'categories'));
     }
 
     public function productCategory(Category $category, Request $request)

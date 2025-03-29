@@ -6,7 +6,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # Đường dẫn đến thư mục dự án Laravel (thay đổi theo đường dẫn thực tế)
-LARAVEL_PATH="/home/user/public_html/ptse"
+LARAVEL_PATH="/home/ptsevn/public_html/ptse"
 
 # Kiểm tra xem thư mục có tồn tại không
 if [ ! -d "$LARAVEL_PATH" ]; then

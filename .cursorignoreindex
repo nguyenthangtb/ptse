@@ -1,0 +1,49 @@
+node_modules/
+vendor/
+.git/
+.idea/
+.vscode/
+storage/
+public/build/
+public/hot/
+public/storage/
+bootstrap/cache/
+*.log
+.env
+.env.*
+!.env.example
+*.cache
+.phpunit.result.cache
+yarn-error.log
+npm-debug.log
+.DS_Store
+Thumbs.db
+
+# Large generated files
+public/js/
+public/css/
+public/mix-manifest.json
+
+# Test files
+tests/
+phpunit.xml
+
+# Documentation
+docs/
+*.md
+LICENSE
+
+# Development files
+docker/
+docker-compose.yml
+Dockerfile
+*.dockerfile
+.dockerignore
+.editorconfig
+.gitattributes
+.styleci.yml
+.travis.yml
+phpcs.xml
+webpack.mix.js
+package-lock.json
+composer.lock

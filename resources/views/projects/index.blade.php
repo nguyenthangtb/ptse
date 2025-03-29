@@ -1,0 +1,142 @@
+@extends('layouts.app')
+
+@section('content')
+    <!-- Breadcrumb -->
+    <nav class="bg-gray-50 py-3">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <ol class="flex items-center space-x-2 text-sm">
+                <li>
+                    <a href="{{ route('home') }}" class="text-gray-600 hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('home') }}" class="text-gray-600 hover:text-primary">Trang chủ</a>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </li>
+                <li>
+                    <a href="{{ route('solutions.index') }}" class="text-gray-600 hover:text-primary">Giải pháp</a>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="py-12 md:py-8 ">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-center mb-12">Dự án tiêu biểu</h1>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectExten">
+                @foreach($projects as $project)
+                    <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all group">
+                        <div class="h-64 overflow-hidden rounded-t-lg">
+                            <a href="{{ route('projects.show', $project->slug) }}" class="block h-full">
+                                <!-- @if($project->image)
+                                    <img src="{{ $project->image }}"
+                                         alt="{{ $project->title }}"
+                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                @endif -->
+                            </a>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-semibold text-xl mb-3 group-hover:text-primary transition-colors">
+                                <a href="{{ route('projects.show', $project->slug) }}">
+                                    {{ $project->title }}
+                                </a>
+                            </h3>
+                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                                @if($project->client)
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                        </svg>
+                                        {{ $project->client }}
+                                    </div>
+                                @endif
+                                @if($project->location)
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                        </svg>
+                                        {{ $project->location }}
+                                    </div>
+                                @endif
+                            </div>
+                            <p class="text-gray-600 line-clamp-3 mb-4">{{ $project->short_description }}</p>
+                            <a href="{{ route('projects.show', $project->slug) }}"
+                               class="inline-flex items-center text-sm text-primary hover:text-primary/80 font-medium">
+                                Chi tiết
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+
+            <!-- Load More -->
+            <div class="flex justify-center mt-12">
+                <button class="load-more-btn px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors">
+                    Tải thêm
+                </button>
+                <div class="loading-indicator hidden flex items-center gap-2">
+                    <div class="w-6 h-6 border-2 border-t-primary border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+                    <span class="text-gray-600">Đang tải...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
+@section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.load-more-btn').on('click', {page: 1}, function(e) {
+                e.preventDefault();
+                loadMore();
+            });
+
+            let page = 1;
+            let loading = false;
+
+            function loadMore() {
+                if (loading) return;
+
+                loading = true;
+                $('.loading-indicator').show();
+                $('.load-more-btn').hide();
+
+                $.ajax({
+                    url: `/projects/load-more?page=${page + 1}`,
+                    method: 'GET',
+                    success: function(response) {
+                        if (response.html) {
+                            $('#projectExten').append(response.html);
+                            page++;
+                        }
+                        
+                        if (!response.hasMore) {
+                            $('.load-more-btn').parent().remove();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error loading more solutions:', error);
+                    },
+                    complete: function() {
+                        loading = false;
+                        $('.loading-indicator').hide();
+                        $('.load-more-btn').show();
+                    }
+                });
+            }
+        });
+    </script>
+@endsection

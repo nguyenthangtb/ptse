@@ -48,7 +48,7 @@
     <!-- Categories Section -->
     <div id="categories" class="bg-gray-100">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-8">
+            <div class="mx-auto max-w-2xl py-2 sm:py-24 lg:max-w-none lg:py-8">
                 <h2 class="text-2xl font-bold text-center mb-10 reveal">Danh mục sản phẩm</h2>
                 <div class="mt-6 grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-8">
                     @foreach($categories ?? [] as $category)

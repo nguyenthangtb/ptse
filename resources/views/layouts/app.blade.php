@@ -84,7 +84,32 @@
             easing: 'cubic-bezier(0.5, 0, 0, 1)',
             interval: 100
         });
+
+        
     </script>
+
+    <script>
+    // let lastScrollTop = 0;
+    // const contactInfo = document.getElementById('contact-info');
+    // const header = document.querySelector('header');
+
+    // window.addEventListener('scroll', () => {
+    //     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+    //     if (scrollTop > lastScrollTop && scrollTop > 100) {
+    //         // Scrolling down
+    //         contactInfo.style.transform = 'translateY(-100%)';
+    //         contactInfo.style.opacity = '0';
+    //     } else {
+    //         // Scrolling up
+    //         contactInfo.style.transform = 'translateY(0)';
+    //         contactInfo.style.opacity = '1';
+    //     }
+        
+    //     lastScrollTop = scrollTop;
+    // });
+    </script>
+    
     @yield('scripts')
 </body>
 </html>

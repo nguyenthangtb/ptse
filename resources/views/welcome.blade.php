@@ -49,8 +49,8 @@
     <div id="categories" class="bg-gray-100">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-2xl py-2 sm:py-24 lg:max-w-none lg:py-8">
-                <h2 class="text-2xl font-bold text-center mb-10 reveal">Danh mục sản phẩm</h2>
-                <div class="mt-6 grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-8">
+                <h2 class="text-2xl font-bold text-center reveal ">Danh mục sản phẩm</h2>
+                <div class="mt-6 grid grid-cols-1 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-4">
                     @foreach($categories ?? [] as $category)
                     <div class="group relative reveal transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-xl">
                         @if($category->image)
@@ -104,7 +104,7 @@
     <!-- Featured Products -->
     <section id="featured-products" class="py-8 bg-secondary">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-center mb-10 reveal">Sản phẩm nổi bật</h2>
+            <h2 class="text-2xl font-bold text-center mb-5 reveal uppercase">Sản phẩm nổi bật</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                 @foreach($featuredProducts ?? [] as $product)
                     <div class="group relative reveal">
@@ -125,7 +125,7 @@
                 @endforeach
             </div>
             <div class="text-center mt-16 reveal">
-                <a href="{{route('products.index')}}" class="text-primary hover:underline inline-flex items-center">
+                <a href="/san-pham/danh-muc/bom-cong-nghiep" class="text-primary hover:underline inline-flex items-center">
                     Xem tất cả sản phẩm <span class="ml-1">→</span>
                 </a>
             </div>
@@ -133,10 +133,10 @@
     </section>
 
     <!-- News Section -->
-    <section class="py-8">
+    <section class="py-4">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-center mb-10 reveal">Tin tức</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h2 class="text-2xl font-bold text-center mb-5 reveal uppercase">Tin tức</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 @foreach($news ?? [] as $article)
                     <div class="group relative bg-secondary rounded-lg shadow-md overflow-hidden reveal">
                         <div class="relative h-[300px] sm:h-[350px]">
@@ -160,7 +160,7 @@
     <!-- Contact Form -->
     <section class="py-8 bg-gray-50" id="contact-us">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-2 reveal">Liên hệ với tôi</h2>
+            <h2 class="text-3xl font-bold text-center mb-2 reveal uppercase">Liên hệ với tôi</h2>
             <p class="text-gray-600 text-center mb-12 reveal">Bạn có dự án cần thực hiện? Hãy liên hệ ngay để nhận tư vấn và báo giá miễn phí.</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
                 <div class="bg-white p-8 rounded-lg shadow-sm reveal">

@@ -49,7 +49,7 @@
     <div id="categories" class="bg-gray-100">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-2xl py-2 sm:py-24 lg:max-w-none lg:py-8">
-                <h2 class="text-2xl font-bold text-center reveal ">Danh mục sản phẩm</h2>
+                <h2 class="text-2xl font-bold text-center reveal uppercase">Danh mục sản phẩm</h2>
                 <div class="mt-6 grid grid-cols-1 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-4">
                     @foreach($categories ?? [] as $category)
                     <div class="group relative reveal transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-xl">

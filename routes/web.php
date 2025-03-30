@@ -22,4 +22,4 @@ Route::get('/du-an', [ProjectController::class, 'index'])->name('projects.index'
 Route::get('/du-an/{slug}', [ProjectController::class, 'show'])->name('projects.show');
 Route::get('/projects/load-more', [ProjectController::class, 'loadMore'])->name('projects.load-more');
 Route::get('/lien-he', [HomeController::class, 'about'])->name('lien-he');
-Route::post('/lien-he', [HomeController::class, 'contact'])->name('lien-he');
+Route::post('/lien-he', [HomeController::class, 'contact'])->name('lien-he.store');

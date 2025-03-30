@@ -86,7 +86,7 @@
                 <!-- Contact Form -->
                 <div class="bg-white rounded-xl shadow-lg p-8 backdrop-blur-sm bg-white/90 hover:shadow-xl transition-shadow">
                     <h2 class="text-2xl font-semibold mb-6">Gửi thông tin liên hệ</h2>
-                    <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
+                    <form class="space-y-6 ajaxForm">
                         @csrf
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Họ và tên</label>
@@ -137,4 +137,37 @@
             </div>
         </div>
     </section>
+@endsection
+@section('scripts')
+<script>
+// Initialize Notyf
+const notyf = new Notyf({
+    duration: 5000,
+    position: {
+        x: 'right',
+        y: 'top'
+    }
+});
+$(document).ready(function() {
+    $('.ajaxForm').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/lien-he',
+            method: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                if (response.status == 200) {
+                    notyf.success(response.message);
+                    $('.ajaxForm')[0].reset();
+                } else {
+                    notyf.error(response.message);
+                }
+            },
+            error: function(xhr) {
+                notyf.error(response.message);
+            }
+        });
+    });
+});
+</script>
 @endsection

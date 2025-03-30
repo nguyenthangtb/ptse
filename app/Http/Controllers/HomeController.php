@@ -7,6 +7,7 @@ use App\Models\News;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use App\Models\Contact;
 
 class HomeController extends Controller
 {
@@ -55,16 +56,18 @@ class HomeController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
         ]);
-
         try {
-            // TODO: Xử lý gửi email hoặc lưu thông tin liên hệ vào database
-            // Có thể tạo một model Contact để lưu thông tin
-
-            return redirect()->back()->with('success', 'Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi sớm nhất có thể.');
+            // Lưu thông tin liên hệ vào cơ sở dữ liệu
+            $contact = new Contact();
+            $contact->name = $validated['name'];
+            $contact->email = $validated['email'];
+            $contact->phone = $validated['phone'];
+            $contact->message = $request->input('message');
+            $contact->save();
+            //ajax
+            return response()->json(['status' => 200, 'message' => 'Gửi thông tin thành công!']);
         } catch (\Exception $e) {
-            return redirect()->back()
-                ->with('error', 'Có lỗi xảy ra khi gửi thông tin. Vui lòng thử lại sau.')
-                ->withInput();
+            return response()->json(['status' => 500,'message' => 'Đã xảy ra lỗi khi gửi thông tin. Vui lòng thử lại sau.']);
         }
     }
 }

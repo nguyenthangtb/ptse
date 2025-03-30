@@ -158,7 +158,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
                 <div class="bg-white p-8 rounded-lg shadow-sm reveal">
                     <h3 class="text-xl font-semibold mb-6">Gửi yêu cầu</h3>
-                    <form action="#" method="POST">
+                    <form class="ajaxForm">
                         @csrf
                         <div class="mb-4">
                             <label class="block text-sm font-medium mb-2">Họ và tên</label>
@@ -172,15 +172,6 @@
                             <label class="block text-sm font-medium mb-2">Số điện thoại</label>
                             <input type="tel" name="phone" placeholder="Nhập số điện thoại của bạn" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" required>
                         </div>
-{{--                        <div class="mb-4">--}}
-{{--                            <label class="block text-sm font-medium mb-2">Dịch vụ quan tâm</label>--}}
-{{--                            <select name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">--}}
-{{--                                <option value="">Chọn dịch vụ</option>--}}
-{{--                                <option value="1">Dịch vụ 1</option>--}}
-{{--                                <option value="2">Dịch vụ 2</option>--}}
-{{--                                <option value="3">Dịch vụ 3</option>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
                         <div class="mb-6">
                             <label class="block text-sm font-medium mb-2">Nội dung yêu cầu</label>
                             <textarea name="message" rows="4" placeholder="Mô tả chi tiết yêu cầu của bạn..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"></textarea>
@@ -283,4 +274,37 @@
             </div>
         </div>
     </section>
+@endsection
+@section('scripts')
+<script>
+// Initialize Notyf
+const notyf = new Notyf({
+    duration: 5000,
+    position: {
+        x: 'right',
+        y: 'top'
+    }
+});
+$(document).ready(function() {
+    $('.ajaxForm').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/lien-he',
+            method: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                if (response.status == 200) {
+                    notyf.success(response.message);
+                    $('.ajaxForm')[0].reset();
+                } else {
+                    notyf.error(response.message);
+                }
+            },
+            error: function(xhr) {
+                notyf.error(response.message);
+            }
+        });
+    });
+});
+</script>
 @endsection

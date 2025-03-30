@@ -52,34 +52,31 @@
                 <h2 class="text-2xl font-bold text-center reveal uppercase">Danh mục sản phẩm</h2>
                 <div class="mt-6 grid grid-cols-1 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-4">
                     @foreach($categories ?? [] as $category)
-                    <div class="group relative reveal transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-xl">
-                        @if($category->image)
-                            <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}" class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square transition-all duration-300">
-                        @else
-                        <div class="w-full h-full flex items-center justify-center text-gray-400 bg-gray-100 rounded-lg max-sm:h-80 sm:aspect-2/1 lg:aspect-square">
-                            <span>Hình ảnh</span>
-                        </div>
-                        @endif
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent rounded-lg flex flex-col justify-end p-6 transform transition-all duration-300">
-                            <div class="flex items-end justify-between">
-                                <div class="flex-1">
-                                    <h3 class="text-lg font-semibold text-white mb-2 transform transition-all duration-300">
-                                        <a href="{{ route('products.category', $category) }}" class="hover:underline">
+                        <a href="{{ route('products.category', $category) }}" class="group relative reveal transition-all duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-xl block">
+                            @if($category->image)
+                                <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}" class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square transition-all duration-300">
+                            @else
+                            <div class="w-full h-full flex items-center justify-center text-gray-400 bg-gray-100 rounded-lg max-sm:h-80 sm:aspect-2/1 lg:aspect-square">
+                                <span>Hình ảnh</span>
+                            </div>
+                            @endif
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent rounded-lg flex flex-col justify-end p-6 transform transition-all duration-300">
+                                <div class="flex items-end justify-between">
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold text-white mb-2 transform transition-all duration-300 uppercase">
                                             {{ $category->name ?? 'Danh mục sản phẩm' }}
-                                        </a>
-                                    </h3>
-                                    <!-- <p class="text-sm text-gray-200 transform transition-all duration-300">{{ $category->description ?? 'Danh mục' }}</p> -->
-                                </div>
-                                <div class="flex-shrink-0 ml-4">
-                                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white group-hover:translate-x-1 transition-transform">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                        </svg>
+                                        </h3>
+                                    </div>
+                                    <div class="flex-shrink-0 ml-4">
+                                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white group-hover:translate-x-1 transition-transform">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
@@ -107,21 +104,18 @@
             <h2 class="text-2xl font-bold text-center mb-5 reveal uppercase">Sản phẩm nổi bật</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                 @foreach($featuredProducts ?? [] as $product)
-                    <div class="group relative reveal">
+                    <a href="{{ route('products.show', $product->slug) }}" class="group relative reveal block">
                         @if($product->image)
                             <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
                         @else
                             <img src="https://placehold.co/800x400" alt="{{ $product->name }}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
                         @endif
                         <div class="mt-4">
-                            <h3 class="text-[14px] font-bold text-center text-gray-700">
-                                <a href="#">
-                                    <a href="{{ route('products.show', $product->slug) }}" class="hover:text-primary transition-colors">
-                                    {{ $product->name ?? 'Tên sản phẩm' }}
-                                </a>
+                            <h3 class="text-[14px] font-bold text-center text-gray-700 capitalize hover:text-primary transition-colors">
+                                {{ $product->name ?? 'Tên sản phẩm' }}
                             </h3>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
             <div class="text-center mt-16 reveal">
@@ -138,7 +132,7 @@
             <h2 class="text-2xl font-bold text-center mb-5 reveal uppercase">Tin tức</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 @foreach($news ?? [] as $article)
-                    <div class="group relative bg-secondary rounded-lg shadow-md overflow-hidden reveal">
+                    <a href="{{ route('news.show', $article) }}" class="group relative bg-secondary rounded-lg shadow-md overflow-hidden reveal block">
                         <div class="relative h-[300px] sm:h-[350px]">
                             @if($article->image)
                                 <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover group-hover:opacity-75">
@@ -148,10 +142,9 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
                             <div class="absolute bottom-0 p-4 text-white">
                                 <h3 class="font-medium text-lg mb-1">{{ $article->title ?? 'Tiêu đề bài viết' }}</h3>
-                                <p class="text-gray-200 text-sm">{{ $article->date ?? now()->format('d/m/Y') }}</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>
@@ -213,7 +206,9 @@
                             </div>
                             <div class="ml-4">
                                 <h4 class="font-medium mb-1">Email</h4>
-                                <p class="text-gray-600">info@ptse.vn</p>
+                                <p class="text-gray-600">
+                                    <a href="mailto:info@ptse.vn" class="hover:text-primary transition-colors">info@ptse.vn</a>
+                                </p>
                             </div>
                         </div>
 
@@ -225,7 +220,9 @@
                             </div>
                             <div class="ml-4">
                                 <h4 class="font-medium mb-1">Điện thoại</h4>
-                                <p class="text-gray-600">0968 750 388</p>
+                                <p class="text-gray-600">
+                                    <a href="tel:0968750388" class="hover:text-primary transition-colors">0968 750 388</a>
+                                </p>
                             </div>
                         </div>
 
@@ -238,7 +235,7 @@
                             </div>
                             <div class="ml-4">
                                 <h4 class="font-medium mb-1">Địa chỉ</h4>
-                                <p class="text-gray-600">10th Floor, CEO Tower Building, Lot HH2-1, Me Tri Ha Urban Area, Pham Hung Street, Me Tri Ward, Nam Tu Liem District, Hanoi City</p>
+                                <p class="text-gray-600">Tầng 10, tòa nhà CEO Tower, Lô HH2-1 Khu đô thị Mễ Trì Hạ, đường Phạm Hùng, Phường Mễ Trì, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam</p>
                             </div>
                         </div>
                     </div>

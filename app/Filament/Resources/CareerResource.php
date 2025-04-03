@@ -20,9 +20,13 @@ class CareerResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
-    protected static ?string $navigationGroup = 'Content';
+    protected static ?string $navigationGroup = 'Nội dung';
 
     protected static ?int $navigationSort = 3;
+
+    protected static ?string $modelLabel = 'Tuyển dụng';
+
+    protected static ?string $pluralModelLabel = 'Tuyển dụng';
 
     public static function form(Form $form): Form
     {
@@ -33,46 +37,55 @@ class CareerResource extends Resource
                         Forms\Components\Section::make()
                             ->schema([
                                 Forms\Components\TextInput::make('title')
+                                    ->label('Tiêu đề')
                                     ->required()
                                     ->live(onBlur: true)
                                     ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
                                         $operation === 'create' ? $set('slug', Str::slug($state)) : null
                                     ),
                                 Forms\Components\TextInput::make('slug')
+                                    ->label('Đường dẫn')
                                     ->required()
                                     ->unique(ignoreRecord: true),
                                 Forms\Components\TextInput::make('department')
+                                    ->label('Phòng ban')
                                     ->required(),
                                 Forms\Components\TextInput::make('location')
+                                    ->label('Địa điểm')
                                     ->required(),
                                 Forms\Components\Select::make('type')
+                                    ->label('Loại hình')
                                     ->required()
                                     ->options([
-                                        'full-time' => 'Full Time',
-                                        'part-time' => 'Part Time',
-                                        'contract' => 'Contract',
-                                        'internship' => 'Internship',
-                                        'remote' => 'Remote',
+                                        'full-time' => 'Toàn thời gian',
+                                        'part-time' => 'Bán thời gian',
+                                        'contract' => 'Hợp đồng',
+                                        'internship' => 'Thực tập',
+                                        'remote' => 'Từ xa',
                                     ]),
                             ])
                             ->columns(2),
 
-                        Forms\Components\Section::make('Description')
+                        Forms\Components\Section::make('Mô tả')
                             ->schema([
                                 Forms\Components\TextInput::make('short_description')
+                                    ->label('Mô tả ngắn')
                                     ->required()
                                     ->maxLength(255),
                                 Forms\Components\RichEditor::make('description')
+                                    ->label('Mô tả chi tiết')
                                     ->required()
                                     ->columnSpanFull(),
                             ]),
 
-                        Forms\Components\Section::make('Requirements & Benefits')
+                        Forms\Components\Section::make('Yêu cầu & Quyền lợi')
                             ->schema([
                                 Forms\Components\RichEditor::make('requirements')
+                                    ->label('Yêu cầu')
                                     ->required()
                                     ->columnSpanFull(),
                                 Forms\Components\RichEditor::make('benefits')
+                                    ->label('Quyền lợi')
                                     ->required()
                                     ->columnSpanFull(),
                             ]),
@@ -81,23 +94,23 @@ class CareerResource extends Resource
 
                 Forms\Components\Group::make()
                     ->schema([
-                        Forms\Components\Section::make('Status')
+                        Forms\Components\Section::make('Trạng thái')
                             ->schema([
                                 Forms\Components\Toggle::make('is_active')
-                                    ->label('Active')
+                                    ->label('Kích hoạt')
                                     ->default(true),
                                 Forms\Components\DatePicker::make('deadline')
-                                    ->label('Application Deadline'),
+                                    ->label('Hạn nộp hồ sơ'),
                             ]),
 
-                        Forms\Components\Section::make('Salary Range')
+                        Forms\Components\Section::make('Mức lương')
                             ->schema([
                                 Forms\Components\TextInput::make('salary_min')
-                                    ->label('Minimum Salary')
+                                    ->label('Lương tối thiểu')
                                     ->numeric()
                                     ->prefix('$'),
                                 Forms\Components\TextInput::make('salary_max')
-                                    ->label('Maximum Salary')
+                                    ->label('Lương tối đa')
                                     ->numeric()
                                     ->prefix('$'),
                             ]),
@@ -112,51 +125,66 @@ class CareerResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->label('Tiêu đề')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('department')
+                    ->label('Phòng ban')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('location')
+                    ->label('Địa điểm')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('type')
+                    ->label('Loại hình')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('salary_range')
+                    ->label('Mức lương')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_active')
+                    ->label('Kích hoạt')
                     ->boolean()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('deadline')
+                    ->label('Hạn nộp')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Ngày tạo')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                Tables\Filters\TrashedFilter::make(),
+                Tables\Filters\TrashedFilter::make()
+                    ->label('Đã xoá'),
                 Tables\Filters\SelectFilter::make('department')
+                    ->label('Phòng ban')
                     ->options(fn () => Career::distinct()->pluck('department', 'department')->toArray())
                     ->searchable(),
                 Tables\Filters\SelectFilter::make('location')
+                    ->label('Địa điểm')
                     ->options(fn () => Career::distinct()->pluck('location', 'location')->toArray())
                     ->searchable(),
                 Tables\Filters\SelectFilter::make('type')
+                    ->label('Loại hình')
                     ->options([
-                        'full-time' => 'Full Time',
-                        'part-time' => 'Part Time',
-                        'contract' => 'Contract',
-                        'internship' => 'Internship',
-                        'remote' => 'Remote',
+                        'full-time' => 'Toàn thời gian',
+                        'part-time' => 'Bán thời gian',
+                        'contract' => 'Hợp đồng',
+                        'internship' => 'Thực tập',
+                        'remote' => 'Từ xa',
                     ]),
                 Tables\Filters\Filter::make('deadline')
+                    ->label('Hạn nộp')
                     ->form([
-                        Forms\Components\DatePicker::make('deadline_from'),
-                        Forms\Components\DatePicker::make('deadline_until'),
+                        Forms\Components\DatePicker::make('deadline_from')
+                            ->label('Từ ngày'),
+                        Forms\Components\DatePicker::make('deadline_until')
+                            ->label('Đến ngày'),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
@@ -170,19 +198,26 @@ class CareerResource extends Resource
                             );
                     }),
                 Tables\Filters\TernaryFilter::make('is_active')
-                    ->label('Active'),
+                    ->label('Kích hoạt'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\ForceDeleteAction::make(),
-                Tables\Actions\RestoreAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->label('Sửa'),
+                Tables\Actions\DeleteAction::make()
+                    ->label('Xoá'),
+                Tables\Actions\ForceDeleteAction::make()
+                    ->label('Xoá vĩnh viễn'),
+                Tables\Actions\RestoreAction::make()
+                    ->label('Khôi phục'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Xoá'),
+                    Tables\Actions\ForceDeleteBulkAction::make()
+                        ->label('Xoá vĩnh viễn'),
+                    Tables\Actions\RestoreBulkAction::make()
+                        ->label('Khôi phục'),
                 ]),
             ])
             ->defaultSort('created_at', 'desc');

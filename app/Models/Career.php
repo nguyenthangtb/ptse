@@ -59,14 +59,14 @@ class Career extends Model
     public function getSalaryRangeAttribute()
     {
         if (!$this->salary_min && !$this->salary_max) {
-            return 'Negotiable';
+            return 'Thương lượng';
         }
         if (!$this->salary_max) {
-            return 'From $' . number_format($this->salary_min);
+            return 'Từ ' . number_format($this->salary_min) . ' đ';
         }
         if (!$this->salary_min) {
-            return 'Up to $' . number_format($this->salary_max);
+            return 'Đến ' . number_format($this->salary_max) . ' đ';
         }
-        return '$' . number_format($this->salary_min) . ' - $' . number_format($this->salary_max);
+        return number_format($this->salary_min) . ' đ - ' . number_format($this->salary_max) . ' đ';
     }
 }

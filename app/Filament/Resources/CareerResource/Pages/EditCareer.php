@@ -13,7 +13,8 @@ class EditCareer extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+                ->label('Xoá'),
         ];
     }
 }

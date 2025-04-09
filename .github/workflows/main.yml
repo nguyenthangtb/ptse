@@ -1,0 +1,34 @@
+name: Remote Server Auto-Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    # Thêm cấu hình môi trường
+    env:
+      SERVER_HOST: 103.200.23.68
+      SERVER_USER: ptsevn
+      SERVER_PORT: 22
+      PROJECT_PATH: /home/ptsevn/public_html/ptse
+
+    steps:
+    - name: Execute remote SSH commands
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.SERVER_HOST }}
+        username: ${{ env.SERVER_USER }}
+        password: ${{ secrets.PASSWORD }}  # Vẫn giữ password trong secrets vì lý do bảo mật
+        port: ${{ env.SERVER_PORT }}
+        script: |
+          cd ${{ env.PROJECT_PATH }}
+          git pull origin main
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+          php artisan optimize:clear
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+          # Thêm các lệnh khác nếu cần thiết (npm, yarn, etc)

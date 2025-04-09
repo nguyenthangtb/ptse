@@ -3,45 +3,77 @@
 @section('title', 'Giải pháp bơm & van cho ngành nước')
 
 @section('content')
-    <!-- Hero Section -->
-    <section class="min-h-[70vh] bg-[#DBEAFE] flex items-center relative animate-fade-in">
-        <div class="container mx-auto px-4 py-32 md:py-40 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up relative">
-                <span class="block text-gray-900 mb-2 animate-text-shadow">Tôi giúp bạn xây dựng</span>
-                <span class="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-400 text-transparent bg-clip-text animate-text-shadow">Giải pháp bơm & van tối ưu cho ngành nước</span>
-            </h1>
-            <p class="text-gray-600 text-lg md:text-xl mb-12 max-w-3xl mx-auto animate-slide-up delay-200 animate-text-shadow">Nâng cao hiệu quả - Tiết kiệm năng lượng</p>
-            <div class="flex flex-wrap justify-center gap-4 animate-slide-up delay-300">
-                <a href="#contact-us"
-                   class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-4 rounded-lg inline-flex items-center transition-all duration-300 ease-in-out"
-                   onclick="event.preventDefault(); document.getElementById('contact-us').scrollIntoView({
-                       behavior: 'smooth',
-                       block: 'start',
-                       inline: 'nearest'
-                   })">
-                    Nhận tư vấn ngay
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                    </svg>
-                </a>
-
+    <!-- Hero Section with Slider -->
+    <section class="relative min-h-[80vh] animate-fade-in">
+        <!-- Slider content overlaid on top -->
+        <div class="absolute inset-0 z-10 flex items-center justify-center text-center">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up relative text-white drop-shadow-lg">
+                    <span class="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-400 text-transparent bg-clip-text animate-text-shadow">
+                        Giải pháp bơm & van<br>
+                        tối ưu cho ngành nước
+                    </span>
+                </h1>
+                <div class="flex flex-wrap justify-center gap-4 animate-slide-up delay-300">
+                    <a href="#contact-us"
+                       class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-4 rounded-lg inline-flex items-center transition-all duration-300 ease-in-out"
+                       onclick="event.preventDefault(); document.getElementById('contact-us').scrollIntoView({
+                           behavior: 'smooth',
+                           block: 'start',
+                           inline: 'nearest'
+                       })">
+                        Nhận tư vấn ngay
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
 
+        <!-- Image Slider -->
+        <div class="swiper hero-slider h-full">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="w-full h-[80vh] bg-cover bg-center" style="background-image: url('{{ asset('images/slider/1.png') }}')">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="w-full h-[80vh] bg-cover bg-center" style="background-image: url('{{ asset('images/slider/4.png') }}')">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="w-full h-[80vh] bg-cover bg-center" style="background-image: url('{{ asset('images/slider/5.png') }}')">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Navigation buttons -->
+            {{-- <div class="swiper-button-next text-white"></div> --}}
+            {{-- <div class="swiper-button-prev text-white"></div> --}}
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+
         <!-- Scroll Down Button -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center z-20">
             <a href="#categories"
-                   class="inline-flex flex-col items-center text-gray-600 hover:text-gray-900 transition-all duration-300 ease-in-out"
-                   onclick="event.preventDefault(); document.getElementById('categories').scrollIntoView({
-                       behavior: 'smooth',
-                       block: 'start',
-                       inline: 'nearest'
-                   })">
-                    <span class="text-sm font-medium mb-2 hover:transform hover:translate-y-1 transition-transform">Cuộn xuống</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 animate-bounce transition-transform">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </a>
+               class="inline-flex flex-col items-center text-white hover:text-gray-200 transition-all duration-300 ease-in-out"
+               onclick="event.preventDefault(); document.getElementById('categories').scrollIntoView({
+                   behavior: 'smooth',
+                   block: 'start',
+                   inline: 'nearest'
+               })">
+                <span class="text-sm font-medium mb-2 hover:transform hover:translate-y-1 transition-transform">Cuộn xuống</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 animate-bounce transition-transform">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
         </div>
     </section>
 
@@ -129,7 +161,7 @@
     <!-- News Section -->
     <section class="py-4">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-center mb-5 reveal uppercase">Tin tức</h2>
+            <h2 class="text-2xl font-bold text-center mb-5 reveal uppercase">Dịch vụ</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 @foreach($news ?? [] as $article)
                     <a href="{{ route('news.show', $article) }}" class="group relative bg-secondary rounded-lg shadow-md overflow-hidden reveal block">
@@ -212,7 +244,7 @@
                             <div class="ml-4">
                                 <h4 class="font-medium mb-1">Điện thoại</h4>
                                 <p class="text-gray-600">
-                                    <a href="tel:0968750388" class="hover:text-primary transition-colors">0968 750 388</a>
+                                    <a href="tel:0968750388" class="hover:text-primary transition-colors">+84 968 750 388</a>
                                 </p>
                             </div>
                         </div>
@@ -277,6 +309,33 @@
 @endsection
 @section('scripts')
 <script>
+// Initialize Swiper Slider
+const heroSlider = new Swiper('.hero-slider', {
+    // Optional parameters
+    loop: true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+    speed: 2000,
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    // Pagination
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+
 // Initialize Notyf
 const notyf = new Notyf({
     duration: 5000,

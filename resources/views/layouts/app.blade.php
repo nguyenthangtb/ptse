@@ -12,13 +12,13 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon/favicon.ico') }}">
     <meta name="msapplication-TileColor" content="#1976d2">
     <meta name="msapplication-config" content="{{ asset('images/favicon/browserconfig.xml') }}">
-    
+
     <meta name="theme-color" content="#1976d2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Chuyên cung cấp giải pháp bơm và vận tải cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
     <meta name="keywords" content="bơm công nghiệp, bơm nước, vận tải nước, giải pháp bơm, thiết bị bơm, Phú Thái">
     <meta name="author" content="Công ty Cổ phần Giải pháp Kỹ thuật Phú Thái">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
@@ -58,6 +58,9 @@
     <!-- <link rel="stylesheet" href="{{ asset('css/all.min.css') }}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href=" {{ asset('css/notyf.min.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    {{-- @vite('resources/css/app.css') --}}
     @yield('styles')
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-100">
@@ -123,7 +126,7 @@
             interval: 100
         });
 
-        
+
     </script>
 
     <script>
@@ -133,7 +136,7 @@
 
     // window.addEventListener('scroll', () => {
     //     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
     //     if (scrollTop > lastScrollTop && scrollTop > 100) {
     //         // Scrolling down
     //         contactInfo.style.transform = 'translateY(-100%)';
@@ -143,11 +146,16 @@
     //         contactInfo.style.transform = 'translateY(0)';
     //         contactInfo.style.opacity = '1';
     //     }
-        
+
     //     lastScrollTop = scrollTop;
     // });
     </script>
-    
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{-- @vite('resources/js/app.js') --}}
     @yield('scripts')
 </body>
 </html>

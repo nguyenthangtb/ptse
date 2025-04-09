@@ -19,7 +19,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                         </svg>
-                        <a href="tel:0968750388" class="hover:text-white transition-colors">0968 750 388</a>
+                        <a href="tel:0968750388" class="hover:text-white transition-colors">+84 968 750 388</a>
                     </p>
                     <p class="text-gray-400 text-sm flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -78,28 +78,28 @@
        class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-gray-700 transform hover:-translate-y-1 transition-all">
         <i class="fas fa-arrow-up"></i>
     </a>
-    
+
 
     <!-- Zalo -->
-    <a href="https://zalo.me/0968750388" 
+    <a href="https://zalo.me/0968750388"
        target="_blank"
        class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-600 transform hover:-translate-y-1 transition-all">
         <span class="text-xl font-bold">Zalo</span>
     </a>
 
     <!-- Facebook Messenger -->
-    <a href="https://m.me/YOUR_FB_PAGE_ID" 
+    <a href="https://m.me/YOUR_FB_PAGE_ID"
        target="_blank"
        class="w-12 h-12 bg-[#0099FF] rounded-full flex items-center justify-center text-white shadow-lg hover:bg-[#0088FF] transform hover:-translate-y-1 transition-all">
         <i class="fab fa-facebook-messenger text-2xl"></i>
     </a>
 
     <!-- Hotline -->
-    <a href="tel:0968750388" 
+    <a href="tel:0968750388"
        class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-red-600 transform hover:-translate-y-1 transition-all relative group">
         <i class="fas fa-phone-alt text-xl animate-bounce"></i>
         <span class="absolute right-full mr-3 bg-black text-white text-sm py-1 px-2 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-            0968 750 388
+            +84 968 750 388
         </span>
     </a>
 </div>

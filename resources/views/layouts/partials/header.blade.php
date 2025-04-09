@@ -11,7 +11,7 @@
                         Tax code: 0109966923
                     </a>
                     <a href="tel:0968750388" class="flex items-center hover:text-gray-200">
-                        <i class="fas fa-phone text-white mr-2"></i> SĐT: 0968 750 388
+                        <i class="fas fa-phone text-white mr-2"></i> SĐT: +84 968 750 388
                     </a>
                     <a href="mailto:info@ptse.vn" class="flex items-center hover:text-gray-200">
                         <i class="fas fa-envelope text-white mr-2"></i> Email liên hệ: info@ptse.vn
@@ -21,6 +21,19 @@
         </div>
     </div>
 
+    <!-- Logo Banner -->
+    {{-- <div class="bg-[#1E4ED8] py-2">
+        <div class="container mx-auto px-4">
+            <div class="w-16 h-16 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 mr-3">
+                <a href="{{ route('home') }}">
+                    <img src="{{ Storage::url('logo/logo.jpeg') }}"
+                         alt="PTSE Logo"
+                         class="w-full h-full object-contain p-2">
+                </a>
+            </div>
+        </div>
+    </div> --}}
+
     <!-- Navigation - Keep inside container -->
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center py-2">
@@ -28,14 +41,14 @@
             <div class="flex items-center">
                 <div class="w-16 h-16 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 mr-3">
                     <a href="{{ route('home') }}">
-                        <img src="{{ Storage::url('logo/logo.jpeg') }}" 
-                             alt="PTSE Logo" 
+                        <img src="{{ Storage::url('logo/logo.jpeg') }}"
+                             alt="PTSE Logo"
                              class="w-full h-full object-contain p-2">
                     </a>
                 </div>
                 <div class="block"> <!-- Changed from 'hidden md:block' to 'block' -->
                     <h1 class="text-white font-bold text-xl leading-tight">PTSE</h1>
-                    <p class="text-blue-100 text-sm">Giải pháp kỹ thuật nước</p>
+                    <p class="text-blue-100 text-sm">Công ty cổ phần giải pháp kỹ thuật Phú Thái</p>
                 </div>
             </div>
 

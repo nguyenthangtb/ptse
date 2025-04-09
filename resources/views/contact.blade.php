@@ -39,7 +39,7 @@
                 <!-- Map & Info -->
                 <div class="bg-white rounded-xl shadow-lg p-6 backdrop-blur-sm bg-white/90 hover:shadow-xl transition-shadow">
                     <div class="mb-6">
-                        <iframe 
+                        <iframe
                             src="https://www.google.com/maps/embed?pb=YOUR_EMBED_URL"
                             class="w-full h-[400px] rounded-lg shadow-sm"
                             style="border:0"
@@ -48,7 +48,7 @@
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
-                    
+
                     <div class="space-y-6">
                         <div class="flex items-start gap-4 p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-primary flex-shrink-0 mt-1">
@@ -67,7 +67,7 @@
                             </svg>
                             <div>
                                 <h3 class="font-semibold text-lg mb-2">Điện thoại</h3>
-                                <p class="text-gray-600">0968 750 388</p>
+                                <p class="text-gray-600">+84 968 750 388</p>
                             </div>
                         </div>
 
@@ -90,9 +90,9 @@
                         @csrf
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Họ và tên</label>
-                            <input type="text" 
-                                   name="name" 
-                                   id="name" 
+                            <input type="text"
+                                   name="name"
+                                   id="name"
                                    required
                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                                    placeholder="Nhập họ và tên">
@@ -100,9 +100,9 @@
 
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" 
-                                   name="email" 
-                                   id="email" 
+                            <input type="email"
+                                   name="email"
+                                   id="email"
                                    required
                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                                    placeholder="Nhập địa chỉ email">
@@ -110,9 +110,9 @@
 
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Số điện thoại</label>
-                            <input type="tel" 
-                                   name="phone" 
-                                   id="phone" 
+                            <input type="tel"
+                                   name="phone"
+                                   id="phone"
                                    required
                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                                    placeholder="Nhập số điện thoại">
@@ -120,15 +120,15 @@
 
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Nội dung</label>
-                            <textarea name="message" 
-                                      id="message" 
-                                      rows="5" 
+                            <textarea name="message"
+                                      id="message"
+                                      rows="5"
                                       required
                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                                       placeholder="Nhập nội dung liên hệ"></textarea>
                         </div>
 
-                        <button type="submit" 
+                        <button type="submit"
                                 class="w-full px-6 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all transform hover:-translate-y-0.5">
                             Gửi liên hệ
                         </button>

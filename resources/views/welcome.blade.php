@@ -4,29 +4,31 @@
 
 @section('content')
     <!-- Hero Section with Slider -->
-    <section class="relative min-h-[80vh] animate-fade-in">
+    <section class="relative min-h-[60vh] animate-fade-in">
         <!-- Slider content overlaid on top -->
         <div class="absolute inset-0 z-10 flex items-center justify-center text-center">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up relative text-white drop-shadow-lg">
-                    <span class="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-400 text-transparent bg-clip-text animate-text-shadow">
-                        Giải pháp bơm & van<br>
-                        tối ưu cho ngành nước
-                    </span>
-                </h1>
-                <div class="flex flex-wrap justify-center gap-4 animate-slide-up delay-300">
-                    <a href="#contact-us"
-                       class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-4 rounded-lg inline-flex items-center transition-all duration-300 ease-in-out"
-                       onclick="event.preventDefault(); document.getElementById('contact-us').scrollIntoView({
-                           behavior: 'smooth',
-                           block: 'start',
-                           inline: 'nearest'
-                       })">
-                        Nhận tư vấn ngay
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                        </svg>
-                    </a>
+                <div class="bg-black/30 backdrop-blur-sm py-8 px-4 rounded-lg max-w-3xl mx-auto">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-slide-up relative">
+                        <span class="text-white">
+                            Giải pháp bơm & van<br>
+                            tối ưu cho ngành nước
+                        </span>
+                    </h1>
+                    <div class="flex flex-wrap justify-center gap-4 animate-slide-up delay-300">
+                        <a href="#contact-us"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg inline-flex items-center transition-all duration-300 ease-in-out"
+                        onclick="event.preventDefault(); document.getElementById('contact-us').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start',
+                            inline: 'nearest'
+                        })">
+                            Nhận tư vấn ngay
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,26 +38,23 @@
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
-                    <div class="w-full h-[80vh] bg-cover bg-center" style="background-image: url('{{ asset('images/slider/1.png') }}')">
-                        <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="w-full h-[60vh] bg-cover bg-center" style="background-image: url('{{ asset('images/slider/1.png') }}')">
+                        <div class="absolute inset-0 bg-black/30"></div>
                     </div>
                 </div>
                 <!-- Slide 2 -->
                 <div class="swiper-slide">
-                    <div class="w-full h-[80vh] bg-cover bg-center" style="background-image: url('{{ asset('images/slider/4.png') }}')">
-                        <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="w-full h-[60vh] bg-cover bg-center" style="background-image: url('{{ asset('images/slider/4.png') }}')">
+                        <div class="absolute inset-0 bg-black/30"></div>
                     </div>
                 </div>
                 <!-- Slide 3 -->
                 <div class="swiper-slide">
-                    <div class="w-full h-[80vh] bg-cover bg-center" style="background-image: url('{{ asset('images/slider/5.png') }}')">
-                        <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="w-full h-[60vh] bg-cover bg-center" style="background-image: url('{{ asset('images/slider/5.png') }}')">
+                        <div class="absolute inset-0 bg-black/30"></div>
                     </div>
                 </div>
             </div>
-            <!-- Navigation buttons -->
-            {{-- <div class="swiper-button-next text-white"></div> --}}
-            {{-- <div class="swiper-button-prev text-white"></div> --}}
             <!-- Pagination -->
             <div class="swiper-pagination"></div>
         </div>

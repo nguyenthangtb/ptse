@@ -1,70 +1,88 @@
-<footer class="bg-dark text-white pt-12 pb-6">
+<footer class="bg-[#164094] text-white py-6">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <!-- Company Info -->
             <div class="md:max-w-sm">
-                <h3 class="font-bold text-lg mb-4 leading-tight">
-                    CÔNG TY CỔ PHẦN GIẢI PHÁP KỸ THUẬT PHÚ THÁI
-                    <span class="block text-sm mt-1 font-normal text-gray-400">PHU THAI SOLUTIONS ENGINEERING JOINT STOCK COMPANY</span>
+                <h3 class="font-bold text-lg mb-3 leading-tight uppercase">
+                    THÔNG TIN CÔNG TY
                 </h3>
-                <div class="space-y-2">
-                    <p class="text-gray-400 text-sm flex gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 flex-shrink-0 mt-1">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                        </svg>
-                        <span>Tầng 10, tòa nhà CEO Tower, Lô HH2-1 Khu đô thị Mễ Trì Hạ, đường Phạm Hùng, Phường Mễ Trì, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam</span>
+                <div class="space-y-1 text-sm">
+                    <p class="text-white">CÔNG TY CỔ PHẦN GIẢI PHÁP KỸ THUẬT PHÚ THÁI</p>
+                    <p class="text-white">PHU THAI  SOLUTIONS ENGINEERING  JOINT STOCK  COMPANY</p>
+                    <p class="text-white flex items-center gap-2">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:0968750388" class="hover:text-gray-200 transition-colors">+84 968 750 388</a>
                     </p>
-                    <p class="text-gray-400 text-sm flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                        </svg>
-                        <a href="tel:0968750388" class="hover:text-white transition-colors">+84 968 750 388</a>
-                    </p>
-                    <p class="text-gray-400 text-sm flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                        </svg>
-                        <a href="mailto:info@ptse.vn" class="hover:text-white transition-colors">info@ptse.vn</a>
+                    <p class="text-white flex items-center gap-2">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@ptse.vn" class="hover:text-gray-200 transition-colors">info@ptse.vn</a>
                     </p>
                 </div>
-                <div class="flex space-x-4 mt-4">
-                    <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700">
-                        <i class="fab fa-youtube"></i>
+                <div class="mt-3">
+                    <p class="text-white text-sm">Là thành viên của:</p>
+                    <p class="text-white text-sm">Hiệp Hội Cấp Nước Sạch Hàng Yên</p>
+                </div>
+                <div class="mt-3">
+                    <a href="#" class="block">
+                        <img src="{{ asset('images/logo-da-thong-bao-bo-cong-thuong.webp') }}" alt="Đã thông báo Bộ Công Thương" style="width: 280px; height: auto;">
                     </a>
                 </div>
             </div>
 
             <!-- Information -->
-            <div class="md:mx-auto md:w-48">
-                <h3 class="font-bold text-lg mb-4">THÔNG TIN</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Về chúng tôi</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Sản phẩm</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Dịch vụ</a></li>
+            <div class="md:mx-auto">
+                <h3 class="font-bold text-lg mb-3 leading-tight uppercase">
+                    THÔNG TIN BỔ SUNG
+                </h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="text-white hover:text-gray-200 block">Tư vấn dịch vụ</a></li>
+                    {{-- <li><a href="#" class="text-white hover:text-gray-200 block">Tìm cửa hàng gần nhất</a></li> --}}
+                    <li><a href="#" class="text-white hover:text-gray-200 block">Chăm sóc khách hàng</a></li>
+                    <li><a href="#" class="text-white hover:text-gray-200 block">Câu hỏi thường gặp</a></li>
+                    <li><a href="#" class="text-white hover:text-gray-200 block">Chính sách - Điều khoản</a></li>
                 </ul>
             </div>
 
+            <!-- Liên hệ (Cột mới) -->
+            <div class="md:mx-auto">
+                <h3 class="font-bold text-lg mb-3 leading-tight uppercase">
+                    LIÊN HỆ
+                </h3>
+                <div class="space-y-2 text-sm">
+                    <p class="text-white">Kỹ thuật - Vận hành:</p>
+                    <p class="text-white"><a href="tel:+84968750388" class="hover:text-gray-200 transition-colors">+84 968 750 388</a></p>
+                    <p class="text-white">Kinh doanh - CSKH:</p>
+                    <p class="text-white"><a href="tel:+84968750388" class="hover:text-gray-200 transition-colors">+84 968 750 388</a></p>
+                </div>
+            </div>
+
             <!-- Support -->
-            <div class="md:mx-auto md:w-48">
-                <h3 class="font-bold text-lg mb-4">HỖ TRỢ</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Liên hệ</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Hỗ trợ kỹ thuật</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Chính sách bảo hành</a></li>
-                </ul>
+            <div class="md:mx-auto">
+                <h3 class="font-bold text-lg mb-3 leading-tight uppercase">
+                    ĐĂNG KÝ NHẬN TIN
+                </h3>
+                <form class="flex flex-wrap gap-2 mt-2">
+                    <input type="email" placeholder="Nhập email" class="px-3 py-2 text-gray-800 rounded w-full md:w-auto" required>
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Đăng ký</button>
+                </form>
+
+                <h3 class="font-bold text-lg mt-6 mb-2 leading-tight uppercase">
+                    KẾT NỐI VỚI CHÚNG TÔI
+                </h3>
+                <div class="flex space-x-3 mt-2">
+                    <a href="#" class="text-white">
+                        <i class="fab fa-facebook-f fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white">
+                        <i class="fab fa-youtube fa-lg"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Copyright -->
-        <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
-            <p>© {{ date('Y') }} CÔNG TY CỔ PHẦN GIẢI PHÁP KỸ THUẬT PHÚ THÁI.</p>
+        <div class="border-t border-blue-800 mt-6 pt-4 text-center text-white text-xs">
+            <p>© {{ date('Y') }} Công ty Cổ phần Giải pháp kỹ thuật Phú Thái</p>
         </div>
     </div>
 </footer>

@@ -1,6 +1,6 @@
 <header class="bg-[#1E4ED8] shadow-sm fixed top-0 left-0 right-0 z-50">
     <!-- Contact Info -->
-    <div id="contact-info" class="hidden md:block transition-all duration-300">
+    {{-- <div id="contact-info" class="hidden md:block transition-all duration-300">
         <div class="container mx-auto px-4">
             <div class="flex justify-between py-2 border-b border-blue-500">
                 <div class="text-sm font-semibold text-white">
@@ -19,46 +19,43 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Logo Banner -->
-    {{-- <div class="bg-[#1E4ED8] py-2">
-        <div class="container mx-auto px-4">
-            <div class="w-16 h-16 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 mr-3">
-                <a href="{{ route('home') }}">
-                    <img src="{{ Storage::url('logo/logo.jpeg') }}"
-                         alt="PTSE Logo"
-                         class="w-full h-full object-contain p-2">
-                </a>
-            </div>
-        </div>
     </div> --}}
+
+    <!-- Banner Image -->
+    <div class="relative w-full bg-white py-2 md:py-4 flex justify-center items-center">
+        <div class="w-full max-w-[800px] h-auto overflow-hidden px-4 md:px-0 group">
+            <img src="{{ asset('images/banner_header.jpg') }}"
+                 alt="PTSE Banner"
+                 class="w-full h-auto object-contain max-h-[100px] md:max-h-[150px] transition-all duration-500 ease-in-out
+                 group-hover:scale-105 group-hover:brightness-110 rounded-lg">
+        </div>
+    </div>
 
     <!-- Navigation - Keep inside container -->
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center py-2">
             <!-- Enhanced Logo Container -->
             <div class="flex items-center">
-                <div class="w-16 h-16 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 mr-3">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 mr-2 md:mr-3">
                     <a href="{{ route('home') }}">
                         <img src="{{ Storage::url('logo/logo.jpeg') }}"
                              alt="PTSE Logo"
-                             class="w-full h-full object-contain p-2">
+                             class="w-full h-full object-contain p-1 md:p-2">
                     </a>
                 </div>
-                <div class="block"> <!-- Changed from 'hidden md:block' to 'block' -->
-                    <h1 class="text-white font-bold text-xl leading-tight">PTSE</h1>
-                    <p class="text-blue-100 text-sm">Công ty cổ phần giải pháp kỹ thuật Phú Thái</p>
+                <div class="block">
+                    <h1 class="text-white font-bold text-lg md:text-xl leading-tight">PTSE</h1>
+                    <p class="text-blue-100 text-xs md:text-sm">Công ty cổ phần giải pháp kỹ thuật Phú Thái</p>
                 </div>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="menuToggle" class="md:hidden text-white focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+            <button id="menuToggle" class="md:hidden text-white focus:outline-none p-2">
+                <i class="fas fa-bars text-xl"></i>
             </button>
 
             <!-- Desktop Menu -->
-            <nav id="navMenu" class="hidden md:flex absolute md:static left-0 right-0 top-full md:top-auto bg-[#1E4ED8] md:bg-transparent shadow-md md:shadow-none z-50 md:z-auto p-4 md:p-0 border-t md:border-t-0 border-blue-500">
+            <nav id="navMenu" class="hidden md:flex absolute md:static left-0 right-0 top-full md:top-auto bg-[#1E4ED8] md:bg-transparent shadow-md md:shadow-none z-50 md:z-auto p-4 md:p-0 border-t md:border-t-0 border-blue-500 w-full md:w-auto">
                 <x-main-menu />
             </nav>
         </div>

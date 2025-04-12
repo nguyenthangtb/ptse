@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\News;
 use App\Models\Product;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Contact;
@@ -40,7 +41,15 @@ class HomeController extends Controller
                 ->get();
         });
 
-        return view('welcome', compact('categories', 'featuredProducts', 'news'));
+        // Cache services (videos) for 24 hours
+        $services = Cache::remember('home_services', 60*24, function () {
+            return Service::active()
+                ->ordered()
+                ->take(4)
+                ->get();
+        });
+
+        return view('welcome', compact('categories', 'featuredProducts', 'news', 'services'));
     }
 
 

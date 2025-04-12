@@ -79,13 +79,15 @@
     <script>
         $(document).ready(function() {
             // Mobile menu toggle
-            $('#menuToggle').click(function() {
+            $('#menuToggle').click(function(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 $('#navMenu').toggleClass('hidden');
             });
 
             // Mobile dropdown toggle
             $('.dropdown-toggle').click(function(e) {
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth < 768) {
                     e.preventDefault();
                     $(this).siblings('.dropdown-menu').toggleClass('hidden');
                 }
@@ -94,7 +96,7 @@
             // Close menu when clicking outside
             $(document).click(function(e) {
                 if (!$(e.target).closest('#navMenu, #menuToggle').length) {
-                    if (window.innerWidth <= 768) {
+                    if (window.innerWidth < 768 && !$('#navMenu').hasClass('hidden')) {
                         $('#navMenu').addClass('hidden');
                     }
                 }

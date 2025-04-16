@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="pt-[72px] md:pt-[116px]">
+    <!-- Mobile Title -->
+    <div class="block lg:hidden mt-[100px] mb-8">
+        <h1 class="text-3xl font-bold text-center">{{ $category->name }}</h1>
+    </div>
+
     <!-- Breadcrumb -->
-    <nav class="hidden lg:block bg-white py-3 mt-[116px] border-b">
+    <nav class="hidden lg:block bg-white py-3 !mt-[140px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-4">
@@ -36,13 +42,11 @@
         </div>
     </nav>
 
-    @include('products.partials.list-category')
-
     <!-- Products Section -->
-    <section class="py-12 md:py-2">
+    <section class="py-0">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <!-- Product Category Title -->
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">{{ $category->name }}</h1>
+            <!-- Desktop Title -->
+            <h1 class="hidden lg:block text-3xl font-bold text-center mb-4 mt-8">{{ $category->name }}</h1>
 
             <!-- Product Description -->
             <div class="mb-8">
@@ -69,9 +73,11 @@
                 @foreach($products as $product)
                     <div class="group relative reveal">
                         @if($product->image)
-                            <img src="{{$product->image}}" alt="{{ $product->name }}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+                            <img src="{{$product->image}}" alt="{{ $product->name }}"
+                                class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75">
                         @else
-                            <img src="https://placehold.co/800x400" alt="{{ $product->name }}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+                            <img src="https://placehold.co/800x400" alt="{{ $product->name }}"
+                                class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75">
                         @endif
                         <div class="mt-4">
                             <h3 class="text-[14px] font-bold text-center text-gray-700">
@@ -94,12 +100,14 @@
                     <span class="text-gray-600">Đang tải...</span>
                 </div>
             </div>
+
             <!-- Additional Product Information -->
             <div class="mt-12 prose prose-lg max-w-none">
                 <div class="bg-white rounded-lg p-6">
                     {!! str($category->description)->sanitizeHtml() !!}
                 </div>
             </div>
+
             <div class="flex justify-center mt-8">
                 <a href="{{ route('lien-he') }}" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 inline-flex items-center gap-2">
                     Liên hệ tư vấn
@@ -110,12 +118,14 @@
             </div>
         </div>
     </section>
+</div>
 @endsection
+
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
             const categorySlug = '{{ $category->slug }}';
-            
+
             $('.load-more-btn').on('click', {page: 1}, function(e) {
                 e.preventDefault();
                 loadMore();
@@ -139,7 +149,7 @@
                             $('#products-container').append(response.html);
                             page++;
                         }
-                        
+
                         if (!response.hasMore) {
                             $('.load-more-btn').parent().remove();
                         }

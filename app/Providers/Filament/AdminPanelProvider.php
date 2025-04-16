@@ -34,6 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->resources([
                 \App\Filament\Resources\ServiceResource::class,
                 \App\Filament\Resources\PartnerResource::class,
+                \App\Filament\Resources\WebsiteConfigResource::class,
             ])
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([

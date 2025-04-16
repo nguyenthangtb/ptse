@@ -46,7 +46,7 @@
                         <div class="ml-4">
                             <h4 class="font-medium mb-1">Email</h4>
                             <p class="text-gray-600">
-                                <a href="mailto:info@ptse.vn" class="hover:text-primary transition-colors">info@ptse.vn</a>
+                                <a href="mailto:{{ $config['email'] }}" class="hover:text-primary transition-colors">{{ $config['email'] }}</a>
                             </p>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         <div class="ml-4">
                             <h4 class="font-medium mb-1">Điện thoại</h4>
                             <p class="text-gray-600">
-                                <a href="tel:0968750388" class="hover:text-primary transition-colors">+84 968 750 388</a>
+                                <a href="tel:{{ $config['phone'] }}" class="hover:text-primary transition-colors">{{ $config['phone'] }}</a>
                             </p>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="ml-4">
                             <h4 class="font-medium mb-1">Địa chỉ</h4>
-                            <p class="text-gray-600">Tầng 10, tòa nhà CEO Tower, Lô HH2-1 Khu đô thị Mễ Trì Hạ, đường Phạm Hùng, Phường Mễ Trì, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam</p>
+                            <p class="text-gray-600">{{ $config['address_1'] }}</p>
                         </div>
                     </div>
                 </div>

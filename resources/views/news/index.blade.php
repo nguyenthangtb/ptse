@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="pt-[72px] md:pt-[116px]">
+    <!-- Mobile Title -->
+    <div class="block lg:hidden mt-[100px] mb-8">
+        <h1 class="text-3xl font-bold text-center">Tin tức & Sự kiện</h1>
+    </div>
+
     <!-- Breadcrumb -->
-    <nav class="hidden lg:block bg-white py-3 mt-[116px] border-b">
+    <nav class="hidden lg:block bg-white py-3 !mt-[130px] border-b">
         <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-1.5 md:space-x-4">
@@ -29,8 +35,9 @@
     </nav>
 
     <!-- News Section -->
-    <section class="py-12 md:py-8 mt-[70px]">
-        <h1 class="text-3xl font-bold text-center mb-12">Tin tức</h1>
+    <section class="py-0">
+        <!-- Desktop Title -->
+        <h1 class="hidden lg:block text-3xl font-bold text-center mb-12">Tin tức & Sự kiện</h1>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <!-- News Grid -->
@@ -38,10 +45,8 @@
                 @foreach($news as $item)
                     <article class="bg-white/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group h-[500px]">
                         <a href="{{ route('news.show', $item) }}" class="block h-full overflow-hidden bg-gray-100 relative">
-                            <!-- @if($item->image && !empty(trim($item->image))) -->
-                                <img src="{{ $item->image }}" alt="{{ $item->title }}"
-                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                            <!-- @endif -->
+                            <img src="{{ $item->image }}" alt="{{ $item->title }}"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                             <!-- Gradient Overlay -->
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-transparent opacity-60 transition-all duration-500 group-hover:opacity-75"></div>
                             <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent opacity-30 mix-blend-overlay"></div>
@@ -75,6 +80,7 @@
             </div>
         </div>
     </section>
+</div>
 @endsection
 @section('scripts')
     <script type="text/javascript">
@@ -102,7 +108,7 @@
                             $('#newsExten').append(response.html);
                             page++;
                         }
-                        
+
                         if (!response.hasMore) {
                             $('.load-more-btn').parent().remove();
                         }

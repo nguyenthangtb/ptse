@@ -1,4 +1,4 @@
-<footer class="bg-[#164094] text-white py-6">
+<footer class="bg-[#164094] text-white py-6 mt-[15px]">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <!-- Company Info -->
@@ -8,7 +8,7 @@
                 </h3>
                 <div class="space-y-1 text-sm">
                     <p class="text-white">CÔNG TY CỔ PHẦN GIẢI PHÁP KỸ THUẬT PHÚ THÁI</p>
-                    <p class="text-white">PHU THAI  SOLUTIONS ENGINEERING  JOINT STOCK  COMPANY</p>
+                    <p class="text-white">{{ $config['address_1'] }}</p>
                     <p class="text-white flex items-center gap-2">
                         <i class="fas fa-phone-alt"></i>
                         <a href="tel:0968750388" class="hover:text-gray-200 transition-colors">+84 968 750 388</a>
@@ -18,10 +18,7 @@
                         <a href="mailto:info@ptse.vn" class="hover:text-gray-200 transition-colors">info@ptse.vn</a>
                     </p>
                 </div>
-                <div class="mt-3">
-                    <p class="text-white text-sm">Là thành viên của:</p>
-                    <p class="text-white text-sm">Hiệp Hội Cấp Nước Sạch Hàng Yên</p>
-                </div>
+
                 <div class="mt-3">
                     <a href="#" class="block">
                         <img src="{{ asset('images/logo-da-thong-bao-bo-cong-thuong.webp') }}" alt="Đã thông báo Bộ Công Thương" style="width: 280px; height: auto;">
@@ -50,9 +47,9 @@
                 </h3>
                 <div class="space-y-2 text-sm">
                     <p class="text-white">Kỹ thuật - Vận hành:</p>
-                    <p class="text-white"><a href="tel:+84968750388" class="hover:text-gray-200 transition-colors">+84 968 750 388</a></p>
+                    <p class="text-white"><a href="tel:+84968750388" class="hover:text-gray-200 transition-colors">{{ $config['phone'] }}</a></p>
                     <p class="text-white">Kinh doanh - CSKH:</p>
-                    <p class="text-white"><a href="tel:+84968750388" class="hover:text-gray-200 transition-colors">+84 968 750 388</a></p>
+                    <p class="text-white"><a href="tel:+84968750388" class="hover:text-gray-200 transition-colors">{{ $config['phone'] }}</a></p>
                 </div>
             </div>
 

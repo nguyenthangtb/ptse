@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="pt-[72px] md:pt-[116px]">
+    <!-- Mobile Title -->
+    <div class="block lg:hidden mt-[100px] mb-8">
+        <h1 class="text-3xl font-bold text-center">Sản phẩm</h1>
+    </div>
+
     <!-- Breadcrumb -->
-    <nav class="hidden lg:block bg-white py-3 mt-[116px] border-b">
+    <nav class="hidden lg:block bg-white py-3 !mt-[72px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-4">
@@ -27,12 +33,16 @@
             </nav>
         </div>
     </nav>
-    @include('products.partials.list-category')
+
+
     <!-- Products Section -->
-    <section class="py-6 md:py-2">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
+    <section class="py-0">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <!-- Desktop Title -->
+            <h1 class="hidden lg:block text-3xl font-bold text-center mb-4 mt-8">Sản phẩm</h1>
+
             <!-- Product Category Title -->
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">Bơm chống nghẹt</h1>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Bơm chống nghẹt</h2>
 
             <!-- Product Description -->
             <div class="mb-8">
@@ -67,10 +77,10 @@
                 @foreach($products as $product)
                     <div class="group relative reveal">
                         @if($product->image)
-                            <img src="{{$product->image}}" alt="{{ $product->name }}" 
+                            <img src="{{$product->image}}" alt="{{ $product->name }}"
                                 class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75">
                         @else
-                            <img src="https://placehold.co/800x400" alt="{{ $product->name }}" 
+                            <img src="https://placehold.co/800x400" alt="{{ $product->name }}"
                                 class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75">
                         @endif
                         <div class="mt-4">
@@ -83,8 +93,6 @@
                     </div>
                 @endforeach
             </div>
-
-            <!-- Pagination -->
 
             <!-- Additional Product Information -->
             <div class="mt-12">
@@ -138,6 +146,7 @@
             </div>
         </div>
     </section>
+</div>
 @endsection
 
 @push('scripts')

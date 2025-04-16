@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="pt-[72px] md:pt-[116px]">
+    <!-- Mobile Title -->
+    <div class="block lg:hidden mt-[100px] mb-8">
+        <h1 class="text-3xl font-bold text-center">Dự án tiêu biểu</h1>
+    </div>
+
     <!-- Breadcrumb -->
-    <nav class="hidden lg:block bg-white py-3 mt-[72px] md:mt-[116px] md:mt-[116px] border-b">
+    <nav class="hidden lg:block bg-white py-3 !mt-[130px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-2 md:space-x-4">
@@ -29,21 +35,22 @@
     </nav>
 
     <!-- Projects Section -->
-    <section class="py-12 md:py-2 mt-[70px] lg:mt-0">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-2">
-            <h1 class="text-3xl font-bold text-center mb-12">Dự án tiêu biểu</h1>
+    <section class="py-0">
+        <!-- Desktop Title -->
+        <h1 class="hidden lg:block text-3xl font-bold text-center mb-12">Dự án tiêu biểu</h1>
 
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <!-- Projects Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectExten">
                 @foreach($projects as $project)
                     <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all group">
                         <div class="h-64 overflow-hidden rounded-t-lg">
                             <a href="{{ route('projects.show', $project->slug) }}" class="block h-full">
-                                <!-- @if($project->image)
+                                @if($project->image)
                                     <img src="{{ $project->image }}"
                                          alt="{{ $project->title }}"
                                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                @endif -->
+                                @endif
                             </a>
                         </div>
                         <div class="p-6">
@@ -96,6 +103,7 @@
             </div>
         </div>
     </section>
+</div>
 @endsection
 @section('scripts')
     <script type="text/javascript">
@@ -123,7 +131,7 @@
                             $('#projectExten').append(response.html);
                             page++;
                         }
-                        
+
                         if (!response.hasMore) {
                             $('.load-more-btn').parent().remove();
                         }

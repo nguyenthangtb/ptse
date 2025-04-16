@@ -24,7 +24,7 @@ class MenuService
                 'children' => [
                     [
                         'title' => 'Bơm Grundfos',
-                        'url' => '/san-pham/bom-grundfos',
+                        'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => [
@@ -32,7 +32,7 @@ class MenuService
                     ],
                     [
                         'title' => 'Van AVK',
-                        'url' => '/san-pham/van-avk',
+                        'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => [
@@ -40,42 +40,42 @@ class MenuService
                     ],
                     [
                         'title' => 'Van Ebro',
-                        'url' => '/san-pham/van-ebro',
+                        'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
                         'title' => 'Van và đường ống +GF+',
-                        'url' => '/san-pham/van-va-duong-ong-gf',
+                        'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
                         'title' => 'Bơm định lượng kỹ thuật số',
-                        'url' => '/san-pham/bom-dinh-luong-ky-thuat-so',
+                        'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
                         'title' => 'Hệ thống Clo khử trùng',
-                        'url' => '/san-pham/he-thong-clo-khutrung',
+                        'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
                         'title' => 'Bơm tăng áp inline',
-                        'url' => '/san-pham/bom-tang-ap-inline',
+                        'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
                         'title' => 'Phụ kiện',
-                        'url' => '/san-pham/phu-kien',
+                        'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []

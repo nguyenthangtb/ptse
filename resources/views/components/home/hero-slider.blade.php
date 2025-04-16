@@ -4,23 +4,13 @@
     <div class="swiper hero-slider h-full">
         <div class="swiper-wrapper">
             <!-- Slide 1 -->
-            <div class="swiper-slide overflow-hidden group">
-                <div class="w-full h-[60vh] bg-cover bg-center transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-1" style="background-image: url('{{ asset('images/slider/1.png') }}')">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-700"></div>
+            @foreach ($sliders as $slider)
+                <div class="swiper-slide overflow-hidden group">
+                    <div class="w-full h-[60vh] bg-cover bg-center transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-1" style="background-image: url('{{ asset('storage/' . $slider->image) }}')">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-700"></div>
+                    </div>
                 </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="swiper-slide overflow-hidden group">
-                <div class="w-full h-[60vh] bg-cover bg-center transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-1" style="background-image: url('{{ asset('images/slider/4.png') }}')">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-700"></div>
-                </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="swiper-slide overflow-hidden group">
-                <div class="w-full h-[60vh] bg-cover bg-center transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-1" style="background-image: url('{{ asset('images/slider/5.png') }}')">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-700"></div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <!-- Pagination -->
         <div class="swiper-pagination"></div>

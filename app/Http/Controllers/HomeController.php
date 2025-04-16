@@ -9,6 +9,7 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Contact;
+use App\Models\HomeSlider;
 
 class HomeController extends Controller
 {
@@ -44,12 +45,19 @@ class HomeController extends Controller
         // Cache services (videos) for 24 hours
         $services = Cache::remember('home_services', 60*24, function () {
             return Service::active()
-                ->ordered()
+                ->orderBy('order')
                 ->take(4)
                 ->get();
         });
 
-        return view('welcome', compact('categories', 'featuredProducts', 'news', 'services'));
+        $sliders = Cache::remember('home_sliders', 60*24, function () {
+            return HomeSlider::active()
+                ->orderBy('order')
+                ->take(4)
+                ->get();
+        });
+
+        return view('welcome', compact('categories', 'featuredProducts', 'news', 'services', 'sliders'));
     }
 
 

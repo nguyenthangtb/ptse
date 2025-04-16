@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section with Slider -->
-    <x-home.hero-slider />
+    <x-home.hero-slider :sliders="$sliders" />
 
     <!-- Categories Section -->
     <x-home.categories :categories="$categories" />

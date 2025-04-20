@@ -73,8 +73,10 @@
     <!-- Footer -->
     @include('layouts.partials.footer')
 
-    <!-- jQuery (if needed) -->
+    <!-- jQuery and jQuery UI -->
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="{{ asset('js/notyf.min.js') }}"></script>
     <script>
         $(document).ready(function() {

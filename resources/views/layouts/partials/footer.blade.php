@@ -19,11 +19,11 @@
                     </p>
                 </div>
 
-                <div class="mt-3">
-                    <a href="#" class="block">
-                        <img src="{{ asset('images/logo-da-thong-bao-bo-cong-thuong.webp') }}" alt="Đã thông báo Bộ Công Thương" style="width: 280px; height: auto;">
-                    </a>
-                </div>
+{{--                <div class="mt-3">--}}
+{{--                    <a href="#" class="block">--}}
+{{--                        <img src="{{ asset('images/logo-da-thong-bao-bo-cong-thuong.webp') }}" alt="Đã thông báo Bộ Công Thương" style="width: 280px; height: auto;">--}}
+{{--                    </a>--}}
+{{--                </div>--}}
             </div>
 
             <!-- Information -->
@@ -60,7 +60,7 @@
                 </h3>
                 <form class="flex flex-wrap gap-2 mt-2">
                     <input type="email" placeholder="Nhập email" class="px-3 py-2 text-gray-800 rounded w-full md:w-auto" required>
-                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Đăng ký</button>
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded w-full md:w-auto">Đăng ký</button>
                 </form>
 
                 <h3 class="font-bold text-lg mt-6 mb-2 leading-tight uppercase">

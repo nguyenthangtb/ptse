@@ -1,5 +1,5 @@
 <!-- Video Services Section -->
-<section class="py-16 bg-gradient-to-b from-gray-100 to-white">
+<section class="py-8bg-gradient-to-b from-gray-100 to-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-8 reveal uppercase">Dịch vụ</h2>
 

@@ -10,8 +10,8 @@ class MenuService
     {
         return collect([
             [
-                'title' => 'Giới thiệu',
-                'url' => '/gioi-thieu',
+                'title' => 'Trang chủ',
+                'url' => '/',
                 'icon' => '',
                 'target' => '_self',
                 'children' => []

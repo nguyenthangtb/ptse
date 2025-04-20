@@ -23,3 +23,5 @@ Route::get('/du-an/{slug}', [ProjectController::class, 'show'])->name('projects.
 Route::get('/projects/load-more', [ProjectController::class, 'loadMore'])->name('projects.load-more');
 Route::get('/lien-he', [HomeController::class, 'about'])->name('lien-he');
 Route::post('/lien-he', [HomeController::class, 'contact'])->name('lien-he.store');
+Route::get('/tim-kiem', [HomeController::class, 'search'])->name('search');
+Route::get('/tim-kiem/autocomplete', [HomeController::class, 'autocomplete'])->name('search.autocomplete');

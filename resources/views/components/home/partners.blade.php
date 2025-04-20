@@ -3,7 +3,7 @@
 </div>
 
 <!-- Partners Slider Section -->
-<section class="py-16 bg-gradient-to-b from-blue-900 to-blue-800">
+<section class="py-8 bg-gradient-to-b from-blue-900 to-blue-800">
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-8 text-white reveal uppercase">Đối tác của chúng tôi</h2>
 

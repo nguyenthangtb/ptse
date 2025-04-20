@@ -87,4 +87,23 @@ class HomeController extends Controller
             return response()->json(['status' => 500,'message' => 'Đã xảy ra lỗi khi gửi thông tin. Vui lòng thử lại sau.']);
         }
     }
+
+    public function search(Request $request)
+    {   
+        $search = $request->input('q');
+        $products = Product::where('name', 'like', "%{$search}%")->get();
+        return view('search', compact('products', 'search'));
+    }
+    
+    public function autocomplete(Request $request)
+    {
+        $term = $request->input('term');
+        $results = Product::where('name', 'like', "%{$term}%")
+            ->orWhere('description', 'like', "%{$term}%")
+            ->select('id', 'name as label', 'name as value')
+            ->limit(10)
+            ->get();
+            
+        return response()->json($results);
+    }
 }

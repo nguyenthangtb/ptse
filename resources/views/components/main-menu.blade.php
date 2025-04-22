@@ -1,13 +1,13 @@
-<ul class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6 w-full">
+<ul class="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0 w-full">
     @foreach($menuItems as $item)
         <li @class([
             'relative group menu-item' => true,
             'w-full md:w-auto' => true
         ])>
-            <a href="{{ $item->children->isEmpty() ? $item->url : '#' }}"
+            <a href="{{ $item->children->isEmpty() ? $item->url : ($item->url != '#' ? $item->url : '#') }}"
                @if($item->children->isEmpty()) target="{{ $item->target }}" @endif
                @class([
-                   'block text-white font-medium relative py-1.5 px-3 rounded-lg transition-all duration-300
+                   'block text-white font-medium relative py-2.5 px-4 rounded-lg transition-all duration-300
                     before:absolute before:inset-0 before:border-2 before:border-transparent before:rounded-lg
                     before:transition-all before:duration-300 hover:before:border-white
                     after:absolute after:inset-0 after:scale-x-0 after:opacity-0 after:bg-white/20

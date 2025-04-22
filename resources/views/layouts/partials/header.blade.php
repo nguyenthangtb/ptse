@@ -14,7 +14,7 @@
             <!-- Desktop Header Layout -->
             <div class="hidden md:flex justify-between items-center py-1.5">
                 <!-- Logo Container (Desktop only) -->
-                <div class="flex items-center">
+                {{-- <div class="flex items-center">
                     <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 mr-2">
                         <a href="{{ route('home') }}">
                             <img src="{{ Storage::url('logo/logo.jpeg') }}"
@@ -28,11 +28,12 @@
                             {{ $config['company_name'] }}
                         </p>
                     </div>
-                </div>
+                </div> --}}
+                <x-main-menu />
 
                 <!-- Desktop Menu -->
                 <div>
-                    <x-main-menu />
+                   
                 </div>
             </div>
 

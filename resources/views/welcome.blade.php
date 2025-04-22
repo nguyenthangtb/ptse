@@ -22,7 +22,7 @@
     <x-home.partners/>
 
     <!-- Contact Form -->
-    <x-home.contact />
+    {{-- <x-home.contact /> --}}
 @endsection
 
 @section('scripts')

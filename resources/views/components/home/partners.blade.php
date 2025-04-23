@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initSwiper() {
         var partnersSwiper = new Swiper('.partnersSwiper', {
-            slidesPerView: 6,
+            slidesPerView: 3,
             spaceBetween: 10,
             loop: true,
             autoplay: {

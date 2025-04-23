@@ -1,21 +1,36 @@
-<footer class="bg-[#164094] text-white py-6">
-    <div class="container mx-auto px-4">
+<footer class="bg-[#164094] text-white py-8 relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0ibm9uZSIvPgo8cGF0aCBkPSJNMzAgMEMxMyAwIDAgMTMgMCAzMHMxMyAzMCAzMCAzMCAzMC0xMyAzMC0zMFM0NyAwIDMwIDB6bTAgNTJjLTEyLjEgMC0yMi05LjktMjItMjJzOS45LTIyIDIyLTIyIDIyIDkuOSAyMiAyMi05LjkgMjItMjIgMjJ6Ii8+Cjwvc3ZnPg=='); background-size: 60px;"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <!-- Company Info -->
-            <div class="md:max-w-sm">
-                <h3 class="font-bold text-lg mb-3 leading-tight uppercase">
-                    THÔNG TIN CÔNG TY
+            <div class="md:max-w-sm relative z-10">
+                <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
+                    <span class="relative z-10">THÔNG TIN CÔNG TY</span>
+                    <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
-                <div class="space-y-1 text-sm">
-                    <p class="text-white">{{$config['company_name']}}</p>
-                    <p class="text-white">{{ $config['address_1'] }}</p>
-                    <p class="text-white flex items-center gap-2">
-                        <i class="fas fa-phone-alt"></i>
-                        <a href="tel:0968750388" class="hover:text-gray-200 transition-colors">+84 968 750 388</a>
+                <div class="space-y-2 text-base">
+                    <p class="text-white font-semibold text-lg mb-1">{{$config['company_name']}}</p>
+                    <div class="bg-white/10 p-4 rounded-lg my-3 shadow-inner backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors duration-300">
+                        <p class="text-white flex items-start gap-2 mb-2">
+                            <i class="fas fa-map-marker-alt mt-1 text-orange-400"></i>
+                            <span class="font-medium">{{ $config['address_1'] }}</span>
+                        </p>
+                        <p class="text-white flex items-start gap-2">
+                            <i class="fas fa-building mt-1 text-orange-400"></i>
+                            <span class="font-medium">{{ $config['address_2'] }}</span>
+                        </p>
+                    </div>
+                    <p class="text-white flex items-center gap-2 group">
+                        <i class="fas fa-phone-alt text-blue-300 group-hover:text-orange-400 transition-colors"></i>
+                        <a href="tel:0968750388" class="hover:text-orange-300 transition-colors">+84 968 750 388</a>
                     </p>
-                    <p class="text-white flex items-center gap-2">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:info@ptse.vn" class="hover:text-gray-200 transition-colors">info@ptse.vn</a>
+                    <p class="text-white flex items-center gap-2 group">
+                        <i class="fas fa-envelope text-blue-300 group-hover:text-orange-400 transition-colors"></i>
+                        <a href="mailto:info@ptse.vn" class="hover:text-orange-300 transition-colors">info@ptse.vn</a>
                     </p>
                 </div>
 
@@ -27,59 +42,77 @@
             </div>
 
             <!-- Information -->
-            <div class="md:mx-auto">
-                <h3 class="font-bold text-lg mb-3 leading-tight uppercase">
-                    THÔNG TIN BỔ SUNG
+            <div class="md:mx-auto relative z-10">
+                <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
+                    <span class="relative z-10">THÔNG TIN BỔ SUNG</span>
+                    <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="text-white hover:text-gray-200 block">Tư vấn dịch vụ</a></li>
+                <ul class="space-y-3 text-base">
+                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> Tư vấn dịch vụ</a></li>
                     {{-- <li><a href="#" class="text-white hover:text-gray-200 block">Tìm cửa hàng gần nhất</a></li> --}}
-                    <li><a href="#" class="text-white hover:text-gray-200 block">Chăm sóc khách hàng</a></li>
-                    <li><a href="#" class="text-white hover:text-gray-200 block">Câu hỏi thường gặp</a></li>
-                    <li><a href="#" class="text-white hover:text-gray-200 block">Chính sách - Điều khoản</a></li>
+                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> Chăm sóc khách hàng</a></li>
+                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> Câu hỏi thường gặp</a></li>
+                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> Chính sách - Điều khoản</a></li>
                 </ul>
             </div>
 
             <!-- Liên hệ (Cột mới) -->
-            <div class="md:mx-auto">
-                <h3 class="font-bold text-lg mb-3 leading-tight uppercase">
-                    LIÊN HỆ
+            <div class="md:mx-auto relative z-10">
+                <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
+                    <span class="relative z-10">LIÊN HỆ</span>
+                    <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
-                <div class="space-y-2 text-sm">
-                    <p class="text-white">Kỹ thuật - Vận hành:</p>
-                    <p class="text-white"><a href="tel:+84968750388" class="hover:text-gray-200 transition-colors">{{ $config['phone'] }}</a></p>
-                    <p class="text-white">Kinh doanh - CSKH:</p>
-                    <p class="text-white"><a href="tel:+84968750388" class="hover:text-gray-200 transition-colors">{{ $config['phone'] }}</a></p>
+                <div class="space-y-4 text-base">
+                    <div class="bg-white/5 p-3 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                        <p class="text-blue-300 font-medium mb-1">Kinh doanh - CSKH:</p>
+                        <p class="text-white flex items-start gap-2 group">
+                            <i class="fas fa-user-tie text-orange-400 mt-1"></i>
+                            <span class="contact-info">
+                                {!! nl2br(e($config['customer_phone'])) !!}
+                            </span>
+                        </p>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                        <p class="text-blue-300 font-medium mb-1">Kỹ thuật - Vận hành:</p>
+                        <p class="text-white flex items-start gap-2 group">
+                            <i class="fas fa-headset text-orange-400 mt-1"></i>
+                            <span class="contact-info">
+                                {!! nl2br(e($config['support_phone'])) !!}
+                            </span>
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <!-- Support -->
-            <div class="md:mx-auto">
-                <h3 class="font-bold text-lg mb-3 leading-tight uppercase">
-                    ĐĂNG KÝ NHẬN TIN
+            <div class="md:mx-auto relative z-10">
+                <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
+                    <span class="relative z-10">ĐĂNG KÝ NHẬN TIN</span>
+                    <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
-                <form class="flex flex-wrap gap-2 mt-2">
-                    <input type="email" placeholder="Nhập email" class="px-3 py-2 text-gray-800 rounded w-full md:w-auto" required>
-                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded w-full md:w-auto">Đăng ký</button>
+                <form class="flex flex-wrap gap-2 mt-4">
+                    <input type="email" placeholder="Nhập email" class="px-3 py-2 text-gray-800 rounded-lg w-full md:w-auto text-base focus:ring-2 focus:ring-orange-400 focus:outline-none" required>
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg w-full md:w-auto text-base font-medium transition-colors shadow-lg hover:shadow-orange-500/50">Đăng ký</button>
                 </form>
 
-                <h3 class="font-bold text-lg mt-6 mb-2 leading-tight uppercase">
-                    KẾT NỐI VỚI CHÚNG TÔI
+                {{-- <h3 class="font-bold text-xl mt-8 mb-4 leading-tight uppercase relative inline-block">
+                    <span class="relative z-10">KẾT NỐI VỚI CHÚNG TÔI</span>
+                    <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
-                <div class="flex space-x-3 mt-2">
-                    <a href="#" class="text-white">
-                        <i class="fab fa-facebook-f fa-lg"></i>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-full transition-transform hover:-translate-y-1 hover:shadow-lg">
+                        <i class="fab fa-facebook-f text-xl"></i>
                     </a>
-                    <a href="#" class="text-white">
-                        <i class="fab fa-youtube fa-lg"></i>
+                    <a href="#" class="text-white bg-red-600 hover:bg-red-700 p-3 rounded-full transition-transform hover:-translate-y-1 hover:shadow-lg">
+                        <i class="fab fa-youtube text-xl"></i>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
 
         <!-- Copyright -->
-        <div class="border-t border-blue-800 mt-6 pt-4 text-center text-white text-xs">
-            <p>© {{ date('Y') }} Công ty Cổ phần Giải pháp kỹ thuật Phú Thái</p>
+        <div class="border-t border-blue-800 mt-10 pt-6 text-center text-white/80 text-sm relative z-10">
+            <p>© {{ date('Y') }} <span class="text-white font-medium">{{$config['company_name']}}</span> | Thiết kế bởi <a href="#" class="text-orange-300 hover:underline">PTSE</a></p>
         </div>
     </div>
 </footer>
@@ -114,7 +147,7 @@
        class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-red-600 transform hover:-translate-y-1 transition-all relative group">
         <i class="fas fa-phone-alt text-xl animate-bounce"></i>
         <span class="absolute right-full mr-3 bg-black text-white text-sm py-1 px-2 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-            +84 968 750 388
+            {{ $config['phone'] }}
         </span>
     </a>
 </div>

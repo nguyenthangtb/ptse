@@ -135,7 +135,7 @@ class ProductResource extends Resource
                                     ->label('Tài liệu')
                                     ->multiple()
                                     ->directory('products/documents')
-                                    ->acceptedFileTypes(['application/pdf'])
+                                    ->acceptedFileTypes(['application/pdf', 'application/msword'])
                                     ->reorderable(),
                             ]),
 

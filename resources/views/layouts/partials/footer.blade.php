@@ -7,7 +7,7 @@
                     THÔNG TIN CÔNG TY
                 </h3>
                 <div class="space-y-1 text-sm">
-                    <p class="text-white">CÔNG TY CỔ PHẦN GIẢI PHÁP KỸ THUẬT PHÚ THÁI</p>
+                    <p class="text-white">{{$config['company_name']}}</p>
                     <p class="text-white">{{ $config['address_1'] }}</p>
                     <p class="text-white flex items-center gap-2">
                         <i class="fas fa-phone-alt"></i>

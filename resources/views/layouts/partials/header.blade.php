@@ -1,39 +1,47 @@
 <header class="bg-[#1E4ED8] shadow-sm fixed top-0 left-0 right-0 z-50">
     <!-- Banner Image -->
-    <div class="relative w-full bg-white pt-0 pb-0 md:pt-1.5 md:pb-1.5 flex justify-center items-center">
-        <div class="w-full max-w-[800px] h-auto overflow-hidden px-0 group">
-            <img src="{{ asset('images/banner_header.jpg') }}" alt="PTSE Banner"
-                 class="w-full h-auto object-contain max-h-[80px] md:max-h-[120px] transition-all duration-500 ease-in-out
-                 group-hover:scale-105 group-hover:brightness-110">
+    <div class="relative w-full pt-0 pb-0 md:pt-1.5 md:pb-1.5 bg-gradient-to-b from-[#a2e1ff] to-[#e6f7ff]">
+        <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGZpbGw9IiNmZmYiIGQ9Ik0yOCAwQzE2IDAgMSA0IDAgMTYgMCAyOCA0IDQxIDE2IDQxdDE2LTE2QzMyIDEgMjggMCAyOCAwWk0xODAgMzBjMCAwLTMxLTEyLTQ2LTEyLTIwIDAtMzYgMTQtMzYgMzNzMTMgMzMgMzIgMzNjMTItMyAxMy05IDE1LTE4IDQgMTQgMTAgMjkgMzMgMjktMTUtMi0yMi0xNi0yMi0zMWEzNCAzNCAwIDAgMSAxNy0yOWMwIDAgNi04IDctMTQgMC00LTMtOC0xMC04LTYgMC0xNyA0LTI1IDEwLTcgNS0zMCA0MC0zMCA0MC01LTgtOS0zOS01Mi0zOS01IDAtNCA2LTQgMTNzNSAyMSAxMyAzMGM0IDQgMTcgMjAgMzUgMjAgMTIgMCAxOC0xMCAxOC0xMHMyIDQgMiAxMGMyIDEwIDggMjQgMTggMjcgMCAwIDEzIDYgMjUtNnM3LTIzIDctMjMgOC0xOCA2LTMyLTktMTAtOS0xMFoiLz4KPC9zdmc+')"></div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 items-center py-2 relative z-10">
+            <!-- Logo -->
+            <div class="flex justify-center md:justify-end">
+                <a href="{{ route('home') }}" class="block">
+                    <img src="{{ asset('images/logo_chuan.png') }}" alt="{{$config['company_name']}}"
+                         class="w-[200px] h-[80px] object-contain">
+                </a>
+            </div>
+
+            <!-- Centered Title -->
+            <div class="mt-2 md:mt-10 text-center md:text-start">
+                <p class="text-base md:text-xl uppercase tracking-wide font-extrabold text-[#1E4ED8] md:whitespace-nowrap
+                   [text-shadow:1px_1px_0px_#fffa90,-1px_-1px_0px_#00255e,0px_2px_5px_rgba(0,0,0,0.3)]">
+                    GIẢI PHÁP THIẾT BỊ CHO XỬ LÝ NƯỚC
+                </p>
+            </div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <div class="w-full">
+    <div class="w-full bg-[#003087]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <!-- Desktop Header Layout -->
-            <div class="hidden md:flex justify-between items-center py-1.5">
-                <!-- Logo Container (Desktop only) -->
-                {{-- <div class="flex items-center">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 mr-2">
-                        <a href="{{ route('home') }}">
-                            <img src="{{ Storage::url('logo/logo.jpeg') }}"
-                                 alt="PTSE Logo"
-                                 class="w-full h-full object-contain p-1">
-                        </a>
-                    </div>
-                    <div class="block">
-                        <h1 class="text-white font-bold text-base md:text-lg leading-tight">PTSE</h1>
-                        <p class="text-blue-100 text-xs">
-                            {{ $config['company_name'] }}
-                        </p>
-                    </div>
-                </div> --}}
-                <x-main-menu />
+            <div class="hidden md:flex justify-between items-center">
+                <!-- Main Menu -->
+                <div class="flex-1 flex justify-center">
+                    <x-main-menu />
+                </div>
 
-                <!-- Desktop Menu -->
-                <div>
-                   
+                <!-- Search Box -->
+                <div class="ml-4">
+                    <form action="{{ route('search') }}" method="GET" class="flex items-center">
+                        <div class="relative">
+                            <input type="text" id="desktop-search" name="q" placeholder="Search..."
+                                class="w-56 py-1.5 px-4 pr-10 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white/10 text-white placeholder-white/70">
+                            <button type="submit" class="absolute inset-y-0 right-0 flex items-center px-2">
+                                <i class="fas fa-search text-white/80"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -48,15 +56,15 @@
                 <div class="flex-grow px-2">
                     <form action="{{ route('search') }}" method="GET" class="flex items-center">
                         <div class="relative w-full">
-                            <input type="text" id="search-autocomplete" name="q" placeholder="Tìm kiếm..." 
-                                class="w-full py-1.5 px-3 pr-10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input type="text" id="search-autocomplete" name="q" placeholder="Tìm kiếm..."
+                                class="w-full py-2 px-4 pr-10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <button type="submit" class="absolute inset-y-0 right-0 flex items-center px-3">
                                 <i class="fas fa-search text-gray-500"></i>
                             </button>
                         </div>
                     </form>
                 </div>
-                
+
                 @push('scripts')
                 <script>
                 $(document).ready(function() {

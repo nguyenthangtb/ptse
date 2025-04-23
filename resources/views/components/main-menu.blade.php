@@ -1,20 +1,16 @@
-<ul class="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0 w-full">
+<ul class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6 w-full">
     @foreach($menuItems as $item)
         <li @class([
             'relative group menu-item' => true,
             'w-full md:w-auto' => true
         ])>
-            <a href="{{ $item->children->isEmpty() ? $item->url : ($item->url != '#' ? $item->url : '#') }}"
+            <a href="{{ $item->children->isEmpty() ? $item->url : '#' }}"
                @if($item->children->isEmpty()) target="{{ $item->target }}" @endif
                @class([
-                   'block text-white font-medium relative py-2.5 px-4 rounded-lg transition-all duration-300
-                    before:absolute before:inset-0 before:border-2 before:border-transparent before:rounded-lg
-                    before:transition-all before:duration-300 hover:before:border-white
-                    after:absolute after:inset-0 after:scale-x-0 after:opacity-0 after:bg-white/20
-                    after:rounded-lg after:transition-all after:duration-300
-                    hover:after:scale-x-100 hover:after:opacity-100',
+                   'block text-[#FFCA35] font-medium relative py-3 px-4 transition-all duration-300
+                    hover:text-blue-200',
                    'flex items-center justify-between' => true,
-                   'before:border-white after:scale-x-100 after:opacity-100' => request()->url() === $item->url
+                   'text-blue-200 font-semibold' => request()->url() === $item->url
                ])>
                 <div class="flex items-center">
                     @if($item->icon)
@@ -23,7 +19,7 @@
                     <span class="relative z-10">{{ $item->title }}</span>
                 </div>
                 @if($item->children->isNotEmpty())
-                    <i class="fas fa-chevron-down text-white text-xs relative z-10 transition-transform duration-300 menu-arrow md:group-hover:rotate-180"></i>
+                    <i class="fas fa-chevron-down text-white text-xs ml-1 relative z-10 transition-transform duration-300 menu-arrow md:group-hover:rotate-180"></i>
                 @endif
             </a>
             @if($item->children->isNotEmpty())
@@ -35,7 +31,7 @@
                                 <a href="{{ $child->children && $child->children->isNotEmpty() ? '#' : $child->url }}"
                                    @if(!$child->children || $child->children->isEmpty()) target="{{ $child->target }}" @endif
                                    @class([
-                                       'flex items-center py-2 px-4 text-white hover:bg-white/20 transition-all duration-300 relative justify-between',
+                                       'flex items-center py-2 px-4 text-[#FFCA35] hover:bg-white/20 transition-all duration-300 relative justify-between',
                                        'bg-white/20' => request()->url() === $child->url
                                    ])>
                                     <div class="flex items-center">

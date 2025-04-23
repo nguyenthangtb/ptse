@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 // when window width is >= 1024px
                 1024: {
-                    slidesPerView: 6,
+                    slidesPerView: 3,
                     spaceBetween: 10
                 }
             }

@@ -24,10 +24,10 @@
                 </a>
             @endforeach
         </div>
-        <div class="text-center mt-16 reveal">
+        {{-- <div class="text-center mt-16 reveal">
             <a href="/san-pham/danh-muc/bom-cong-nghiep" class="text-primary hover:underline inline-flex items-center">
                 Xem tất cả sản phẩm <span class="ml-1">→</span>
             </a>
-        </div>
+        </div> --}}
     </div>
 </section>

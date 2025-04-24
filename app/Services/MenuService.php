@@ -32,7 +32,7 @@ class MenuService
                     ],
                     [
                         'title' => 'Van AVK',
-                        'url' => '#',
+                        'url' => '/san-pham/danh-muc/van-va-moi-noi',
                         'icon' => '',
                         'target' => '_self',
                         'children' => [
@@ -40,7 +40,7 @@ class MenuService
                     ],
                     [
                         'title' => 'Van Ebro',
-                        'url' => '#',
+                        'url' => '/san-pham/danh-muc/van-ebro',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []

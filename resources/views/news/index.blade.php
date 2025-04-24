@@ -7,11 +7,11 @@
         <h1 class="text-3xl font-bold text-center">Tin tức & Sự kiện</h1>
     </div>
     <!-- News Section -->
-    <section class="py-0">
+    <section class="py-4 mt-8">
         <!-- Desktop Title -->
         <h1 class="hidden lg:block text-3xl font-bold text-center mb-12">Tin tức & Sự kiện</h1>
 
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-8">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
             <!-- News Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="newsExten">
                 @foreach($news as $item)

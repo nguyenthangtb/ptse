@@ -3,7 +3,7 @@
 @section('content')
 <div class="pt-[72px] md:pt-[116px]">
     <!-- Mobile Title -->
-    <div class="block lg:hidden mt-[100px] mb-8">
+    <div class="block lg:hidden mt-[120px] mb-8">
         <h1 class="text-3xl font-bold text-center">Giải pháp</h1>
     </div>
 
@@ -35,7 +35,7 @@
     </nav> --}}
 
     <!-- Solutions Section -->
-    <section class="py-0">
+    <section class="py-6">
         <!-- Desktop Title -->
         <h1 class="hidden lg:block text-3xl font-bold text-center mb-12 mt-8">Giải pháp</h1>
 

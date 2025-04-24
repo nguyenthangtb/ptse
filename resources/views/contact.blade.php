@@ -3,39 +3,12 @@
 @section('content')
     <div class="pt-[72px] md:pt-[116px]">
         <!-- Mobile Title -->
-        <div class="block lg:hidden mt-[100px] mb-8 px-4">
+        <div class="block lg:hidden mt-[120px] mb-8 px-4">
             <h1 class="text-2xl md:text-3xl font-bold text-center">Liên hệ với chúng tôi</h1>
             <p class="text-gray-600 text-center mt-2">Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn sớm nhất có thể</p>
         </div>
-
-        <!-- Breadcrumb (Desktop only) -->
-        <nav class="hidden lg:block bg-white py-3 border-b !mt-[130px]">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <ol class="flex items-center space-x-2 text-sm">
-                    <li>
-                        <a href="{{ route('home') }}" class="text-gray-600 hover:text-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home') }}" class="text-gray-600 hover:text-primary">Trang chủ</a>
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-600 hover:text-primary">Liên hệ</a>
-                    </li>
-                </ol>
-            </div>
-        </nav>
-
         <!-- Contact Section -->
-        <section class="py-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        <section class="py-8 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
             <div class="container mx-auto px-4">
                 <!-- Desktop Title -->
                 <div class="hidden lg:block max-w-xl mx-auto text-center mb-12">

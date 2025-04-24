@@ -24,7 +24,7 @@ class MenuService
                 'children' => [
                     [
                         'title' => 'Bơm Grundfos',
-                        'url' => '/san-pham/danh-muc/bom-dinh-luong',
+                        'url' => '/bom-dinh-luong',
                         'icon' => '',
                         'target' => '_self',
                         'children' => [
@@ -32,7 +32,7 @@ class MenuService
                     ],
                     [
                         'title' => 'Van AVK',
-                        'url' => '/san-pham/danh-muc/van-va-moi-noi',
+                        'url' => '/van-va-moi-noi',
                         'icon' => '',
                         'target' => '_self',
                         'children' => [
@@ -40,7 +40,7 @@ class MenuService
                     ],
                     [
                         'title' => 'Van Ebro',
-                        'url' => '/san-pham/danh-muc/van-ebro',
+                        'url' => '/van-ebro',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
@@ -61,7 +61,7 @@ class MenuService
                     ],
                     [
                         'title' => 'Hệ thống Clo khử trùng',
-                        'url' => 'san-pham/danh-muc/he-thong-khu-trung-clo',
+                        'url' => '/he-thong-khu-trung-clo',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []

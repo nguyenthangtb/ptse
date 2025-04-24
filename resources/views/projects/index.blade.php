@@ -35,7 +35,7 @@
     </nav> --}}
 
     <!-- Projects Section -->
-    <section class="py-6">
+    <section class="py-6 mt-8">
         <!-- Desktop Title -->
         <h1 class="hidden lg:block text-3xl font-bold text-center mb-12">Dự án tiêu biểu</h1>
 

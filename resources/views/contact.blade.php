@@ -8,7 +8,7 @@
             <p class="text-gray-600 text-center mt-2">Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn sớm nhất có thể</p>
         </div>
         <!-- Contact Section -->
-        <section class="py-8 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        <section class="py-8 mt-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
             <div class="container mx-auto px-4">
                 <!-- Desktop Title -->
                 <div class="hidden lg:block max-w-xl mx-auto text-center mb-12">

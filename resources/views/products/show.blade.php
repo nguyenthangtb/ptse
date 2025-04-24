@@ -2,47 +2,11 @@
 
 @section('content')
     <!-- Mobile Title (visible only on mobile) -->
-    <div class="block lg:hidden pt-[100px] px-4">
+    <div class="block lg:hidden pt-[120px] px-4">
         <h1 class="text-2xl font-bold text-center mt-8 mb-4">{{ $product->name }}</h1>
     </div>
-
-    <!-- Breadcrumb -->
-    {{-- <nav class="hidden lg:block bg-white py-3 mt-[116px] border-b">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
-                <ol role="list" class="flex items-center space-x-2 md:space-x-4">
-                    <li>
-                        <div>
-                            <a href="{{ route('home') }}" class="text-gray-400 hover:text-gray-500">
-                                <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center">
-                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            <a href="{{ route('products.index') }}" class="ml-2 md:ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Sản phẩm</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center">
-                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            <span class="ml-2 md:ml-4 text-sm font-medium text-gray-500 truncate max-w-[150px] md:max-w-none" aria-current="page">{{ $product->name }}</span>
-                        </div>
-                    </li>
-                </ol>
-            </nav>
-        </div>
-    </nav> --}}
-
     <!-- Product Detail Section -->
-    <section class="mt-4 lg:mt-0 py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+    <section class="mt-[170px] lg:mt-0 py-6 md:py-8 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-7xl bg-white rounded-xl shadow-lg backdrop-blur-sm bg-white/90 hover:shadow-xl transition-shadow p-4 md:p-8">
             <!-- Two Column Product Layout -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">

@@ -8,7 +8,7 @@
     </div>
 
     <!-- Breadcrumb -->
-    <nav class="hidden lg:block bg-white py-3 !mt-[140px] border-b">
+    {{-- <nav class="hidden lg:block bg-white py-3 !mt-[140px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-4">
@@ -40,7 +40,7 @@
                 </ol>
             </nav>
         </div>
-    </nav>
+    </nav> --}}
 
     <!-- Products Section -->
     <section class="py-0">
@@ -108,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-center mt-8">
+            <div class="flex justify-center mt-4 mb-4">
                 <a href="{{ route('lien-he') }}" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 inline-flex items-center gap-2">
                     Liên hệ tư vấn
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">

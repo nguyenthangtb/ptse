@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <nav class="hidden lg:block bg-white py-3 mt-[72px] md:mt-[116px] border-b">
+    {{-- <nav class="hidden lg:block bg-white py-3 mt-[72px] md:mt-[116px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-2 md:space-x-4">
@@ -33,7 +33,7 @@
                 </ol>
             </nav>
         </div>
-    </nav>
+    </nav> --}}
 
     <section class="py-12 md:py-8 mt-[70px] lg:mt-0">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -43,7 +43,7 @@
                     <article class="bg-white rounded-lg shadow-sm overflow-hidden">
                         @if($solution->image)
                             <div class="aspect-video w-full">
-                                <img src="{{ $solution->image }}" alt="{{ $solution->title }}" 
+                                <img src="{{ $solution->image }}" alt="{{ $solution->title }}"
                                     class="w-full h-full object-cover">
                             </div>
                         @endif
@@ -66,14 +66,14 @@
                             <div class="mt-8 pt-6 border-t border-gray-100">
                                 <h3 class="text-lg font-semibold mb-4">Chia sẻ giải pháp</h3>
                                 <div class="flex gap-2">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}" 
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}"
                                     target="_blank"
                                     class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/>
                                         </svg>
                                     </a>
-                                    <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($solution->title) }}" 
+                                    <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($solution->title) }}"
                                     target="_blank"
                                     class="bg-sky-500 text-white p-2 rounded-full hover:bg-sky-600">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@
                                 <div class="group">
                                     <a href="{{ route('solutions.show', $related->slug) }}" class="flex gap-4">
                                         @if($related->image)
-                                            <img src="{{ $related->image }}" alt="{{ $related->title }}" 
+                                            <img src="{{ $related->image }}" alt="{{ $related->title }}"
                                                 class="w-24 h-24 rounded-lg object-cover flex-shrink-0 group-hover:opacity-90 transition-opacity">
                                         @else
                                             <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">

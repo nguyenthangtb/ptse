@@ -8,7 +8,7 @@
     </div>
 
     <!-- Breadcrumb -->
-    <nav class="hidden lg:block bg-white py-3 !mt-[130px] border-b">
+    {{-- <nav class="hidden lg:block bg-white py-3 !mt-[130px] border-b">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-2 md:space-x-4">
@@ -32,7 +32,7 @@
                 </ol>
             </nav>
         </div>
-    </nav>
+    </nav> --}}
 
     <!-- Projects Section -->
     <section class="py-0">

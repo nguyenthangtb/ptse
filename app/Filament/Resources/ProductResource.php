@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Filament\Notifications\Notification;
 
 class ProductResource extends Resource
 {
@@ -131,7 +132,7 @@ class ProductResource extends Resource
                                 Forms\Components\FileUpload::make('gallery')
                                     ->label('Ảnh')
                                     ->multiple()
-                                    ->image()
+                                    ->panelLayout('grid')
                                     ->directory('products/gallery')
                                     ->reorderable(),
                             ]),
@@ -141,6 +142,7 @@ class ProductResource extends Resource
                                 Forms\Components\FileUpload::make('documents')
                                     ->label('Tài liệu')
                                     ->multiple()
+                                    ->panelLayout('grid')
                                     ->directory('products/documents')
                                     ->acceptedFileTypes(['application/pdf', 'application/msword'])
                                     ->reorderable(),
@@ -212,6 +214,18 @@ class ProductResource extends Resource
                     ->label('Kích hoạt'),
             ])
             ->actions([
+                Tables\Actions\ReplicateAction::make()
+                    ->beforeReplicaSaved(function (Product $record, Product $replica) {
+                        $replica->name = $record->name . ' (Sao chép)';
+                        $replica->slug = $record->slug . '-copy';
+                        $replica->save();
+                    })
+                    ->successNotification(
+                        Notification::make()
+                             ->success()
+                             ->title('Sản phẩm đã được sao chép')
+                             ->body('Sản phẩm đã được sao chép thành công.'),
+                    ),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

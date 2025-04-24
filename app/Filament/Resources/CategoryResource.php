@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Filament\Notifications\Notification;
 
 class CategoryResource extends Resource
 {
@@ -133,6 +134,18 @@ class CategoryResource extends Resource
                     ->searchable(),
             ])
             ->actions([
+                Tables\Actions\ReplicateAction::make()
+                    ->beforeReplicaSaved(function (Category $record, Category $replica) {
+                        $replica->name = $record->name . ' (Sao chép)';
+                        $replica->slug = $record->slug . '-copy';
+                        $replica->save();
+                    })
+                    ->successNotification(
+                        Notification::make()
+                             ->success()
+                             ->title('Danh mục đã được sao chép')
+                             ->body('Danh mục đã được sao chép thành công.'),
+                    ),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

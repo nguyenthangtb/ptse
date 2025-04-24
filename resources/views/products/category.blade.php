@@ -73,7 +73,7 @@
                 @foreach($products as $product)
                     <div class="group relative reveal">
                         @if($product->image)
-                            <img src="{{$product->image}}" alt="{{ $product->name }}"
+                            <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"
                                 class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75">
                         @else
                             <img src="https://placehold.co/800x400" alt="{{ $product->name }}"

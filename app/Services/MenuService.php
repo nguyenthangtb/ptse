@@ -24,7 +24,7 @@ class MenuService
                 'children' => [
                     [
                         'title' => 'Bơm Grundfos',
-                        'url' => '#',
+                        'url' => '/san-pham/danh-muc/bom-dinh-luong',
                         'icon' => '',
                         'target' => '_self',
                         'children' => [
@@ -61,7 +61,7 @@ class MenuService
                     ],
                     [
                         'title' => 'Hệ thống Clo khử trùng',
-                        'url' => '#',
+                        'url' => 'san-pham/danh-muc/he-thong-khu-trung-clo',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []

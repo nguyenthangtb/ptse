@@ -50,24 +50,17 @@
                 <div class="space-y-4">
                     <!-- Main Product Image -->
                     <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
-                        <img id="mainImage" src="{{ $product->image }}" alt="{{ $product->name }}"
+                        <img id="mainImage" src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"
                             class="w-full h-full object-cover">
                     </div>
 
                     <!-- Thumbnail Gallery -->
                     <div class="grid grid-cols-4 gap-2">
-                        <button onclick="updateMainImage(this.children[0].src)" class="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:ring-2 hover:ring-[#1E4ED8] focus:ring-2 focus:ring-[#1E4ED8]">
-                            <img src="{{$product->image}}" alt="Product thumbnail" class="w-full h-full object-cover">
-                        </button>
-                        <button onclick="updateMainImage(this.children[0].src)" class="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:ring-2 hover:ring-[#1E4ED8] focus:ring-2 focus:ring-[#1E4ED8]">
-                            <img src="{{$product->image}}" alt="Product thumbnail" class="w-full h-full object-cover">
-                        </button>
-                        <button onclick="updateMainImage(this.children[0].src)" class="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:ring-2 hover:ring-[#1E4ED8] focus:ring-2 focus:ring-[#1E4ED8]">
-                            <img src="{{$product->image}}" alt="Product thumbnail" class="w-full h-full object-cover">
-                        </button>
-                        <button onclick="updateMainImage(this.children[0].src)" class="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:ring-2 hover:ring-[#1E4ED8] focus:ring-2 focus:ring-[#1E4ED8]">
-                            <img src="{{$product->image}}" alt="Product thumbnail" class="w-full h-full object-cover">
-                        </button>
+                        @foreach($product->gallery as $image)
+                            <button onclick="updateMainImage(this.children[0].src)" class="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:ring-2 hover:ring-[#1E4ED8] focus:ring-2 focus:ring-[#1E4ED8]">
+                                <img src="{{ Storage::url($image) }}" alt="Product thumbnail" class="w-full h-full object-cover">
+                            </button>
+                        @endforeach
                     </div>
                 </div>
 

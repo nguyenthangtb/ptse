@@ -359,7 +359,7 @@
                     @for ($i = 0; $i < 4; $i++)
                         <div class="group relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                             @if($product->image)
-                                <img src="{{$product->image}}" alt="{{ $product->name }}" class="aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75">
+                                <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75">
                             @else
                                 <img src="https://placehold.co/800x400" alt="{{ $product->name }}" class="aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75">
                             @endif

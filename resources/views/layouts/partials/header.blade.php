@@ -1,10 +1,10 @@
 <header class="bg-[#1E4ED8] shadow-sm fixed top-0 left-0 right-0 z-50">
     <!-- Banner Image -->
-    <div class="relative w-full pt-0 pb-0 md:pt-1.5 md:pb-1.5 bg-gradient-to-b from-[#a2e1ff] to-[#e6f7ff]">
+    <div class="relative w-full pt-0 pb-0 md:pt-1.5 md:pb-1.5 bg-gradient-to-b from-[#e8ebf0] to-[#e6f7ff]">
         <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGZpbGw9IiNmZmYiIGQ9Ik0yOCAwQzE2IDAgMSA0IDAgMTYgMCAyOCA0IDQxIDE2IDQxdDE2LTE2QzMyIDEgMjggMCAyOCAwWk0xODAgMzBjMCAwLTMxLTEyLTQ2LTEyLTIwIDAtMzYgMTQtMzYgMzNzMTMgMzMgMzIgMzNjMTItMyAxMy05IDE1LTE4IDQgMTQgMTAgMjkgMzMgMjktMTUtMi0yMi0xNi0yMi0zMWEzNCAzNCAwIDAgMSAxNy0yOWMwIDAgNi04IDctMTQgMC00LTMtOC0xMC04LTYgMC0xNyA0LTI1IDEwLTcgNS0zMCA0MC0zMCA0MC01LTgtOS0zOS01Mi0zOS01IDAtNCA2LTQgMTNzNSAyMSAxMyAzMGM0IDQgMTcgMjAgMzUgMjAgMTIgMCAxOC0xMCAxOC0xMHMyIDQgMiAxMGMyIDEwIDggMjQgMTggMjcgMCAwIDEzIDYgMjUtNnM3LTIzIDctMjMgOC0xOCA2LTMyLTktMTAtOS0xMFoiLz4KPC9zdmc+')"></div>
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 items-center py-2 relative z-10">
             <!-- Logo -->
-            <div class="flex justify-center md:justify-end">
+            <div class="flex justify-center md:justify-start">
                 <a href="{{ route('home') }}" class="block">
                     <img src="{{ asset('images/logo_chuan.png') }}" alt="{{$config['company_name']}}"
                          class="w-[200px] h-[80px] object-contain">
@@ -13,7 +13,7 @@
 
             <!-- Centered Title -->
             <div class="mt-2 md:mt-10 text-center md:text-start">
-                <p class="text-base md:text-xl uppercase tracking-wide font-extrabold text-[#1E4ED8] md:whitespace-nowrap
+                <p class="text-base md:text-3xl uppercase tracking-wide font-extrabold text-[#1E4ED8] md:whitespace-nowrap
                    [text-shadow:1px_1px_0px_#fffa90,-1px_-1px_0px_#00255e,0px_2px_5px_rgba(0,0,0,0.3)]">
                     GIẢI PHÁP THIẾT BỊ CHO XỬ LÝ NƯỚC
                 </p>

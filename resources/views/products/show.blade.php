@@ -85,7 +85,8 @@
                     <div class="space-y-3">
                         <h2 class="text-lg md:text-xl font-semibold">Tính năng sản phẩm</h2>
                         <ul class="space-y-2">
-                            <li class="flex items-start">
+                            {!! $product->features !!}
+                            {{-- <li class="flex items-start">
                                 <svg class="w-5 h-5 text-[#1E4ED8] mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -114,7 +115,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 <span>Chứng nhận: CE, ISO 9001:2015</span>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
 

@@ -97,6 +97,13 @@ class ProductResource extends Resource
                                     ->reorderable()
                                     ->collapsible(),
                             ]),
+
+                        Forms\Components\Section::make('Tính năng')
+                            ->schema([
+                                Forms\Components\RichEditor::make('features')
+                                    ->label('Tính năng')
+                                    ->columnSpanFull(),
+                            ]),
                     ])
                     ->columnSpan(['lg' => 2]),
 

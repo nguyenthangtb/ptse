@@ -28,12 +28,15 @@ class Product extends Model
         'is_featured',
         'is_active',
         'price',
+        'features',
+
     ];
 
     protected $casts = [
         'specifications' => 'array',
         'gallery' => 'array',
         'documents' => 'array',
+        // 'features' => 'array',
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
     ];

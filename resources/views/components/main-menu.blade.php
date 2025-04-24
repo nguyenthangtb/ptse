@@ -7,7 +7,7 @@
             <a href="{{ $item->children->isEmpty() ? $item->url : '#' }}"
                @if($item->children->isEmpty()) target="{{ $item->target }}" @endif
                @class([
-                   'block text-[#FFCA35] font-medium relative py-3 px-4 transition-all duration-300
+                   'block text-[#FFCA35] font-medium relative py-3 transition-all duration-300
                     hover:text-blue-200',
                    'flex items-center justify-between' => true,
                    'text-blue-200 font-semibold' => request()->url() === $item->url

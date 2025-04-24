@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="py-12 md:py-8 mt-[170px] lg:mt-0">
+    <section class="py-12 md:py-8 mt-[170px]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Main Content -->

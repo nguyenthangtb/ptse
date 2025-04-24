@@ -6,7 +6,7 @@
         <h1 class="text-2xl font-bold text-center mt-8 mb-4">{{ $product->name }}</h1>
     </div>
     <!-- Product Detail Section -->
-    <section class="mt-[170px] lg:mt-0 py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+    <section class="mt-[170px] py-6 md:py-8 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-7xl bg-white rounded-xl shadow-lg backdrop-blur-sm bg-white/90 hover:shadow-xl transition-shadow p-4 md:p-8">
             <!-- Two Column Product Layout -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">

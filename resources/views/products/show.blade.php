@@ -45,36 +45,6 @@
                         <h2 class="text-lg md:text-xl font-semibold">Tính năng sản phẩm</h2>
                         <ul class="space-y-2">
                             {!! $product->features !!}
-                            {{-- <li class="flex items-start">
-                                <svg class="w-5 h-5 text-[#1E4ED8] mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Công suất: 0.75kW - 400kW</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-[#1E4ED8] mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Lưu lượng: 2 - 2000 m³/h</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-[#1E4ED8] mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Cột áp: 5 - 100m</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-[#1E4ED8] mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Vật liệu: Gang, Inox 304, Inox 316</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-[#1E4ED8] mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Chứng nhận: CE, ISO 9001:2015</span>
-                            </li> --}}
                         </ul>
                     </div>
 
@@ -90,124 +60,7 @@
                 </div>
             </div>
 
-            <!-- Mobile Tabs for Specs and Description -->
-            <div class="mt-8 lg:hidden">
-                <div class="border-b border-gray-200">
-                    <nav class="flex -mb-px" aria-label="Tabs">
-                        <button type="button"
-                                class="mobile-tab-btn active w-1/2 py-4 px-1 text-center border-b-2 border-[#1E4ED8] text-[#1E4ED8] font-medium"
-                                data-target="mobile-description">
-                            Mô tả
-                        </button>
-                        <button type="button"
-                                class="mobile-tab-btn w-1/2 py-4 px-1 text-center border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium"
-                                data-target="mobile-specs">
-                            Thông số & Tài liệu
-                        </button>
-                    </nav>
-                </div>
-
-                <div class="mobile-tab-content mt-4">
-                    <!-- Mobile Description Tab Content -->
-                    <div id="mobile-description" class="mobile-tab-panel block">
-                        <div class="prose prose-sm">
-                            {!! $product->description !!}
-                        </div>
-                        <div class="mt-4 text-center">
-                            <button id="mobile-show-more"
-                                    class="text-[#1E4ED8] hover:text-[#1E4ED8]/90 text-sm font-medium flex items-center mx-auto border border-[#1E4ED8] px-4 py-2 rounded-lg">
-                                Xem thêm
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Mobile Specs Tab Content -->
-                    <div id="mobile-specs" class="mobile-tab-panel hidden">
-                        <div class="space-y-6">
-                            <!-- Specifications Section -->
-                            <div class="border rounded-lg bg-white">
-                                <div class="p-4">
-                                    <h2 class="text-lg font-semibold">Thông số chi tiết</h2>
-                                </div>
-                                <div class="divide-y">
-                                    @if($product->specifications && is_array($product->specifications))
-                                    @foreach($product->specifications as $spec)
-                                        <div class="grid grid-cols-3 py-3 px-4">
-                                            <dt class="text-sm font-medium text-gray-500 col-span-1">{{ $spec['label'] ?? '' }}</dt>
-                                            <dd class="text-sm text-gray-900 col-span-2">{{ $spec['value'] ?? '' }}</dd>
-                                        </div>
-                                    @endforeach
-                                    @else
-                                        <div class="py-3 px-4">
-                                            <p class="text-sm text-gray-500">Không có thông số chi tiết</p>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <!-- Documents Section - Mobile -->
-                            <div class="border rounded-lg bg-white mt-4">
-                                <div class="p-4">
-                                    <h2 class="text-lg font-semibold">Tài liệu</h2>
-                                </div>
-                                <div class="divide-y">
-                                    @if($product->documents && is_array($product->documents))
-                                        @foreach($product->documentUrls as $document)
-                                            @php
-                                                $filename = $document['original_name'];
-                                                $extension = $document['extension'];
-                                                $fileIcon = match(strtolower($extension)) {
-                                                    'pdf' => '<svg class="w-6 h-6 text-red-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>',
-                                                    'doc', 'docx' => '<svg class="w-6 h-6 text-blue-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>',
-                                                    'xls', 'xlsx' => '<svg class="w-6 h-6 text-green-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>',
-                                                    'zip', 'rar', '7z' => '<svg class="w-6 h-6 text-orange-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>',
-                                                    default => '<svg class="w-6 h-6 text-gray-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>'
-                                                };
-                                                $fileSize = $document['size'] > 0 ? round($document['size'] / 1024, 2) . ' KB' : '';
-                                            @endphp
-                                            <div class="py-3 px-4">
-                                                <div class="flex items-center space-x-3">
-                                                    <div class="flex-shrink-0">
-                                                        {!! $fileIcon !!}
-                                                    </div>
-                                                    <div class="flex-1 min-w-0">
-                                                        <p class="text-sm font-bold text-gray-900 truncate">
-                                                            {{ $filename }}
-                                                        </p>
-                                                        <p class="text-xs text-gray-500">
-                                                            {{ strtoupper($extension) }} {{ $fileSize ? ' · ' . $fileSize : '' }}
-                                                        </p>
-                                                    </div>
-                                                    <div>
-                                                        <a href="{{ $document['url'] }}"
-                                                          class="inline-flex items-center px-3 py-1.5 border border-[#1E4ED8] rounded-lg text-xs font-medium text-[#1E4ED8] hover:bg-[#1E4ED8] hover:text-white transition-colors"
-                                                          target="_blank">
-                                                            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                                                            </svg>
-                                                            Tải xuống
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    @else
-                                        <div class="py-3 px-4">
-                                            <p class="text-sm text-gray-500">Không có tài liệu</p>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Desktop Two-Column Content -->
-            <div class="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-6 mt-12">
+            <div class=" lg:grid grid-cols-1 lg:grid-cols-12 gap-6 mt-4 md:mt-12">
                 <!-- Left Column - Description -->
                 <div class="col-span-1 lg:col-span-7">
                     <div class="border rounded-lg bg-white">
@@ -243,7 +96,7 @@
                 </div>
 
                 <!-- Right Column - Specifications Table -->
-                <div class="col-span-1 lg:col-span-5">
+                <div class="col-span-1 lg:col-span-5 mt-4 md:mt-0">
                     <div class="border rounded-lg bg-white">
                         <div class="p-4">
                             <h2 class="text-lg font-semibold">Thông số chi tiết</h2>
@@ -319,8 +172,8 @@
             </div>
 
             <!-- Related Products Section -->
-            <div class="pt-10 mt-6 border-t">
-                <h2 class="text-2xl font-semibold mb-6">Sản phẩm liên quan</h2>
+            <div class="pt-5 mt-4 border-t md:mt-6">
+                <h2 class="text-2xl font-semibold mb-6 text-center">Sản phẩm liên quan</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                     @for ($i = 0; $i < 4; $i++)
                         <div class="group relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">

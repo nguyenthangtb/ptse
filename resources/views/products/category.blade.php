@@ -43,7 +43,7 @@
     </nav> --}}
 
     <!-- Products Section -->
-    <section class="py-6">
+    <section class="pt-0 md:pt-6">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <!-- Desktop Title -->
             <h1 class="hidden lg:block text-3xl font-bold text-center mb-4 mt-8">{{ $category->name }}</h1>

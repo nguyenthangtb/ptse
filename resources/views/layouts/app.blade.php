@@ -81,6 +81,8 @@
     <link rel="stylesheet" href=" {{ asset('css/notyf.min.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="{{ asset('lightbox/dist/css/lightbox.min.css') }}" rel="stylesheet" />
+
     {{-- @vite('resources/css/app.css') --}}
     @yield('styles')
 </head>
@@ -99,6 +101,7 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="{{ asset('js/notyf.min.js') }}"></script>
+    <script src="{{ asset('lightbox/dist/js/lightbox.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             // Mobile menu toggle

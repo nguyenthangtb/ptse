@@ -2,11 +2,11 @@
 
 @section('content')
     <!-- Mobile Title (visible only on mobile) -->
-    <div class="block lg:hidden pt-[120px] px-4">
+    <div class="block lg:hidden pt-[170px] px-4">
         <h1 class="text-2xl font-bold text-center mt-8 mb-4">{{ $product->name }}</h1>
     </div>
     <!-- Product Detail Section -->
-    <section class="mt-[170px] py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+    <section class="mt-[20px] md:mt-[170px] py-6 md:py-8 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-7xl bg-white rounded-xl shadow-lg backdrop-blur-sm bg-white/90 hover:shadow-xl transition-shadow p-4 md:p-8">
             <!-- Two Column Product Layout -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
@@ -14,16 +14,18 @@
                 <div class="space-y-4">
                     <!-- Main Product Image -->
                     <div class="aspect-square overflow-hidden rounded-lg bg-gray-100">
-                        <img id="mainImage" src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"
-                            class="w-full h-full object-cover">
+                        <a href="{{ Storage::url($product->image) }}" data-lightbox="gallery" data-title="{{ $product->name }}">
+                            <img id="mainImage" src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"
+                                class="w-full h-full object-cover">
+                        </a>
                     </div>
 
                     <!-- Thumbnail Gallery -->
                     <div class="grid grid-cols-4 gap-2">
                         @foreach($product->gallery as $image)
-                            <button onclick="updateMainImage(this.children[0].src)" class="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:ring-2 hover:ring-[#1E4ED8] focus:ring-2 focus:ring-[#1E4ED8]">
+                            <a href="{{ Storage::url($image) }}" data-lightbox="gallery" data-title="{{ $product->name }}">
                                 <img src="{{ Storage::url($image) }}" alt="Product thumbnail" class="w-full h-full object-cover">
-                            </button>
+                            </a>
                         @endforeach
                     </div>
                 </div>

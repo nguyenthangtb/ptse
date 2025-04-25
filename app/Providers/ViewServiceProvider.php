@@ -34,6 +34,7 @@ class ViewServiceProvider extends ServiceProvider
                 'description' => WebsiteConfig::get('description', 'Mô tả website của bạn'),
                 'support_phone' => WebsiteConfig::get('support_phone', '(+84) 968 750 388'),
                 'customer_phone' => WebsiteConfig::get('customer_phone', '(+84) 968 750 388'),
+                'company_slogan' => WebsiteConfig::get('company_slogan', 'Giải pháp bơm và van cho ngành nước'),
             ];
             //dd($configs);
             $view->with('config', $configs);

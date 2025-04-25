@@ -13,7 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\ToggleColumn;
-
+use Filament\Notifications\Notification;
 class HomeSliderResource extends Resource
 {
     protected static ?string $model = HomeSlider::class;
@@ -99,6 +99,17 @@ class HomeSliderResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
+                Tables\Actions\ReplicateAction::make()
+                    ->beforeReplicaSaved(function (HomeSlider $record, HomeSlider $replica) {
+                        $replica->title = $record->title . ' (Sao chép)';
+                        $replica->save();
+                    })
+                    ->successNotification(
+                        Notification::make()
+                             ->success()
+                             ->title('Slider đã được sao chép')
+                             ->body('Slider đã được sao chép thành công.'),
+                    ),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
                 Tables\Actions\ForceDeleteAction::make(),

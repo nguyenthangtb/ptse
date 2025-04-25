@@ -6,10 +6,10 @@
 <div class="container mx-auto px-4 py-8 mt-32">
     <div class="max-w-7xl mx-auto">
         <h1 class="text-3xl font-bold mb-6">Kết quả tìm kiếm: "{{ $search }}"</h1>
-        
+
         @if($products->count() > 0)
             <p class="mb-4">Tìm thấy {{ $products->count() }} kết quả</p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                 @foreach($products as $product)
                     <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -23,7 +23,6 @@
                             @endif
                             <div class="p-4">
                                 <h3 class="text-lg font-semibold mb-2">{{ $product->name }}</h3>
-                                <p class="text-gray-600 text-sm line-clamp-2">{{ $product->description }}</p>
                             </div>
                         </a>
                     </div>
@@ -54,20 +53,20 @@
         border-radius: 0.5rem;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
-    
+
     .ui-menu-item {
         padding: 0 !important;
     }
-    
+
     .ui-menu-item-wrapper {
         padding: 8px 12px !important;
     }
-    
+
     .ui-state-active {
         background-color: #3b82f6 !important;
         border-color: #3b82f6 !important;
     }
-    
+
     /* Line clamp for descriptions */
     .line-clamp-2 {
         display: -webkit-box;

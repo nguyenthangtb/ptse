@@ -13,7 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
-
+use Filament\Notifications\Notification;
 class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
@@ -190,8 +190,22 @@ class ProjectResource extends Resource
                     ->label('Kích hoạt'),
             ])
             ->actions([
+                Tables\Actions\ReplicateAction::make()
+                    ->beforeReplicaSaved(function (Project $record, Project $replica) {
+                        $replica->title = $record->title . ' (Sao chép)';
+                        $replica->slug = $record->slug . '-copy';
+                        $replica->save();
+                    })
+                    ->successNotification(
+                        Notification::make()
+                             ->success()
+                             ->title('Dự án đã được sao chép')
+                             ->body('Dự án đã được sao chép thành công.'),
+                    ),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ForceDeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

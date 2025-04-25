@@ -13,7 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
-
+use Filament\Notifications\Notification;
 class NewsResource extends Resource
 {
     protected static ?string $model = News::class;
@@ -140,8 +140,22 @@ class NewsResource extends Resource
                     ->toggle(),
             ])
             ->actions([
+                Tables\Actions\ReplicateAction::make()
+                    ->beforeReplicaSaved(function (News $record, News $replica) {
+                        $replica->title = $record->title . ' (Sao chép)';
+                        $replica->slug = $record->slug . '-copy';
+                        $replica->save();
+                    })
+                    ->successNotification(
+                        Notification::make()
+                             ->success()
+                             ->title('Tin tức đã được sao chép')
+                             ->body('Tin tức đã được sao chép thành công.'),
+                    ),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ForceDeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

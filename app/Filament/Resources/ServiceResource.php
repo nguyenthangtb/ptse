@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Notifications\Notification;
 
 class ServiceResource extends Resource
 {
@@ -124,8 +125,21 @@ class ServiceResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ReplicateAction::make()
+                    ->beforeReplicaSaved(function (Service $record, Service $replica) {
+                        $replica->title = $record->title . ' (Sao chép)';
+                        $replica->save();
+                    })
+                    ->successNotification(
+                        Notification::make()
+                             ->success()
+                             ->title('Dịch vụ đã được sao chép')
+                             ->body('Dịch vụ đã được sao chép thành công.'),
+                    ),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ForceDeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

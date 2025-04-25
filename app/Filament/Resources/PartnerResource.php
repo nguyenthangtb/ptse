@@ -12,7 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Filament\Notifications\Notification;
 class PartnerResource extends Resource
 {
     protected static ?string $model = Partner::class;
@@ -132,8 +132,21 @@ class PartnerResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ReplicateAction::make()
+                    ->beforeReplicaSaved(function (Partner $record, Partner $replica) {
+                        $replica->name = $record->name . ' (Sao chép)';
+                        $replica->save();
+                    })
+                    ->successNotification(
+                        Notification::make()
+                             ->success()
+                             ->title('Đối tác đã được sao chép')
+                             ->body('Đối tác đã được sao chép thành công.'),
+                    ),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ForceDeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -15,22 +15,22 @@
 
     <meta name="theme-color" content="#1976d2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chuyên cung cấp giải pháp bơm và vận tải cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
-    <meta name="keywords" content="bơm công nghiệp, bơm nước, vận tải nước, giải pháp bơm, thiết bị bơm, Phú Thái">
+    <meta name="description" content="Chuyên cung cấp giải pháp bơm và van cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
+    <meta name="keywords" content="bơm công nghiệp, bơm nước, van nước, giải pháp bơm, thiết bị bơm, Phú Thái">
     <meta name="author" content="{{ $config['company_name'] }}">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="@yield('title', 'Giải pháp bơm & vận tải cho ngành nước')">
-    <meta property="og:description" content="Chuyên cung cấp giải pháp bơm và vận tải cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
+    <meta property="og:title" content="@yield('title', 'Giải pháp bơm & van cho ngành nước')">
+    <meta property="og:description" content="Chuyên cung cấp giải pháp bơm và van cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
     <meta property="og:image" content="{{ asset('images/og-image.jpg') }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="@yield('title', 'Giải pháp bơm & vận tải cho ngành nước')">
-    <meta property="twitter:description" content="Chuyên cung cấp giải pháp bơm và vận tải cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
+    <meta property="twitter:title" content="@yield('title', 'Giải pháp bơm & van cho ngành nước')">
+    <meta property="twitter:description" content="Chuyên cung cấp giải pháp bơm và van cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
     <meta property="twitter:image" content="{{ asset('images/og-image.jpg') }}">
 
     <!-- Additional SEO tags -->
@@ -38,7 +38,28 @@
     <meta name="language" content="Vietnamese">
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <title>@yield('title', 'Giải pháp bơm & vận tải cho ngành nước')</title>
+    <title>@yield('title', 'Giải pháp bơm & van cho ngành nước')</title>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "PTSE",
+          "url": "{{ url('/') }}",
+          "logo": "{{ asset('images/logo_chuan.png') }}",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+84 968 750 388",
+            "contactType": "Customer Service",
+            "areaServed": "VN",
+            "availableLanguage": ["Vietnamese", "English"]
+          },
+          "sameAs": [
+            "https://www.facebook.com/ptse.vn",
+            "https://www.linkedin.com/company/ptse",
+            "https://www.youtube.com/@ptse"
+          ]
+        }
+    </script>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>

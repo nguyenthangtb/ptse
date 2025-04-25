@@ -142,6 +142,7 @@ class ProductResource extends Resource
                                 Forms\Components\FileUpload::make('documents')
                                     ->label('Tài liệu')
                                     ->multiple()
+                                    ->preserveFilenames()
                                     ->panelLayout('grid')
                                     ->directory('products/documents')
                                     ->acceptedFileTypes(['application/pdf', 'application/msword'])

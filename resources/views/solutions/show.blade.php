@@ -30,7 +30,7 @@
 
                             <!-- Social Share -->
                             <div class="mt-8 pt-6 border-t border-gray-100">
-                                <h3 class="text-lg font-semibold mb-4">Chia sẻ giải pháp</h3>
+                                <h3 class="text-lg font-semibold mb-4">{{ __('common.share_solution') }}</h3>
                                 <div class="flex gap-2">
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}"
                                     target="_blank"
@@ -55,7 +55,7 @@
                 <!-- Sidebar -->
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-                        <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-100">Giải pháp liên quan</h2>
+                        <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-100">{{ __('common.related_solutions') }}</h2>
                         <div class="space-y-6">
                             @foreach($relatedSolutions as $related)
                                 <div class="group">

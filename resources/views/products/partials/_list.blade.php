@@ -8,7 +8,7 @@
         <div class="mt-4">
             <h3 class="text-[14px] font-bold text-center text-gray-700">
                 <a href="{{ route('products.show', $product->slug) }}" class="hover:text-[#1E4ED8] transition-colors">
-                    {{ $product->name ?? 'Tên sản phẩm' }}
+                    {{ $product->name ?? __('common.product_name') }}
                 </a>
             </h3>
         </div>

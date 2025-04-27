@@ -1,6 +1,6 @@
 <li class="relative group">
     <a href="{{ route('products.index') }}" class="flex items-center justify-between md:justify-start text-gray-700 hover:text-primary font-medium dropdown-toggle">
-        SẢN PHẨM
+        {{ __('navigation.products') }}
         <i class="fas fa-chevron-down ml-2 text-xs"></i>
     </a>
     <ul class="dropdown-menu hidden group-hover:md:block md:absolute md:top-full md:left-0 md:bg-white md:min-w-[200px] md:shadow-lg md:rounded md:py-2 md:mt-1 z-50">

@@ -1,7 +1,7 @@
 <!-- Video Services Section -->
 <section class="py-8bg-gradient-to-b from-gray-100 to-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-4 mt-4 reveal uppercase">Dịch vụ</h2>
+        <h2 class="text-3xl font-bold text-center mb-4 mt-4 reveal uppercase">{{ __('common.services') }}</h2>
 
         @if($services && $services->count() > 0)
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -30,7 +30,7 @@
             </div>
         @else
             <div class="text-center py-8">
-                <p class="text-gray-500">Chưa có video nào được chia sẻ.</p>
+                <p class="text-gray-500">{{ __('common.no_services') }}</p>
             </div>
         @endif
     </div>

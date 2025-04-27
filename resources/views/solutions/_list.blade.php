@@ -34,7 +34,7 @@
             <p class="text-gray-600 mb-4 line-clamp-3">{{ $solution->short_description }}</p>
             <a href="{{ route('solutions.show', $solution->slug) }}"
                 class="inline-flex items-center text-sm text-primary hover:text-primary/80 font-medium">
-                Chi tiết
+                {{ __('common.read_more') }}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>

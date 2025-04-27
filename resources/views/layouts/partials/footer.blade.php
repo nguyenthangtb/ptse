@@ -9,7 +9,7 @@
             <!-- Company Info -->
             <div class="md:max-w-sm relative z-10">
                 <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
-                    <span class="relative z-10">THÔNG TIN CÔNG TY</span>
+                    <span class="relative z-10">{{ __('common.company_info') }}</span>
                     <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
                 <div class="space-y-2 text-base">
@@ -26,11 +26,11 @@
                     </div>
                     <p class="text-white flex items-center gap-2 group">
                         <i class="fas fa-phone-alt text-blue-300 group-hover:text-orange-400 transition-colors"></i>
-                        <a href="tel:0968750388" class="hover:text-orange-300 transition-colors">+84 968 750 388</a>
+                        <a href="tel:{{ $config['phone'] }}" class="hover:text-orange-300 transition-colors">{{ $config['phone'] }}</a>
                     </p>
                     <p class="text-white flex items-center gap-2 group">
                         <i class="fas fa-envelope text-blue-300 group-hover:text-orange-400 transition-colors"></i>
-                        <a href="mailto:info@ptse.vn" class="hover:text-orange-300 transition-colors">info@ptse.vn</a>
+                        <a href="mailto:{{ $config['email'] }}" class="hover:text-orange-300 transition-colors">{{ $config['email'] }}</a>
                     </p>
                 </div>
 
@@ -44,27 +44,27 @@
             <!-- Information -->
             <div class="md:mx-auto relative z-10">
                 <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
-                    <span class="relative z-10">THÔNG TIN BỔ SUNG</span>
+                    <span class="relative z-10">{{ __('common.additional_information') }}</span>
                     <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
                 <ul class="space-y-3 text-base">
-                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> Tư vấn dịch vụ</a></li>
+                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.consultation_service') }}</a></li>
                     {{-- <li><a href="#" class="text-white hover:text-gray-200 block">Tìm cửa hàng gần nhất</a></li> --}}
-                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> Chăm sóc khách hàng</a></li>
-                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> Câu hỏi thường gặp</a></li>
-                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> Chính sách - Điều khoản</a></li>
+                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.customer_care') }}</a></li>
+                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.frequently_asked_questions') }}</a></li>
+                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.policy_terms') }}</a></li>
                 </ul>
             </div>
 
             <!-- Liên hệ (Cột mới) -->
             <div class="md:mx-auto relative z-10">
                 <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
-                    <span class="relative z-10">LIÊN HỆ</span>
+                    <span class="relative z-10">{{ __('common.contact') }}</span>
                     <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
                 <div class="space-y-4 text-base">
                     <div class="bg-white/5 p-3 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-300">
-                        <p class="text-blue-300 font-medium mb-1">Kinh doanh - CSKH:</p>
+                        <p class="text-blue-300 font-medium mb-1">{{ __('common.business_customer_care') }}</p>
                         <p class="text-white flex items-start gap-2 group">
                             <i class="fas fa-user-tie text-orange-400 mt-1"></i>
                             <span class="contact-info">
@@ -73,7 +73,7 @@
                         </p>
                     </div>
                     <div class="bg-white/5 p-3 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-300">
-                        <p class="text-blue-300 font-medium mb-1">Kỹ thuật - Vận hành:</p>
+                        <p class="text-blue-300 font-medium mb-1">{{ __('common.technical_operation') }}</p>
                         <p class="text-white flex items-start gap-2 group">
                             <i class="fas fa-headset text-orange-400 mt-1"></i>
                             <span class="contact-info">
@@ -87,12 +87,12 @@
             <!-- Support -->
             <div class="md:mx-auto relative z-10">
                 <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
-                    <span class="relative z-10">ĐĂNG KÝ NHẬN TIN</span>
+                    <span class="relative z-10">{{ __('common.sign_up_for_news') }}</span>
                     <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
                 <form class="flex flex-wrap gap-2 mt-4">
-                    <input type="email" placeholder="Nhập email" class="px-3 py-2 text-gray-800 rounded-lg w-full md:w-auto text-base focus:ring-2 focus:ring-orange-400 focus:outline-none" required>
-                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg w-full md:w-auto text-base font-medium transition-colors shadow-lg hover:shadow-orange-500/50">Đăng ký</button>
+                    <input type="email" placeholder="{{ __('common.enter_email') }}" class="px-3 py-2 text-gray-800 rounded-lg w-full md:w-auto text-base focus:ring-2 focus:ring-orange-400 focus:outline-none" required>
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg w-full md:w-auto text-base font-medium transition-colors shadow-lg hover:shadow-orange-500/50">{{ __('common.subscribe') }}</button>
                 </form>
 
                 {{-- <h3 class="font-bold text-xl mt-8 mb-4 leading-tight uppercase relative inline-block">
@@ -112,7 +112,7 @@
 
         <!-- Copyright -->
         <div class="border-t border-blue-800 mt-10 pt-6 text-center text-white/80 text-sm relative z-10">
-            <p>© {{ date('Y') }} <span class="text-white font-medium">{{$config['company_name']}}</span> | Thiết kế bởi <a href="#" class="text-orange-300 hover:underline">PTSE</a></p>
+            <p>© {{ date('Y') }} <span class="text-white font-medium">{{$config['company_name']}}</span> | {{ __('common.designed_by') }} <a href="#" class="text-orange-300 hover:underline">PTSE</a></p>
         </div>
     </div>
 </footer>

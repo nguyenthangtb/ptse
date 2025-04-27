@@ -64,7 +64,7 @@
                 <!-- Sidebar -->
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-                        <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-100">Tin tức mới nhất</h2>
+                        <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-100">{{ __('common.new_news') }}</h2>
                         <div class="space-y-6">
                             @foreach($recentNews as $item)
                                 <div class="group">

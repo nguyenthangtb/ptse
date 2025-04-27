@@ -1,7 +1,7 @@
 <!-- Featured Products -->
 <section id="featured-products" class="py-8 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-center mb-5 reveal uppercase">Sản phẩm nổi bật</h2>
+        <h2 class="text-2xl font-bold text-center mb-5 reveal uppercase">{{ __('common.featured_products') }}</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             @foreach($featuredProducts ?? [] as $product)
                 <a href="{{ route('products.show', $product->slug) }}" class="group relative reveal block overflow-hidden rounded-md">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="mt-4">
                         <h3 class="text-[14px] font-bold text-center text-gray-700 capitalize group-hover:text-primary transition-colors">
-                            {{ $product->name ?? 'Tên sản phẩm' }}
+                            {{ $product->name ?? __('common.product_name') }}
                         </h3>
                     </div>
                 </a>

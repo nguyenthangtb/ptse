@@ -60,10 +60,10 @@
                 <div class="text-sm text-gray-500"></div>
                 <div class="text-sm">
                     <select class="border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option>Thứ tự mặc định</option>
-                        <option>Giá: Thấp đến cao</option>
-                        <option>Giá: Cao đến thấp</option>
-                        <option>Mới nhất</option>
+                        <option>{{ __('common.default_order') }}</option>
+                        <option>{{ __('common.price_low_to_high') }}</option>
+                        <option>{{ __('common.price_high_to_low') }}</option>
+                        <option>{{ __('common.newest') }}</option>
                     </select>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                         <div class="mt-4">
                             <h3 class="text-[14px] font-bold text-center text-gray-700">
                                 <a href="{{ route('products.show', $product->slug) }}" class="hover:text-[#1E4ED8] transition-colors">
-                                    {{ $product->name ?? 'Tên sản phẩm' }}
+                                    {{ $product->name ?? __('common.product_name') }}
                                 </a>
                             </h3>
                         </div>
@@ -93,11 +93,11 @@
             <!-- Pagination -->
             <div class="flex justify-center mt-12">
                 <button class="load-more-btn px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors">
-                    Tải thêm
+                    {{ __('common.load_more') }}
                 </button>
                 <div class="loading-indicator hidden flex items-center gap-2">
                     <div class="w-6 h-6 border-2 border-t-primary border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-                    <span class="text-gray-600">Đang tải...</span>
+                    <span class="text-gray-600">{{ __('common.loading') }}</span>
                 </div>
             </div>
 
@@ -110,7 +110,7 @@
 
             <div class="flex justify-center mt-4 mb-4">
                 <a href="{{ route('lien-he') }}" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 inline-flex items-center gap-2">
-                    Liên hệ tư vấn
+                    {{ __('common.consultation_service') }}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>

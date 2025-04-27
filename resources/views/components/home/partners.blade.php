@@ -5,7 +5,7 @@
 <!-- Partners Slider Section -->
 <section class="py-8 bg-gradient-to-b from-blue-900 to-blue-800">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8 text-white reveal uppercase">Đối tác của chúng tôi</h2>
+        <h2 class="text-3xl font-bold text-center mb-8 text-white reveal uppercase">{{ __('common.partners') }}</h2>
 
         <div class="partners-slider max-w-7xl mx-auto">
             <div class="swiper partnersSwiper">
@@ -28,7 +28,7 @@
                     @else
                        <div class="swiper-slide partner-slide">
                         <div class="bg-white rounded p-4 mx-1 h-32 flex items-center justify-center">
-                            <p class="text-gray-500">Không có đối tác</p>
+                            <p class="text-gray-500">{{ __('common.no_partners') }}</p>
                         </div>
                     </div>
                     @endif

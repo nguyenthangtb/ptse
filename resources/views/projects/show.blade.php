@@ -30,7 +30,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                     </svg>
-                                    <span>Lượt xem: {{ $project->views ?? 0 }}</span>
+                                    <span>{{ __('common.views') }}: {{ $project->views ?? 0 }}</span>
                                 </span>
                             </div>
 
@@ -40,7 +40,7 @@
 
                             <!-- Social Share -->
                             <div class="mt-8 pt-6 border-t border-gray-100">
-                                <h3 class="text-lg font-semibold mb-4">Chia sẻ bài viết</h3>
+                                <h3 class="text-lg font-semibold mb-4">{{ __('common.share_post') }}</h3>
                                 <div class="flex gap-2">
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}"
                                     target="_blank"
@@ -65,7 +65,7 @@
                 <!-- Sidebar -->
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-                        <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-100">Dự án liên quan</h2>
+                        <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-100">{{ __('common.related_projects') }}</h2>
                         <div class="space-y-6">
                             @foreach($relatedProjects as $item)
                                 <div class="group">

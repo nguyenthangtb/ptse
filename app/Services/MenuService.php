@@ -10,20 +10,20 @@ class MenuService
     {
         return collect([
             [
-                'title' => 'Trang chủ',
+                'title' => __('common.home'),
                 'url' => '/',
                 'icon' => '',
                 'target' => '_self',
                 'children' => []
             ],
             [
-                'title' => 'Sản phẩm',
+                'title' => __('common.products'),
                 'url' => '/san-pham',
                 'icon' => '',
                 'target' => '_self',
                 'children' => [
                     [
-                        'title' => 'Bơm Grundfos',
+                        'title' => __('common.pump_grundfos'),
                         'url' => '/san-pham/danh-muc/bom-dinh-luong',
                         'icon' => '',
                         'target' => '_self',
@@ -31,7 +31,7 @@ class MenuService
                         ]
                     ],
                     [
-                        'title' => 'Van AVK',
+                        'title' => __('common.van_avk'),
                         'url' => '/san-pham/danh-muc/van-va-moi-noi',
                         'icon' => '',
                         'target' => '_self',
@@ -39,42 +39,42 @@ class MenuService
                         ]
                     ],
                     [
-                        'title' => 'Van Ebro',
+                        'title' => __('common.van_ebro'),
                         'url' => '/san-pham/danh-muc/van-ebro',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
-                        'title' => 'Van và đường ống +GF+',
+                        'title' => __('common.van_va_duong_ong_g_f_plus'),
                         'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
-                        'title' => 'Bơm định lượng kỹ thuật số',
+                        'title' => __('common.pump_dinh_luong_ky_thuat_so'),
                         'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
-                        'title' => 'Hệ thống Clo khử trùng',
+                        'title' => __('common.he_thong_clo_khu_trung'),
                         'url' => '/san-pham/danh-muc/he-thong-khu-trung-clo',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
-                        'title' => 'Bơm tăng áp inline',
+                        'title' => __('common.pump_tang_ap_inline'),
                         'url' => '#',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []
                     ],
                     [
-                        'title' => 'Phụ kiện',
+                        'title' => __('common.phu_kien'),
                         'url' => '#',
                         'icon' => '',
                         'target' => '_self',
@@ -83,28 +83,28 @@ class MenuService
                 ]
             ],
             [
-                'title' => 'Giải pháp',
+                'title' => __('common.giai_phap'),
                 'url' => '/giai-phap',
                 'icon' => '',
                 'target' => '_self',
                 'children' => []
             ],
             [
-                'title' => 'Dự án',
+                'title' => __('common.du_an'),
                 'url' => '/du-an',
                 'icon' => '',
                 'target' => '_self',
                 'children' => []
             ],
             [
-                'title' => 'Tin tức & Sự kiện',
+                'title' => __('common.tin_tuc_va_su_kien'),
                 'url' => '/tin-tuc',
                 'icon' => '',
                 'target' => '_self',
                 'children' => []
             ],
             [
-                'title' => 'Liên hệ',
+                'title' => __('common.lien_he'),
                 'url' => '/lien-he',
                 'icon' => '',
                 'target' => '_self',

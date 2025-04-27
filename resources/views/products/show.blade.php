@@ -22,11 +22,13 @@
 
                     <!-- Thumbnail Gallery -->
                     <div class="grid grid-cols-4 gap-2">
+                        @if($product->gallery)
                         @foreach($product->gallery as $image)
                             <a href="{{ Storage::url($image) }}" data-lightbox="gallery" data-title="{{ $product->name }}">
                                 <img src="{{ Storage::url($image) }}" alt="Product thumbnail" class="w-full h-full object-cover">
                             </a>
                         @endforeach
+                        @endif
                     </div>
                 </div>
 
@@ -42,7 +44,7 @@
 
                     <!-- Product Features -->
                     <div class="space-y-3">
-                        <h2 class="text-lg md:text-xl font-semibold">Tính năng sản phẩm</h2>
+                        <h2 class="text-lg md:text-xl font-semibold">{{ __('common.product_features') }}</h2>
                         <ul class="space-y-2">
                             {!! $product->features !!}
                         </ul>
@@ -51,7 +53,7 @@
                     <!-- Contact Button -->
                     <div class="pt-4">
                         <a href="#" class="w-full md:w-auto inline-flex justify-center items-center px-6 py-3 bg-[#1E4ED8] text-white font-medium rounded-lg hover:bg-[#1E4ED8]/90 transition-colors">
-                            Liên hệ tư vấn
+                            {{ __('common.consultation_service') }}
                             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
@@ -70,7 +72,7 @@
                                 <button type="button"
                                         class="tab-btn active py-4 px-1 w-full text-center border-b-2 border-[#1E4ED8] text-[#1E4ED8] font-medium text-sm"
                                         data-target="description-panel">
-                                    Mô tả sản phẩm
+                                    {{ __('common.product_description') }}
                                 </button>
                             </nav>
                         </div>
@@ -84,7 +86,7 @@
                                 <div class="mt-4 text-center">
                                     <button id="show-more-btn"
                                             class="text-[#1E4ED8] hover:text-[#1E4ED8]/90 text-sm font-medium flex items-center mx-auto border border-[#1E4ED8] px-4 py-2 rounded-lg">
-                                        Xem thêm
+                                        {{ __('common.read_more') }}
                                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                         </svg>
@@ -99,7 +101,7 @@
                 <div class="col-span-1 lg:col-span-5 mt-4 md:mt-0">
                     <div class="border rounded-lg bg-white">
                         <div class="p-4">
-                            <h2 class="text-lg font-semibold">Thông số chi tiết</h2>
+                            <h2 class="text-lg font-semibold">{{ __('common.detailed_specifications') }}</h2>
                         </div>
                         <div class="divide-y">
                             @if($product->specifications && is_array($product->specifications))
@@ -111,14 +113,14 @@
                             @endforeach
                             @else
                                 <div class="py-3 px-4">
-                                    <p class="text-sm text-gray-500">Không có thông số chi tiết</p>
+                                    <p class="text-sm text-gray-500">{{ __('common.no_detailed_specifications') }}</p>
                                 </div>
                             @endif
                         </div>
                     </div>
                     <div class="border rounded-lg bg-white mt-4">
                         <div class="p-4">
-                            <h2 class="text-lg font-semibold">Tài liệu</h2>
+                            <h2 class="text-lg font-semibold">{{ __('common.documents') }}</h2>
                         </div>
                         <div class="divide-y">
                             @if($product->documents && is_array($product->documents))
@@ -155,7 +157,7 @@
                                                     <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                                                     </svg>
-                                                    Tải xuống
+                                                    {{ __('common.download') }}
                                                 </a>
                                             </div>
                                         </div>
@@ -163,7 +165,7 @@
                                 @endforeach
                             @else
                                 <div class="py-3 px-4">
-                                    <p class="text-sm text-gray-500">Không có tài liệu</p>
+                                    <p class="text-sm text-gray-500">{{ __('common.no_documents') }}</p>
                                 </div>
                             @endif
                         </div>
@@ -173,7 +175,7 @@
 
             <!-- Related Products Section -->
             <div class="pt-5 mt-4 border-t md:mt-6">
-                <h2 class="text-2xl font-semibold mb-6 text-center">Sản phẩm liên quan</h2>
+                <h2 class="text-2xl font-semibold mb-6 text-center">{{ __('common.related_products') }}</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                     @for ($i = 0; $i < 4; $i++)
                         <div class="group relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -185,7 +187,7 @@
                             <div class="p-4">
                                 <h3 class="text-sm font-semibold text-center text-gray-900">
                                     <a href="#" class="hover:text-[#1E4ED8]">
-                                        {{ $product->name ?? 'Tên sản phẩm' }}
+                                        {{ $product->name ?? __('common.product_name') }}
                                     </a>
                                 </h3>
                             </div>

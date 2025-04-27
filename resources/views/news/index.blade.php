@@ -4,12 +4,12 @@
 <div class="pt-[72px] md:pt-[116px]">
     <!-- Mobile Title -->
     <div class="block lg:hidden mt-[120px] mb-8">
-        <h1 class="text-3xl font-bold text-center">Tin tức & Sự kiện</h1>
+        <h1 class="text-3xl font-bold text-center">{{ __('common.news') }}</h1>
     </div>
     <!-- News Section -->
     <section class="py-4 mt-8">
         <!-- Desktop Title -->
-        <h1 class="hidden lg:block text-3xl font-bold text-center mb-12">Tin tức & Sự kiện</h1>
+        <h1 class="hidden lg:block text-3xl font-bold text-center mb-12">{{ __('common.news') }}</h1>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
             <!-- News Grid -->
@@ -24,7 +24,7 @@
                             <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent opacity-30 mix-blend-overlay"></div>
                             <!-- Content Overlay -->
                             <div class="absolute bottom-0 left-0 right-0 p-10 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-                                <span class="text-blue-100 text-sm font-medium mb-4 inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-500">Tin tức mới</span>
+                                <span class="text-blue-100 text-sm font-medium mb-4 inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-500">{{ __('common.new_news') }}</span>
                                 <h3 class="font-bold text-2xl text-white line-clamp-3 mb-4 group-hover:text-blue-100 transition-colors">
                                     {{ $item->title }}
                                 </h3>
@@ -43,11 +43,11 @@
             <!-- Pagination -->
             <div class="flex justify-center mt-12">
                 <button class="load-more-btn px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors">
-                    Tải thêm
+                    {{ __('common.load_more') }}
                 </button>
                 <div class="loading-indicator hidden flex items-center gap-2">
                     <div class="w-6 h-6 border-2 border-t-primary border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-                    <span class="text-gray-600">Đang tải...</span>
+                    <span class="text-gray-600">{{ __('common.loading') }}</span>
                 </div>
             </div>
         </div>

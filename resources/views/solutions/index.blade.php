@@ -4,7 +4,7 @@
 <div class="pt-[72px] md:pt-[116px]">
     <!-- Mobile Title -->
     <div class="block lg:hidden mt-[120px] mb-8">
-        <h1 class="text-3xl font-bold text-center">Giải pháp</h1>
+        <h1 class="text-3xl font-bold text-center">{{ __('common.solutions') }}</h1>
     </div>
 
     <!-- Breadcrumb -->
@@ -37,7 +37,7 @@
     <!-- Solutions Section -->
     <section class="py-6">
         <!-- Desktop Title -->
-        <h1 class="hidden lg:block text-3xl font-bold text-center mb-12 mt-8">Giải pháp</h1>
+        <h1 class="hidden lg:block text-3xl font-bold text-center mb-12 mt-8">{{ __('common.solutions') }}</h1>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <!-- Solutions List -->
@@ -78,7 +78,7 @@
                             <p class="text-gray-600 mb-4 line-clamp-3">{{ $solution->short_description }}</p>
                             <a href="{{ route('solutions.show', $solution->slug) }}"
                                class="inline-flex items-center text-sm text-primary hover:text-primary/80 font-medium">
-                                Chi tiết
+                                {{ __('common.read_more') }}
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                 </svg>
@@ -91,11 +91,11 @@
             <!-- Pagination -->
             <div class="flex justify-center mt-12">
                 <button class="load-more-btn-solutions px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors">
-                    Tải thêm
+                    {{ __('common.load_more') }}
                 </button>
                 <div class="loading-indicator hidden flex items-center gap-2">
                     <div class="w-6 h-6 border-2 border-t-primary border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-                    <span class="text-gray-600">Đang tải...</span>
+                    <span class="text-gray-600">{{ __('common.loading') }}</span>
                 </div>
             </div>
         </div>

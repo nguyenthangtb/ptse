@@ -4,7 +4,7 @@
 <div class="pt-[72px] md:pt-[116px]">
     <!-- Mobile Title -->
     <div class="block lg:hidden mt-[100px] mb-8">
-        <h1 class="text-3xl font-bold text-center">Sản phẩm</h1>
+        <h1 class="text-3xl font-bold text-center">{{ __('common.products') }}</h1>
     </div>
 
     <!-- Breadcrumb -->
@@ -39,7 +39,7 @@
     <section class="py-0">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <!-- Desktop Title -->
-            <h1 class="hidden lg:block text-3xl font-bold text-center mb-4 mt-8">Sản phẩm</h1>
+            <h1 class="hidden lg:block text-3xl font-bold text-center mb-4 mt-8">{{ __('common.products') }}</h1>
 
             <!-- Product Category Title -->
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Bơm chống nghẹt</h2>

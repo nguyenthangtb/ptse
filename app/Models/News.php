@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\Translatable\HasTranslations;
 
 class News extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasTranslations;
+
+    public $translatable = ['title', 'content', 'excerpt', 'meta_title', 'meta_description', 'meta_keywords'];
 
     protected $fillable = [
         'title',
@@ -38,7 +41,9 @@ class News extends Model
         parent::boot();
         static::creating(function ($news) {
             if (!$news->slug) {
-                $news->slug = Str::slug($news->title);
+                // Lấy title từ ngôn ngữ mặc định
+                $title = $news->getTranslation('title', app()->getLocale(), false) ?? '';
+                $news->slug = Str::slug($title);
             }
         });
     }

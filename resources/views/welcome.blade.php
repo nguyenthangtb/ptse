@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Giải pháp bơm & van cho ngành nước')
+@section('title', __('common.pump_and_valve_solutions_for_the_water_industry'))
 
 @section('content')
     <!-- Hero Section with Slider -->

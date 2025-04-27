@@ -35,7 +35,7 @@
                 <div class="ml-4">
                     <form action="{{ route('search') }}" method="GET" class="flex items-center">
                         <div class="relative">
-                            <input type="text" id="desktop-search" name="q" placeholder="Search..."
+                            <input type="text" id="desktop-search" name="q" placeholder="{{ __('common.search') }}"
                                 class="w-56 py-1.5 px-4 pr-10 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white/10 text-white placeholder-white/70">
                             <button type="submit" class="absolute inset-y-0 right-0 flex items-center px-2">
                                 <i class="fas fa-search text-white/80"></i>
@@ -43,17 +43,23 @@
                         </div>
                     </form>
                 </div>
+
+                <!-- Language Switcher -->
+                <div class="ml-4">
+                    @include('layouts.partials.language_switcher')
+                </div>
             </div>
 
             <!-- Mobile Header Layout -->
             <div class="flex md:hidden items-center justify-between py-1.5">
+
                 <!-- Mobile Menu Button -->
                 <button id="menuToggle" class="text-white focus:outline-none p-1 relative z-[60]">
                     <i class="fas fa-bars text-2xl transition-transform duration-300"></i>
                 </button>
 
                 <!-- Mobile Search Component -->
-                <div class="flex-grow px-2">
+                <div class="flex-grow px-2 flex items-center justify-between">
                     <form action="{{ route('search') }}" method="GET" class="flex items-center">
                         <div class="relative w-full">
                             <input type="text" id="search-autocomplete" name="q" placeholder="Tìm kiếm..."
@@ -63,6 +69,7 @@
                             </button>
                         </div>
                     </form>
+                        @include('layouts.partials.language_switcher')
                 </div>
 
                 @push('scripts')
@@ -112,7 +119,10 @@
                         <x-main-menu />
                     </div>
                 </div>
+
+
             </div>
+
         </div>
     </div>
 </header>

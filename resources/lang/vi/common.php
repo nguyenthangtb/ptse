@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'sologan' => 'GIẢI PHÁP THIẾT BỊ CHO XỬ LÝ NƯỚC',
     'products' => 'Sản phẩm',
     'news' => 'Tin tức & sự kiện',
     'services' => 'Dịch vụ',

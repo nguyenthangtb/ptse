@@ -15,7 +15,7 @@
             <div class="mt-2 md:mt-10 text-center md:text-start">
                 <p class="text-base md:text-4xl uppercase tracking-wide font-extrabold text-[#1E4ED8] md:whitespace-nowrap
                    [text-shadow:1px_1px_0px_#fffa90,-1px_-1px_0px_#00255e,0px_2px_5px_rgba(0,0,0,0.3)] italic">
-                    {{ $config['company_slogan'] }}
+                    {{ __('common.sologan') }}
                 </p>
             </div>
         </div>

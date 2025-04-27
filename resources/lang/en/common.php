@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'sologan' => 'SOLUTIONS FOR THE WATER INDUSTRY',
     'products' => 'Products',
     'news' => 'News',
     'services' => 'Our Services',

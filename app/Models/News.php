@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Support\Facades\Storage;
 
 class News extends Model
 {
@@ -98,5 +99,14 @@ class News extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function getImageUrlAttribute()
+    {
+        if ($this->image) {
+            $path = 'storage/news/' . $this->image;
+            return asset($path);
+        }
+        return null;
     }
 }

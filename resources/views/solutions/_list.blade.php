@@ -3,7 +3,7 @@
         <!-- Image Container -->
         <div class="aspect-[4/3] w-full overflow-hidden">
             @if($solution->image && !empty(trim($solution->image)))
-                <img src="{{ $solution->image }}"
+                <img src="{{ Storage::url($solution->image) }}"
                         alt="{{ $solution->title }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     >

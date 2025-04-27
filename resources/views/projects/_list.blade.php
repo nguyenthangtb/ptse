@@ -3,7 +3,7 @@
         <div class="h-64 overflow-hidden rounded-t-lg">
             <a href="{{ route('projects.show', $project->slug) }}" class="block h-full">
                 @if($project->image)
-                    <img src="{{ $project->image }}"
+                    <img src="{{ Storage::url($project->image) }}"
                          alt="{{ $project->title }}"
                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                 @endif

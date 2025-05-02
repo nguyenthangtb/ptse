@@ -104,13 +104,18 @@
                             <h2 class="text-lg font-semibold">{{ __('common.detailed_specifications') }}</h2>
                         </div>
                         <div class="divide-y">
-                            @if($product->specifications && is_array($product->specifications))
-                            @foreach($product->specifications as $spec)
-                                <div class="grid grid-cols-3 py-3 px-4">
-                                    <dt class="text-sm font-medium text-gray-500 col-span-1">{{ $spec['label'] ?? '' }}</dt>
-                                    <dd class="text-sm text-gray-900 col-span-2">{{ $spec['value'] ?? '' }}</dd>
-                                </div>
-                            @endforeach
+                            @php
+                                $currentLocale = app()->getLocale();
+                                $specifications = $product->getTranslation('specifications', $currentLocale, false);
+                            @endphp
+
+                            @if($specifications && is_array($specifications))
+                                @foreach($specifications as $spec)
+                                    <div class="grid grid-cols-3 py-3 px-4">
+                                        <dt class="text-sm font-medium text-gray-500 col-span-1">{{ $spec['label'] ?? '' }}</dt>
+                                        <dd class="text-sm text-gray-900 col-span-2">{{ $spec['value'] ?? '' }}</dd>
+                                    </div>
+                                @endforeach
                             @else
                                 <div class="py-3 px-4">
                                     <p class="text-sm text-gray-500">{{ __('common.no_detailed_specifications') }}</p>

@@ -31,19 +31,29 @@ class ProductResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $locales = config('app.locales', [config('app.locale')]);
         return $form
             ->schema([
                 Forms\Components\Group::make()
                     ->schema([
                         Forms\Components\Section::make()
                             ->schema([
-                                Forms\Components\TextInput::make('name')
-                                    ->label('Tên sản phẩm')
-                                    ->required()
-                                    ->live(onBlur: true)
-                                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
-                                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
-                                    ),
+                                // Đặt tabs cho tiêu đề đa ngôn ngữ
+                                Forms\Components\Tabs::make('Tiêu đề')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("name.{$locale}")
+                                                    ->label('Tên sản phẩm')
+                                                    ->required()
+                                                    ->live(onBlur: true)
+                                                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
+                                                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
+                                                    ),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
+
                                 Forms\Components\TextInput::make('slug')
                                     ->label('Đường dẫn')
                                     ->required()
@@ -70,41 +80,65 @@ class ProductResource extends Resource
                             ])
                             ->columns(2),
 
-                        Forms\Components\Section::make('Mô tả')
-                            ->schema([
-                                Forms\Components\TextInput::make('short_description')
-                                    ->label('Mô tả ngắn')
-                                    ->maxLength(255),
-                                Forms\Components\RichEditor::make('description')
-                                    ->label('Mô tả chi tiết')
-                                    ->columnSpanFull(),
-                            ]),
-
-                        Forms\Components\Section::make('Thông số kỹ thuật')
-                            ->schema([
-                                Forms\Components\Repeater::make('specifications')
-                                    ->label('Thông số')
+                        // Mô tả
+                        Forms\Components\Tabs::make('Mô tả')
+                            ->tabs(collect($locales)->map(function ($locale) {
+                                return Forms\Components\Tabs\Tab::make(strtoupper($locale))
                                     ->schema([
-                                        Forms\Components\TextInput::make('label')
-                                            ->label('Tên thông số')
-                                            ->required(),
-                                        Forms\Components\TextInput::make('value')
-                                            ->label('Giá trị')
-                                            ->required(),
-                                    ])
-                                    ->columns(2)
-                                    ->columnSpanFull()
-                                    ->defaultItems(0)
-                                    ->reorderable()
-                                    ->collapsible(),
-                            ]),
+                                        Forms\Components\Section::make('Mô tả')
+                                            ->schema([
+                                                Forms\Components\TextInput::make("short_description.{$locale}")
+                                                    ->label('Mô tả ngắn')
+                                                    ->maxLength(255),
+                                                Forms\Components\RichEditor::make("description.{$locale}")
+                                                    ->label('Mô tả chi tiết')
+                                                    ->columnSpanFull(),
+                                            ]),
+                                    ]);
+                            })->toArray())
+                            ->columnSpanFull(),
+                        // Tính năng
+                        Forms\Components\Tabs::make('Tính năng')
+                            ->tabs(collect($locales)->map(function ($locale) {
+                                return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                    ->schema([
+                                        Forms\Components\Section::make('Tính năng')
+                                            ->schema([
+                                                Forms\Components\RichEditor::make("features.{$locale}")
+                                                    ->label('Tính năng')
+                                                    ->columnSpanFull(),
+                                            ]),
+                                    ]);
+                            })->toArray())
+                            ->columnSpanFull(),
 
-                        Forms\Components\Section::make('Tính năng')
+                            Forms\Components\Section::make('Thông số kỹ thuật')
                             ->schema([
-                                Forms\Components\RichEditor::make('features')
-                                    ->label('Tính năng')
+                                Forms\Components\Tabs::make('Thông số')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\Repeater::make("specifications.{$locale}")
+                                                    ->label('Thông số')
+                                                    ->schema([
+                                                        Forms\Components\TextInput::make('label')
+                                                            ->label('Tên thông số')
+                                                            ->required(),
+                                                        Forms\Components\TextInput::make('value')
+                                                            ->label('Giá trị')
+                                                            ->required(),
+                                                    ])
+                                                    ->columns(2)
+                                                    ->columnSpanFull()
+                                                    ->defaultItems(0)
+                                                    ->reorderable()
+                                                    ->collapsible(),
+                                            ]);
+                                    })->toArray())
                                     ->columnSpanFull(),
                             ]),
+
+
                     ])
                     ->columnSpan(['lg' => 2]),
 
@@ -149,15 +183,23 @@ class ProductResource extends Resource
                                     ->reorderable(),
                             ]),
 
-                        Forms\Components\Section::make('SEO')
-                            ->schema([
-                                Forms\Components\TextInput::make('meta_title')
-                                    ->label('Tiêu đề SEO'),
-                                Forms\Components\TextInput::make('meta_description')
-                                    ->label('Mô tả SEO'),
-                                Forms\Components\TextInput::make('meta_keywords')
-                                    ->label('Từ khóa SEO'),
-                            ]),
+                        // SEO
+                        Forms\Components\Tabs::make('SEO')
+                            ->tabs(collect($locales)->map(function ($locale) {
+                                return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                    ->schema([
+                                        Forms\Components\Section::make('SEO')
+                                            ->schema([
+                                                Forms\Components\TextInput::make("meta_title.{$locale}")
+                                                    ->label('Tiêu đề SEO'),
+                                                Forms\Components\TextInput::make("meta_description.{$locale}")
+                                                    ->label('Mô tả SEO'),
+                                                Forms\Components\TextInput::make("meta_keywords.{$locale}")
+                                                    ->label('Từ khóa SEO'),
+                                            ]),
+                                    ]);
+                            })->toArray())
+                            ->columnSpanFull(),
                     ])
                     ->columnSpan(['lg' => 1]),
             ])

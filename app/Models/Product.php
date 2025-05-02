@@ -6,10 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
-
+use Spatie\Translatable\HasTranslations;
 class Product extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasTranslations;
+
+    protected $table = 'products';
+
+    public $translatable = ['name', 'description', 'short_description', 'features',
+    'meta_title', 'meta_description', 'meta_keywords', 'specifications'];
 
     protected $fillable = [
         'name',
@@ -47,7 +52,9 @@ class Product extends Model
         parent::boot();
         static::creating(function ($product) {
             if (!$product->slug) {
-                $product->slug = Str::slug($product->name);
+
+                $title = $product->getTranslation('name', app()->getLocale(), false) ?? '';
+                $product->slug = Str::slug($title);
             }
         });
     }

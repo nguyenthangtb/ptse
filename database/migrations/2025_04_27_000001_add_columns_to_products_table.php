@@ -28,6 +28,7 @@ return new class extends Migration
                     'meta_title_translatable' => json_encode(['vi' => $product->meta_title]),
                     'meta_description_translatable' => json_encode(['vi' => $product->meta_description]),
                     'meta_keywords_translatable' => json_encode(['vi' => $product->meta_keywords]),
+                    'specifications_translatable' => json_encode(['vi' => $product->specifications]),
                 ]);
         });
     }
@@ -42,6 +43,7 @@ return new class extends Migration
                 'meta_title_translatable',
                 'meta_description_translatable',
                 'meta_keywords_translatable',
+                'specifications_translatable',
             ]);
         });
 

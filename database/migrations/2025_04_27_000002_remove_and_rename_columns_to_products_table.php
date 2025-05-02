@@ -16,6 +16,7 @@ return new class extends Migration
                 'meta_title',
                 'meta_description',
                 'meta_keywords',
+                'specifications',
             ]);
         });
 
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->renameColumn('meta_title_translatable', 'meta_title');
             $table->renameColumn('meta_description_translatable', 'meta_description');
             $table->renameColumn('meta_keywords_translatable', 'meta_keywords');
+            $table->renameColumn('specifications_translatable', 'specifications');
         });
     }
 

@@ -71,10 +71,12 @@ class ProductController extends Controller
         $relatedProducts = Cache::remember('related_products_' . $product->id, 60*24, function () use ($product) {
             return Product::query()
                 ->where('is_active', true)
+                ->where('category_id', $product->category_id)
                 ->where('id', '!=', $product->id)
                 ->limit(4)
                 ->get();
         });
+
 
         return view('products.show', compact('product', 'relatedProducts'));
     }
@@ -85,7 +87,7 @@ class ProductController extends Controller
         Cache::forget('related_products_' . $product->id);
         Cache::forget('category_products_' . $product->category_id);
         Cache::forget('all_categories');
-        
+
         // Clear paginated caches
         for ($i = 1; $i <= 10; $i++) { // Adjust the number based on your typical page count
             Cache::forget('products_page_' . $i);

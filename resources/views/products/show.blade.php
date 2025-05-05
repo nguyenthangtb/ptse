@@ -182,22 +182,22 @@
             <div class="pt-5 mt-4 border-t md:mt-6">
                 <h2 class="text-2xl font-semibold mb-6 text-center">{{ __('common.related_products') }}</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                    @for ($i = 0; $i < 4; $i++)
+                    @foreach($relatedProducts as $relatedProduct)
                         <div class="group relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                            @if($product->image)
-                                <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75">
+                            @if($relatedProduct->image)
+                                <img src="{{ Storage::url($relatedProduct->image) }}" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75">
                             @else
-                                <img src="https://placehold.co/800x400" alt="{{ $product->name }}" class="aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75">
+                                <img src="https://placehold.co/800x400" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75">
                             @endif
                             <div class="p-4">
                                 <h3 class="text-sm font-semibold text-center text-gray-900">
                                     <a href="#" class="hover:text-[#1E4ED8]">
-                                        {{ $product->name ?? __('common.product_name') }}
+                                        {{ $relatedProduct->name ?? __('common.product_name') }}
                                     </a>
                                 </h3>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </div>

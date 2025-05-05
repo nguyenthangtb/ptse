@@ -31,19 +31,28 @@ class CategoryResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $locales = config('app.locales', [config('app.locale')]);
         return $form
             ->schema([
                 Forms\Components\Group::make()
                     ->schema([
                         Forms\Components\Section::make()
                             ->schema([
-                                Forms\Components\TextInput::make('name')
-                                    ->label('Tên danh mục')
-                                    ->required()
-                                    ->live(onBlur: true)
-                                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
-                                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
-                                    ),
+                                // Đặt tabs cho tiêu đề đa ngôn ngữ
+                                Forms\Components\Tabs::make('Tiêu đề')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("name.{$locale}")
+                                                    ->label('Tên danh mục')
+                                                    ->required()
+                                                    ->live(onBlur: true)
+                                                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
+                                                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
+                                                    ),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
                                 Forms\Components\TextInput::make('slug')
                                     ->label('Đường dẫn')
                                     ->required()
@@ -62,11 +71,18 @@ class CategoryResource extends Resource
 
                         Forms\Components\Section::make('Mô tả')
                             ->schema([
-                                Forms\Components\Textarea::make('short_description')
-                                    ->label('Mô tả ngắn')
-                                    ->rows(3),
-                                Forms\Components\RichEditor::make('description')
-                                    ->label('Mô tả chi tiết')
+                                Forms\Components\Tabs::make('Mô tả')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\Textarea::make("short_description.{$locale}")
+                                                    ->label('Mô tả ngắn')
+                                                    ->rows(3),
+                                                Forms\Components\RichEditor::make("description.{$locale}")
+                                                    ->label('Mô tả chi tiết')
+                                                    ->columnSpanFull(),
+                                            ]);
+                                    })->toArray())
                                     ->columnSpanFull(),
                             ]),
                     ])
@@ -89,6 +105,26 @@ class CategoryResource extends Resource
                                     ->disk('public')
                                     ->directory('categories')
                                     ->imageEditor()
+                                    ->columnSpanFull(),
+                            ]),
+
+                        Forms\Components\Section::make('SEO')
+                            ->schema([
+                                Forms\Components\Tabs::make('SEO')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("meta_title.{$locale}")
+                                                    ->label('Tiêu đề SEO')
+                                                    ->columnSpanFull(),
+                                                Forms\Components\TextInput::make("meta_description.{$locale}")
+                                                    ->label('Mô tả SEO')
+                                                    ->columnSpanFull(),
+                                                Forms\Components\TextInput::make("meta_keywords.{$locale}")
+                                                    ->label('Từ khóa SEO')
+                                                    ->columnSpanFull(),
+                                            ]);
+                                    })->toArray())
                                     ->columnSpanFull(),
                             ]),
                     ])

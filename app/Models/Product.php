@@ -149,7 +149,20 @@ class Product extends Model
 
     public function getSpecificationsAttribute($value)
     {
+        if (is_null($value)) {
+            return [
+                'vi' => [],
+                'en' => []
+            ];
+        }
         $decoded = json_decode($value, true);
+
+        if (!is_array($decoded)) {
+            return [
+                'vi' => [],
+                'en' => []
+            ];
+        }
 
         foreach ($decoded as $locale => $data) {
             // Nếu bị encode 2 lần (string JSON), thì decode lần nữa

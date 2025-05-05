@@ -7,17 +7,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
+use Spatie\Translatable\HasTranslations;
 class Category extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasTranslations;
+
+    public $translatable = ['name', 'description', 'short_description', 'meta_title',
+    'meta_description', 'meta_keywords'];
 
     protected $fillable = [
         'name',
         'slug',
         'image',
         'description',
+        'short_description',
         'parent_id',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
         'order',
         'is_active'
     ];
@@ -32,7 +39,8 @@ class Category extends Model
         parent::boot();
         static::creating(function ($category) {
             if (!$category->slug) {
-                $category->slug = Str::slug($category->name);
+                $title = $category->getTranslation('name', app()->getLocale(), false) ?? '';
+                $category->slug = Str::slug($title);
             }
         });
     }

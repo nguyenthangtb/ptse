@@ -15,6 +15,7 @@ return new class extends Migration
             $table->json('meta_title_translatable')->nullable();
             $table->json('meta_description_translatable')->nullable();
             $table->json('meta_keywords_translatable')->nullable();
+            $table->json('specifications_translatable')->nullable();
         });
 
           // Copy dữ liệu cũ vào trường JSON mới

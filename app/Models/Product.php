@@ -146,4 +146,25 @@ class Product extends Model
         }
         return collect([]);
     }
+
+    public function getSpecificationsAttribute($value)
+    {
+        $decoded = json_decode($value, true);
+
+        foreach ($decoded as $locale => $data) {
+            // Nếu bị encode 2 lần (string JSON), thì decode lần nữa
+            if (is_string($data)) {
+                $decoded[$locale] = json_decode($data, true);
+            }
+        }
+
+        return $decoded;
+    }
+
+    public function setSpecificationsAttribute($value)
+    {
+        $this->attributes['specifications'] = json_encode($value, JSON_UNESCAPED_UNICODE);
+    }
+
+
 }

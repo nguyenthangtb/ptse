@@ -44,18 +44,16 @@ class ProjectResource extends Resource
                                     ->label('Đường dẫn')
                                     ->required()
                                     ->unique(ignoreRecord: true),
-                                Forms\Components\Select::make('solution_id')
-                                    ->label('Giải pháp')
-                                    ->relationship('solution', 'title')
-                                    ->required()
-                                    ->searchable()
-                                    ->preload(),
+                                // Forms\Components\Select::make('solution_id')
+                                //     ->label('Giải pháp')
+                                //     ->relationship('solution', 'title')
+                                //     ->required()
+                                //     ->searchable()
+                                //     ->preload(),
                                 Forms\Components\TextInput::make('client')
-                                    ->label('Khách hàng')
-                                    ->required(),
+                                    ->label('Khách hàng'),
                                 Forms\Components\TextInput::make('location')
-                                    ->label('Địa điểm')
-                                    ->required(),
+                                    ->label('Địa điểm'),
                                 Forms\Components\DatePicker::make('completed_at')
                                     ->label('Ngày hoàn thành'),
                             ])
@@ -69,19 +67,16 @@ class ProjectResource extends Resource
                                     ->maxLength(255),
                                 Forms\Components\RichEditor::make('description')
                                     ->label('Mô tả chi tiết')
-                                    ->required()
                                     ->columnSpanFull(),
                                 Forms\Components\RichEditor::make('challenge')
                                     ->label('Thách thức')
-                                    ->required()
                                     ->columnSpanFull(),
-                                Forms\Components\RichEditor::make('solution')
-                                    ->label('Giải pháp')
-                                    ->required()
-                                    ->columnSpanFull(),
+                                // Forms\Components\RichEditor::make('solution')
+                                //     ->label('Giải pháp')
+                                //     ->required()
+                                //     ->columnSpanFull(),
                                 Forms\Components\RichEditor::make('results')
                                     ->label('Kết quả')
-                                    ->required()
                                     ->columnSpanFull(),
                             ]),
                     ])
@@ -108,6 +103,7 @@ class ProjectResource extends Resource
                                     ->label('Thư viện ảnh')
                                     ->multiple()
                                     ->image()
+                                    ->panelLayout('grid')
                                     ->directory('projects/gallery')
                                     ->reorderable(),
                             ]),
@@ -138,10 +134,10 @@ class ProjectResource extends Resource
                     ->label('Tiêu đề')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('solution.title')
-                    ->label('Giải pháp')
-                    ->searchable()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('solution.title')
+                //     ->label('Giải pháp')
+                //     ->searchable()
+                //     ->sortable(),
                 Tables\Columns\TextColumn::make('client')
                     ->label('Khách hàng')
                     ->searchable()
@@ -171,11 +167,11 @@ class ProjectResource extends Resource
             ->filters([
                 Tables\Filters\TrashedFilter::make()
                     ->label('Đã xóa'),
-                Tables\Filters\SelectFilter::make('solution')
-                    ->label('Giải pháp')
-                    ->relationship('solution', 'title')
-                    ->searchable()
-                    ->preload(),
+                // Tables\Filters\SelectFilter::make('solution')
+                //     ->label('Giải pháp')
+                //     ->relationship('solution', 'title')
+                //     ->searchable()
+                //     ->preload(),
                 Tables\Filters\Filter::make('completed_at')
                     ->label('Ngày hoàn thành')
                     ->form([
@@ -214,12 +210,12 @@ class ProjectResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            RelationManagers\CommentsRelationManager::make(),
-        ];
-    }
+    // public static function getRelations(): array
+    // {
+    //     return [
+    //         RelationManagers\CommentsRelationManager::make(),
+    //     ];
+    // }
 
     public static function getPages(): array
     {

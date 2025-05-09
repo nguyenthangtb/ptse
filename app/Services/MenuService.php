@@ -75,7 +75,7 @@ class MenuService
                     ],
                     [
                         'title' => __('common.phu_kien'),
-                        'url' => '#',
+                        'url' => '/san-pham/danh-muc/phu-kien-thiet-bi-moi-khac',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []

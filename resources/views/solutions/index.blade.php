@@ -6,34 +6,6 @@
     <div class="block lg:hidden mt-[120px] mb-8">
         <h1 class="text-3xl font-bold text-center">{{ __('common.solutions') }}</h1>
     </div>
-
-    <!-- Breadcrumb -->
-    {{-- <nav class="hidden lg:block bg-white py-3 !mt-[130px] border-b">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap hide-scrollbar" aria-label="Breadcrumb">
-                <ol role="list" class="flex items-center space-x-2 md:space-x-4">
-                    <li>
-                        <div>
-                            <a href="{{ route('home') }}" class="text-gray-400 hover:text-gray-500">
-                                <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center">
-                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            <span class="ml-2 md:ml-4 text-sm font-medium text-gray-500" aria-current="page">Giải pháp</span>
-                        </div>
-                    </li>
-                </ol>
-            </nav>
-        </div>
-    </nav> --}}
-
     <!-- Solutions Section -->
     <section class="py-6">
         <!-- Desktop Title -->
@@ -47,7 +19,7 @@
                         <!-- Image Container -->
                         <div class="aspect-[4/3] w-full overflow-hidden">
                             @if($solution->image && !empty(trim($solution->image)))
-                                <img src="{{ $solution->image }}"
+                                <img src="{{ Storage::url($solution->image) }}"
                                      alt="{{ $solution->title }}"
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     >

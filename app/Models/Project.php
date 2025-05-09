@@ -54,11 +54,11 @@ class Project extends Model
         });
     }
 
-    // Solution relationship
-    public function solution()
-    {
-        return $this->belongsTo(Solution::class);
-    }
+    // // Solution relationship
+    // public function solution()
+    // {
+    //     return $this->belongsTo(Solution::class);
+    // }
 
     // Comments relationship
     public function comments()

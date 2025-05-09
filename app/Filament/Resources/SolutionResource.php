@@ -27,19 +27,31 @@ class SolutionResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $locales = config('app.locales', [config('app.locale')]);
         return $form
             ->schema([
                 Forms\Components\Group::make()
                     ->schema([
                         Forms\Components\Section::make()
                             ->schema([
-                                Forms\Components\TextInput::make('title')
-                                    ->label('Tiêu đề')
+                                Forms\Components\Tabs::make('Tiêu đề')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("title.{$locale}")
+                                                    ->label('Tiêu đề')
+                                                    ->required()
+                                                    ->live(onBlur: true)
+                                                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
+                                                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
+                                                    ),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
+                                Forms\Components\TextInput::make('slug')
+                                    ->label('Đường dẫn')
                                     ->required()
-                                    ->live(onBlur: true)
-                                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
-                                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
-                                    ),
+                                    ->unique(ignoreRecord: true),
                                 Forms\Components\TextInput::make('slug')
                                     ->label('Đường dẫn')
                                     ->required()
@@ -51,51 +63,23 @@ class SolutionResource extends Resource
                             ])
                             ->columns(2),
 
-                        Forms\Components\Section::make('Mô tả')
+                            Forms\Components\Section::make('Mô tả')
                             ->schema([
-                                Forms\Components\TextInput::make('short_description')
-                                    ->label('Mô tả ngắn')
-                                    ->required()
-                                    ->maxLength(255),
-                                Forms\Components\RichEditor::make('description')
-                                    ->label('Mô tả chi tiết')
-                                    ->required()
+                                Forms\Components\Tabs::make('Mô tả')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("short_description.{$locale}")
+                                                    ->label('Mô tả ngắn')
+                                                    ->required()
+                                                    ->maxLength(255),
+                                                Forms\Components\RichEditor::make("description.{$locale}")
+                                                    ->label('Mô tả chi tiết')
+                                                    ->required()
+                                                    ->columnSpanFull(),
+                                            ]);
+                                    })->toArray())
                                     ->columnSpanFull(),
-                            ]),
-
-                        Forms\Components\Section::make('Tính năng & Lợi ích')
-                            ->schema([
-                                Forms\Components\Repeater::make('features')
-                                    ->label('Tính năng')
-                                    ->schema([
-                                        Forms\Components\TextInput::make('title')
-                                            ->label('Tiêu đề')
-                                            ->required(),
-                                        Forms\Components\Textarea::make('description')
-                                            ->label('Mô tả')
-                                            ->required()
-                                            ->rows(2),
-                                    ])
-                                    ->defaultItems(0)
-                                    ->grid(2)
-                                    ->collapsible()
-                                    ->itemLabel(fn (array $state): ?string => $state['title'] ?? null),
-
-                                Forms\Components\Repeater::make('benefits')
-                                    ->label('Lợi ích')
-                                    ->schema([
-                                        Forms\Components\TextInput::make('title')
-                                            ->label('Tiêu đề')
-                                            ->required(),
-                                        Forms\Components\Textarea::make('description')
-                                            ->label('Mô tả')
-                                            ->required()
-                                            ->rows(2),
-                                    ])
-                                    ->defaultItems(0)
-                                    ->grid(2)
-                                    ->collapsible()
-                                    ->itemLabel(fn (array $state): ?string => $state['title'] ?? null),
                             ]),
                     ])
                     ->columnSpan(['lg' => 2]),
@@ -127,12 +111,19 @@ class SolutionResource extends Resource
 
                         Forms\Components\Section::make('SEO')
                             ->schema([
-                                Forms\Components\TextInput::make('meta_title')
-                                    ->label('Tiêu đề SEO'),
-                                Forms\Components\TextInput::make('meta_description')
-                                    ->label('Mô tả SEO'),
-                                Forms\Components\TextInput::make('meta_keywords')
-                                    ->label('Từ khóa SEO'),
+                                Forms\Components\Tabs::make('SEO')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("meta_title.{$locale}")
+                                                    ->label('Tiêu đề SEO'),
+                                                Forms\Components\TextInput::make("meta_description.{$locale}")
+                                                    ->label('Mô tả SEO'),
+                                                Forms\Components\TextInput::make("meta_keywords.{$locale}")
+                                                    ->label('Từ khóa SEO'),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
                             ]),
                     ])
                     ->columnSpan(['lg' => 1]),
@@ -201,12 +192,12 @@ class SolutionResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            RelationManagers\ProjectsRelationManager::make(),
-        ];
-    }
+    // public static function getRelations(): array
+    // {
+    //     return [
+    //         RelationManagers\ProjectsRelationManager::make(),
+    //     ];
+    // }
 
     public static function getPages(): array
     {

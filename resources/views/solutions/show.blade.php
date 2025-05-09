@@ -9,7 +9,7 @@
                     <article class="bg-white rounded-lg shadow-sm overflow-hidden">
                         @if($solution->image)
                             <div class="aspect-video w-full">
-                                <img src="{{ $solution->image }}" alt="{{ $solution->title }}"
+                                <img src="{{ Storage::url($solution->image) }}" alt="{{ $solution->title }}"
                                     class="w-full h-full object-cover">
                             </div>
                         @endif
@@ -61,7 +61,7 @@
                                 <div class="group">
                                     <a href="{{ route('solutions.show', $related->slug) }}" class="flex gap-4">
                                         @if($related->image)
-                                            <img src="{{ $related->image }}" alt="{{ $related->title }}"
+                                            <img src="{{ Storage::url($related->image) }}" alt="{{ $related->title }}"
                                                 class="w-24 h-24 rounded-lg object-cover flex-shrink-0 group-hover:opacity-90 transition-opacity">
                                         @else
                                             <div class="w-24 h-24 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">

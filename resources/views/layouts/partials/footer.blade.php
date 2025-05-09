@@ -129,7 +129,7 @@
 
 
     <!-- Zalo -->
-    <a href="{{ $config['connect_zalo'] }}"
+    <a href="https://zalo.me/{{ $config['connect_zalo'] }}"
        target="_blank"
        class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-600 transform hover:-translate-y-1 transition-all">
         <span class="text-xl font-bold">Zalo</span>

@@ -129,14 +129,14 @@
 
 
     <!-- Zalo -->
-    <a href="https://zalo.me/0968750388"
+    <a href="{{ $config['connect_zalo'] }}"
        target="_blank"
        class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-600 transform hover:-translate-y-1 transition-all">
         <span class="text-xl font-bold">Zalo</span>
     </a>
 
     <!-- Facebook Messenger -->
-    <a href="https://m.me/YOUR_FB_PAGE_ID"
+    <a href="{{ $config['connect_facebook'] }}"
        target="_blank"
        class="w-12 h-12 bg-[#0099FF] rounded-full flex items-center justify-center text-white shadow-lg hover:bg-[#0088FF] transform hover:-translate-y-1 transition-all">
         <i class="fab fa-facebook-messenger text-2xl"></i>

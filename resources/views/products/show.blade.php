@@ -191,7 +191,7 @@
                             @endif
                             <div class="p-4">
                                 <h3 class="text-sm font-semibold text-center text-gray-900">
-                                    <a href="#" class="hover:text-[#1E4ED8]">
+                                    <a href="{{ route('products.show', $relatedProduct->slug) }}" class="hover:text-[#1E4ED8]">
                                         {{ $relatedProduct->name ?? __('common.product_name') }}
                                     </a>
                                 </h3>

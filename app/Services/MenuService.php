@@ -83,6 +83,13 @@ class MenuService
                 ]
             ],
             [
+                'title' => __('common.services'),
+                'url' => '/dich-vu',
+                'icon' => '',
+                'target' => '_self',
+                'children' => []
+            ],
+            [
                 'title' => __('common.giai_phap'),
                 'url' => '/giai-phap',
                 'icon' => '',

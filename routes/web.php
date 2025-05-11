@@ -6,7 +6,7 @@ use App\Http\Controllers\SolutionController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
-
+use App\Http\Controllers\ServicesController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/contact', [HomeController::class, 'contact'])->name('contact.store');
 Route::get('/tin-tuc', [NewsController::class, 'index'])->name('news.index');
@@ -25,3 +25,6 @@ Route::get('/lien-he', [HomeController::class, 'about'])->name('lien-he');
 Route::post('/lien-he', [HomeController::class, 'contact'])->name('lien-he.store');
 Route::get('/tim-kiem', [HomeController::class, 'search'])->name('search');
 Route::get('/tim-kiem/autocomplete', [HomeController::class, 'autocomplete'])->name('search.autocomplete');
+Route::get('/dich-vu', [ServicesController::class, 'index'])->name('services.index');
+Route::get('/dich-vu/load-more', [ServicesController::class, 'loadMore'])->name('services.load-more');
+Route::get('/dich-vu/{slug}', [ServicesController::class, 'show'])->name('services.show');

@@ -60,7 +60,6 @@ class HomeController extends Controller
         return view('welcome', compact('categories', 'featuredProducts', 'news', 'services', 'sliders'));
     }
 
-
     public function about(){
         return view('contact');
     }
@@ -89,12 +88,12 @@ class HomeController extends Controller
     }
 
     public function search(Request $request)
-    {   
+    {
         $search = $request->input('q');
         $products = Product::where('name', 'like', "%{$search}%")->get();
         return view('search', compact('products', 'search'));
     }
-    
+
     public function autocomplete(Request $request)
     {
         $term = $request->input('term');
@@ -103,7 +102,7 @@ class HomeController extends Controller
             ->select('id', 'name as label', 'name as value')
             ->limit(10)
             ->get();
-            
+
         return response()->json($results);
     }
 }

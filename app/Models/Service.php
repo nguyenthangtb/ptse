@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Storage;
 class Service extends Model
 {
     use HasFactory;
@@ -23,6 +23,7 @@ class Service extends Model
     protected $casts = [
         'status' => 'boolean',
         'order' => 'integer',
+        'images' => 'array',
     ];
 
     // Tự động tạo slug
@@ -54,6 +55,15 @@ class Service extends Model
         }
 
         return "https://www.youtube.com/embed/{$youtube_id}";
+    }
+
+    public function getImageAttribute()
+    {
+        if ($this->images) {
+            $path = 'storage/services/' . $this->images;
+            return asset($path);
+        }
+        return null;
     }
 
     // Scope cho các video đang hoạt động

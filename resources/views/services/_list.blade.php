@@ -1,16 +1,34 @@
-@foreach($services as $item)
-    <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-    <a href="{{ route('services.show', $item) }}" class="block aspect-[4/3] overflow-hidden bg-gray-100 relative group">
-            <img src="{{ Storage::url($item->images) }}" alt="{{ $item->title }}"
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <!-- Gradient Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-60 transition-opacity group-hover:opacity-80"></div>
-            <!-- Title Overlay -->
-            <div class="absolute bottom-0 left-0 right-0 p-6">
-                <h3 class="font-semibold text-lg text-white line-clamp-2">
-                    {{ $item->title }}
-                </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+    @foreach($services as $service)
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 h-[400px]">
+            <div class="aspect-w-9 aspect-h-16 relative overflow-hidden h-full">
+                <img
+                    src="{{ $service->thumbnail ? asset('storage/' . $service->thumbnail) : 'https://img.youtube.com/vi/' . $service->youtube_id . '/maxresdefault.jpg' }}"
+                    alt="{{ $service->title }}"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+
+                <!-- Overlay đen mờ và text -->
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-300">
+                    <!-- Icon play - đã được căn giữa chính xác -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-red-600 rounded-full">
+                        <a href="javascript:void(0)"
+                            onclick="openVideoModal('{{ $service->embed_url }}')"
+                            class="absolute inset-0 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        </a>
+                    </div>
+
+                    <!-- Text ở dưới -->
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <h3 class="text-white text-lg font-semibold">
+                            {{ $service->title }}
+                        </h3>
+                    </div>
+                </div>
             </div>
-        </a>
-    </article>
-@endforeach
+        </div>
+    @endforeach
+</div>

@@ -15,7 +15,7 @@ class ServicesController extends Controller
             return Service::query()
                 ->where('status', true)
                 ->orderBy('order', 'asc')
-                ->paginate(12);
+                ->paginate(9);
         });
         return view('services.index', compact('services'));
     }
@@ -39,8 +39,9 @@ class ServicesController extends Controller
             return Service::query()
                 ->where('status', true)
                 ->orderBy('order', 'asc')
-                ->paginate(12, ['*'], 'page', $page);
+                ->paginate(9, ['*'], 'page', $page);
         });
+
 
         if ($services->isEmpty()) {
             return response()->json([

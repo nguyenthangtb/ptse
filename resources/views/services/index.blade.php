@@ -6,16 +6,17 @@
     <div class="block lg:hidden mt-[120px] mb-8">
         <h1 class="text-3xl font-bold text-center">{{ __('common.services') }}</h1>
     </div>
-    <!-- News Section -->
+    <!-- Services Section -->
     <section class="py-4 mt-8">
+        <!-- Desktop Title -->
+        <h1 class="hidden lg:block text-3xl font-bold text-center mb-12">{{ __('common.services') }}</h1>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-center mb-4 mt-4 reveal uppercase">{{ __('common.services') }}</h2>
 
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" id="servicesExtend">
                 @if($services && $services->count() > 0)
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        @foreach($services->take(3) as $service)
+                        @foreach($services as $service)
                             <div class="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 h-[400px]">
                                 <div class="aspect-w-9 aspect-h-16 relative overflow-hidden h-full">
                                     <img
@@ -23,26 +24,36 @@
                                         alt="{{ $service->title }}"
                                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                     />
-                                    <!-- Play button overlay -->
-                                    <a href="javascript:void(0)"
-                                       onclick="openVideoModal('{{ $service->embed_url }}')"
-                                       class="absolute inset-0 flex items-center justify-center">
-                                        <div class="bg-red-600 bg-opacity-80 rounded-full w-24 h-24 flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+
+                                    <!-- Overlay đen mờ và text -->
+                                    <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-300">
+                                        <!-- Icon play - đã được căn giữa chính xác -->
+                                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-red-600 rounded-full">
+                                            <a href="javascript:void(0)"
+                                                onclick="openVideoModal('{{ $service->embed_url }}')"
+                                                class="absolute inset-0 flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"/>
                                             </svg>
+                                            </a>
                                         </div>
-                                    </a>
+
+                                        <!-- Text ở dưới -->
+                                        <div class="absolute bottom-4 left-4 right-4">
+                                            <h3 class="text-white text-lg font-semibold">
+                                                {{ $service->title }}
+                                            </h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
-                @else
-                    <div class="text-center py-8">
-                        <p class="text-gray-500">{{ __('common.no_services') }}</p>
-                    </div>
-                @endif
+                    @else
+                        <div class="text-center py-8">
+                            <p class="text-gray-500">{{ __('common.no_services') }}</p>
+                        </div>
+                    @endif
             </div>
 
             <!-- Video Modal -->
@@ -121,11 +132,11 @@
             $('.load-more-btn').hide();
 
             $.ajax({
-                url: `/news/load-more?page=${page + 1}`,
+                url: `/dich-vu/load-more?page=${page + 1}`,
                 method: 'GET',
                 success: function(response) {
                     if (response.html) {
-                        $('#newsExten').append(response.html);
+                        $('#servicesExtend').append(response.html);
                         page++;
                     }
 

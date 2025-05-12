@@ -54,6 +54,15 @@ class Project extends Model
         });
     }
 
+    public function getImageUrlAttribute()
+    {
+        if ($this->image) {
+            $path = 'storage/projects/' . $this->image;
+            return asset($path);
+        }
+        return null;
+    }
+
     // // Solution relationship
     // public function solution()
     // {

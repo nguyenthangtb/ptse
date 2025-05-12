@@ -17,7 +17,7 @@
                 @foreach($news as $item)
                     <article class="bg-white/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group h-[500px]">
                         <a href="{{ route('news.show', $item) }}" class="block h-full overflow-hidden bg-gray-100 relative">
-                            <img src="{{ $item->image }}" alt="{{ $item->title }}"
+                            <img src="{{ Storage::url($item->image) }}" alt="{{ $item->title }}"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                             <!-- Gradient Overlay -->
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-transparent opacity-60 transition-all duration-500 group-hover:opacity-75"></div>

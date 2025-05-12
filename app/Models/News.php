@@ -99,4 +99,13 @@ class News extends Model
     {
         return 'slug';
     }
+
+    public function getImageUrlAttribute()
+    {
+        if ($this->image) {
+            $path = 'storage/news/' . $this->image;
+            return asset($path);
+        }
+        return null;
+    }
 }

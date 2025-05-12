@@ -98,4 +98,6 @@ return [
     'lien_he' => 'Contact',
     'bom_cong_nghiep' => 'Industrial Pumps',
     'bom_thoat_nuoc_chong_ngap_tuoi' => 'Pump for Sewage, Flood Control, Irrigation',
+    'contact_mst' => 'Marketing',
+    'Công ty cổ phần giải pháp kỹ thuật Phú Thái' => 'Phu Thai  Solutions Engineering  Joint Stock  Company'
 ];

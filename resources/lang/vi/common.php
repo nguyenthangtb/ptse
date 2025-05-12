@@ -100,4 +100,6 @@ return [
     'lien_he' => 'Liên hệ',
     'bom_cong_nghiep' => 'Bơm công nghiệp',
     'bom_thoat_nuoc_chong_ngap_tuoi' => 'Bơm thoát nước, chống ngập, tưới tiêu',
+    'contact_mst' => 'Marketing',
+    'Công ty cổ phần giải pháp kỹ thuật Phú Thái' => 'Công ty cổ phần giải pháp kỹ thuật Phú Thái'
 ];

@@ -13,7 +13,7 @@
                     <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
                 <div class="space-y-2 text-base">
-                    <p class="text-white font-semibold text-lg mb-1">{{$config['company_name']}}</p>
+                    <p class="text-white font-semibold text-lg mb-1">{{__('common.Công ty cổ phần giải pháp kỹ thuật Phú Thái')}}</p>
                     <div class="bg-white/10 p-4 rounded-lg my-3 shadow-inner backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors duration-300">
                         <p class="text-white flex items-start gap-2 mb-2">
                             <i class="fas fa-map-marker-alt mt-1 text-orange-400"></i>
@@ -24,14 +24,21 @@
                             <span class="font-medium">{{ $config['address_2'] }}</span>
                         </p>
                     </div>
-                    <p class="text-white flex items-center gap-2 group">
-                        <i class="fas fa-phone-alt text-blue-300 group-hover:text-orange-400 transition-colors"></i>
-                        <a href="tel:{{ $config['phone'] }}" class="hover:text-orange-300 transition-colors">{{ $config['phone'] }}</a>
-                    </p>
-                    <p class="text-white flex items-center gap-2 group">
-                        <i class="fas fa-envelope text-blue-300 group-hover:text-orange-400 transition-colors"></i>
-                        <a href="mailto:{{ $config['email'] }}" class="hover:text-orange-300 transition-colors">{{ $config['email'] }}</a>
-                    </p>
+                    <div class="bg-white/5 p-3 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                        <p class="text-blue-300 font-medium mb-1">{{ __('common.contact_mst') }}</p>
+                        <p class="text-white flex items-start gap-2 group">
+                            <i class="fas fa-headset text-orange-400 mt-1"></i>
+                            <a href="tel:{{ $config['contact_mst'] }}" class="hover:text-orange-300 transition-colors">{{ $config['contact_mst'] }}</a>
+                        </p>
+
+                        <p class="text-white flex items-start gap-2 group">
+                            <i class="fas fa-envelope text-orange-400 mt-1"></i>
+                            <span class="contact-info">
+                                <a href="mailto:{{ $config['email'] }}" class="hover:text-orange-300 transition-colors">{{ $config['email'] }}</a>
+                            </span>
+                        </p>
+                    </div>
+
                 </div>
 
 {{--                <div class="mt-3">--}}

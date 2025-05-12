@@ -37,6 +37,7 @@ class ViewServiceProvider extends ServiceProvider
                 'company_slogan' => WebsiteConfig::get('company_slogan', 'Giải pháp bơm và van cho ngành nước'),
                 'connect_zalo' => WebsiteConfig::get('connect_zalo', 'https://zalo.me/0968750388'),
                 'connect_facebook' => WebsiteConfig::get('connect_facebook', ''),
+                'contact_mst' => WebsiteConfig::get('contact_mst', ''),
             ];
             $view->with('config', $configs);
         });

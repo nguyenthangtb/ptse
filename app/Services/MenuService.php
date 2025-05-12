@@ -23,12 +23,32 @@ class MenuService
                 'target' => '_self',
                 'children' => [
                     [
+                        'title' => __('common.bom_cong_nghiep'),
+                        'url' => '/san-pham/danh-muc/bom-cong-nghiep',
+                        'icon' => '',
+                        'target' => '_self',
+                        'children' => []
+                    ],
+                    [
+                        'title' => __('common.bom_thoat_nuoc_chong_ngap_tuoi'),
+                        'url' => '/san-pham/danh-muc/bom-thoat-nuoc-chong-ngap-tuoi-tieu',
+                        'icon' => '',
+                        'target' => '_self',
+                        'children' => []
+                    ],
+                    [
                         'title' => __('common.pump_grundfos'),
                         'url' => '/san-pham/danh-muc/bom-dinh-luong',
                         'icon' => '',
                         'target' => '_self',
-                        'children' => [
-                        ]
+                        'children' => []
+                    ],
+                    [
+                        'title' => __('common.he_thong_clo_khu_trung'),
+                        'url' => '/san-pham/danh-muc/he-thong-khu-trung-clo',
+                        'icon' => '',
+                        'target' => '_self',
+                        'children' => []
                     ],
                     [
                         'title' => __('common.van_avk'),
@@ -45,34 +65,27 @@ class MenuService
                         'target' => '_self',
                         'children' => []
                     ],
-                    [
-                        'title' => __('common.van_va_duong_ong_g_f_plus'),
-                        'url' => '#',
-                        'icon' => '',
-                        'target' => '_self',
-                        'children' => []
-                    ],
-                    [
-                        'title' => __('common.pump_dinh_luong_ky_thuat_so'),
-                        'url' => '#',
-                        'icon' => '',
-                        'target' => '_self',
-                        'children' => []
-                    ],
-                    [
-                        'title' => __('common.he_thong_clo_khu_trung'),
-                        'url' => '/san-pham/danh-muc/he-thong-khu-trung-clo',
-                        'icon' => '',
-                        'target' => '_self',
-                        'children' => []
-                    ],
-                    [
-                        'title' => __('common.pump_tang_ap_inline'),
-                        'url' => '#',
-                        'icon' => '',
-                        'target' => '_self',
-                        'children' => []
-                    ],
+                    // [
+                    //     'title' => __('common.van_va_duong_ong_g_f_plus'),
+                    //     'url' => '#',
+                    //     'icon' => '',
+                    //     'target' => '_self',
+                    //     'children' => []
+                    // ],
+                    // [
+                    //     'title' => __('common.pump_dinh_luong_ky_thuat_so'),
+                    //     'url' => '#',
+                    //     'icon' => '',
+                    //     'target' => '_self',
+                    //     'children' => []
+                    // ],
+                    // [
+                    //     'title' => __('common.pump_tang_ap_inline'),
+                    //     'url' => '#',
+                    //     'icon' => '',
+                    //     'target' => '_self',
+                    //     'children' => []
+                    // ],
                     [
                         'title' => __('common.phu_kien'),
                         'url' => '/san-pham/danh-muc/phu-kien-thiet-bi-moi-khac',

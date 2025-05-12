@@ -86,7 +86,7 @@ return [
     'pump_and_valve_solutions_for_the_water_industry' => 'Pump and Valve Solutions for the Water Industry',
     'pump_grundfos' => 'Pump Grundfos',
     'van_avk' => 'Van AVK',
-    'van_ebro' => 'Van Ebro',
+    'van_ebro' => 'Van EBRO',
     'van_va_duong_ong_g_f_plus' => 'Van and Pipe +GF+',
     'pump_dinh_luong_ky_thuat_so' => 'Pump Dosing Technology',
     'he_thong_clo_khu_trung' => 'Clo Disinfection System',
@@ -96,4 +96,6 @@ return [
     'du_an' => 'Projects',
     'tin_tuc_va_su_kien' => 'News & Events',
     'lien_he' => 'Contact',
+    'bom_cong_nghiep' => 'Industrial Pumps',
+    'bom_thoat_nuoc_chong_ngap_tuoi' => 'Pump for Sewage, Flood Control, Irrigation',
 ];

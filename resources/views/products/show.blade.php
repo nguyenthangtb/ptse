@@ -51,12 +51,29 @@
                     </div>
 
                     <!-- Contact Button -->
-                    <div class="pt-4">
-                        <a href="#" class="w-full md:w-auto inline-flex justify-center items-center px-6 py-3 bg-[#1E4ED8] text-white font-medium rounded-lg hover:bg-[#1E4ED8]/90 transition-colors">
-                            {{ __('common.consultation_service') }}
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    <div class="pt-4 space-y-3 md:space-y-0 md:flex md:space-x-3">
+                        <!-- Zalo Button -->
+                        <a href="https://zalo.me/{{ $config['connect_zalo'] }}" target="_blank" class="w-full md:w-auto inline-flex justify-center items-center px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors">
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.0008 2C6.47831 2 2.00098 6.47733 2.00098 12C2.00098 17.5227 6.47831 22 12.0008 22C17.5234 22 22.0008 17.5227 22.0008 12C22.0008 6.47733 17.5234 2 12.0008 2ZM16.3174 15.7765C16.1921 15.9018 16.0385 15.9644 15.9131 15.9644C15.7877 15.9644 15.6341 15.9018 15.5088 15.7765L14.8174 15.0851C14.5667 15.3358 14.3161 15.5864 14.0654 15.8371C13.7582 16.1443 13.3883 16.193 13.0177 15.9906C11.9338 15.4008 10.9791 14.5856 10.1638 13.5767C9.34843 12.5678 8.78124 11.4423 8.47258 10.2116C8.36878 9.79082 8.49411 9.38158 8.83431 9.04138C9.0593 8.81639 9.28429 8.59141 9.50928 8.36642C9.63461 8.24109 9.76068 8.11502 9.88601 7.98969C10.1367 7.73898 10.1367 7.36611 9.88601 7.1154L8.71533 5.94472C8.46462 5.69401 8.09175 5.69401 7.84104 5.94472C7.5538 6.23196 7.25893 6.5164 6.98343 6.81126C6.75845 7.05106 6.63312 7.33753 6.60984 7.64785C6.58656 7.94654 6.58656 8.24524 6.60984 8.54393C6.84574 10.1447 7.4596 11.6594 8.42676 13.0489C9.39391 14.4383 10.6698 15.6309 12.2544 16.598C13.5388 17.3645 14.9348 17.8493 16.3591 18.0304C16.6161 18.0537 16.8731 18.053 17.1107 18.0297C17.3948 18.0064 17.6578 17.8811 17.8828 17.6561C18.1542 17.3847 18.4641 17.143 18.7355 16.8716C18.9862 16.6209 18.9862 16.2481 18.7355 15.9974L16.3174 15.7765Z"/>
                             </svg>
+                            Nhắn Zalo
+                        </a>
+
+                        <!-- Facebook Messenger Button -->
+                        <a href="{{ $config['connect_facebook'] }}" target="_blank" class="w-full md:w-auto inline-flex justify-center items-center px-6 py-3 bg-[#0084FF] text-white font-medium rounded-lg hover:bg-[#0084FF]/90 transition-colors">
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.477 2 2 6.145 2 11.259C2 14.128 3.41 16.65 5.625 18.31V22L9.133 20.115C10.045 20.38 11.005 20.518 12 20.518C17.523 20.518 22 16.373 22 11.259C22 6.145 17.523 2 12 2ZM13.224 14.528L10.681 11.857L5.775 14.528L11.097 8.944L13.68 11.615L18.547 8.944L13.224 14.528Z"/>
+                            </svg>
+                            Messenger
+                        </a>
+
+                        <!-- Phone Button -->
+                        <a href="tel: {{ $config['phone'] }}" class="w-full md:w-auto inline-flex justify-center items-center px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            Gọi điện
                         </a>
                     </div>
                 </div>
@@ -213,8 +230,12 @@
         }
     </style>
 @endsection
+@push('styles')
+<link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+@endpush
 @push('scripts')
 <script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     // Function to update main image
     function updateMainImage(src) {
         document.getElementById('mainImage').src = src;

@@ -24,14 +24,14 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="@yield('title', 'Giải pháp bơm & van cho ngành nước')">
     <meta property="og:description" content="Chuyên cung cấp giải pháp bơm và van cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
-    <meta property="og:image" content="{{ asset('images/og-image.jpg') }}">
+    <meta property="og:image" content="{{ asset('images/logo_chuan.png') }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="@yield('title', 'Giải pháp bơm & van cho ngành nước')">
     <meta property="twitter:description" content="Chuyên cung cấp giải pháp bơm và van cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
-    <meta property="twitter:image" content="{{ asset('images/og-image.jpg') }}">
+    <meta property="twitter:image" content="{{ asset('images/logo_chuan.png') }}">
 
     <!-- Additional SEO tags -->
     <meta name="robots" content="index, follow">

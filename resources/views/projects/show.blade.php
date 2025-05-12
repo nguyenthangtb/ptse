@@ -13,7 +13,7 @@
                         <div class="grid gap-4 pl-4 pr-4">
                             @if($project->image)
                             <div>
-                                <img class="h-auto max-w-full rounded-lg" src="{{ Storage::url($project->image) }}" alt="">
+                                <img class="w-full h-full rounded-lg object-cover" src="{{ Storage::url($project->image) }}" alt="">
                             </div>
                             @endif
                             <div class="grid grid-cols-5 gap-4">

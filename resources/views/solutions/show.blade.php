@@ -7,12 +7,24 @@
                 <!-- Main Content -->
                 <div class="lg:col-span-2">
                     <article class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        @if($solution->image)
-                            <div class="aspect-video w-full">
-                                <img src="{{ Storage::url($solution->image) }}" alt="{{ $solution->title }}"
-                                    class="w-full h-full object-cover">
+                        <div class="grid gap-4 pl-4 pr-4">
+                            @if($solution->image)
+                            <div>
+                                <img class="w-full h-full rounded-lg object-cover" src="{{ Storage::url($solution->image) }}" alt="">
                             </div>
-                        @endif
+                            @endif
+                            <div class="grid grid-cols-5 gap-4">
+                                @if($solution->gallery)
+                                    @foreach($solution->gallery as $image)
+                                        <div>
+                                            <a href="{{ Storage::url($image) }}" data-lightbox="gallery" data-title="{{ $solution->title }}">
+                                                <img class="h-auto max-w-full rounded-lg" src="{{ Storage::url($image) }}" alt="">
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
                         <div class="p-6">
                             <h1 class="text-3xl font-bold mb-4 text-gray-900">{{ $solution->title }}</h1>
                             <div class="flex items-center gap-4 text-sm text-gray-600 mb-8 border-b border-gray-100 pb-6">

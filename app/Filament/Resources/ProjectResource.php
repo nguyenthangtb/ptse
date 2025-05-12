@@ -68,16 +68,16 @@ class ProjectResource extends Resource
                                 Forms\Components\RichEditor::make('description')
                                     ->label('Mô tả chi tiết')
                                     ->columnSpanFull(),
-                                Forms\Components\RichEditor::make('challenge')
-                                    ->label('Thách thức')
-                                    ->columnSpanFull(),
+                                // Forms\Components\RichEditor::make('challenge')
+                                //     ->label('Thách thức')
+                                //     ->columnSpanFull(),
                                 // Forms\Components\RichEditor::make('solution')
                                 //     ->label('Giải pháp')
                                 //     ->required()
                                 //     ->columnSpanFull(),
-                                Forms\Components\RichEditor::make('results')
-                                    ->label('Kết quả')
-                                    ->columnSpanFull(),
+                                // Forms\Components\RichEditor::make('results')
+                                //     ->label('Kết quả')
+                                //     ->columnSpanFull(),
                             ]),
                     ])
                     ->columnSpan(['lg' => 2]),

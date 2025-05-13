@@ -101,5 +101,8 @@ return [
     'bom_cong_nghiep' => 'Bơm công nghiệp',
     'bom_thoat_nuoc_chong_ngap_tuoi' => 'Bơm thoát nước, chống ngập, tưới tiêu',
     'contact_mst' => 'Mã số thuế',
-    'Công ty cổ phần giải pháp kỹ thuật Phú Thái' => 'Công ty cổ phần giải pháp kỹ thuật Phú Thái'
+    'company_name' => 'Công ty cổ phần giải công nghiệp Phú Thái',
+    'address_1' => 'Tầng 10, tòa nhà CEO Tower, Lô HH2-1 Khu đô thị Mễ Trì Hạ, đường Phạm Hùng, Phường Mễ Trì, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam',
+    'address_2' => 'VPGD: Tầng 6, số 78 Mễ Trì Hạ, P. Mễ Trì, Q. Nam Từ Liêm, TP. Hà Nội',
+    'company_slogan' => 'Giải pháp bơm & van cho ngành nước',
 ];

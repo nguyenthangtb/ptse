@@ -13,15 +13,15 @@
                     <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
                 <div class="space-y-2 text-base">
-                    <p class="text-white font-semibold text-lg mb-1">{{__('common.Công ty cổ phần giải pháp kỹ thuật Phú Thái')}}</p>
+                    <p class="text-white font-semibold text-lg mb-1">{{__('common.company_name')}}</p>
                     <div class="bg-white/10 p-4 rounded-lg my-3 shadow-inner backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors duration-300">
                         <p class="text-white flex items-start gap-2 mb-2">
                             <i class="fas fa-map-marker-alt mt-1 text-orange-400"></i>
-                            <span class="font-medium">{{ $config['address_1'] }}</span>
+                            <span class="font-medium">{{ __('common.address_1') }}</span>
                         </p>
                         <p class="text-white flex items-start gap-2">
                             <i class="fas fa-building mt-1 text-orange-400"></i>
-                            <span class="font-medium">{{ $config['address_2'] }}</span>
+                            <span class="font-medium">{{ __('common.address_2') }}</span>
                         </p>
                         <p class="text-blue-300 font-medium mb-1">{{ __('common.contact_mst') }}</p>
                         <p class="text-white flex items-start gap-2 group">
@@ -35,7 +35,6 @@
                             </span>
                         </p>
                     </div>
-
                 </div>
 
 {{--                <div class="mt-3">--}}
@@ -116,7 +115,7 @@
 
         <!-- Copyright -->
         <div class="border-t border-blue-800 mt-10 pt-6 text-center text-white/80 text-sm relative z-10">
-            <p>© {{ date('Y') }} <span class="text-white font-medium">{{$config['company_name']}}</span> | {{ __('common.designed_by') }} <a href="#" class="text-orange-300 hover:underline">PTSE</a></p>
+            <p>© {{ date('Y') }} <span class="text-white font-medium">{{__('common.company_name')}}</span> | {{ __('common.designed_by') }} <a href="#" class="text-orange-300 hover:underline">PTSE</a></p>
         </div>
     </div>
 </footer>

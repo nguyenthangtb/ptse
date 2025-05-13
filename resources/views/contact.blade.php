@@ -31,7 +31,7 @@
                                 </svg>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-2">{{ __('common.address') }}</h3>
-                                    <p class="text-gray-600 leading-relaxed">{{ $config['address_1'] }}</p>
+                                    <p class="text-gray-600 leading-relaxed">{{ __('common.address_1') }}</p>
                                 </div>
                             </div>
 

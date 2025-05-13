@@ -99,6 +99,9 @@ return [
     'bom_cong_nghiep' => 'Industrial Pumps',
     'bom_thoat_nuoc_chong_ngap_tuoi' => 'Pump for Sewage, Flood Control, Irrigation',
     'contact_mst' => 'Tax Code',
-    'Công ty cổ phần giải pháp kỹ thuật Phú Thái' => 'Phu Thai  Solutions Engineering  Joint Stock  Company',
+    'company_name' => 'Phu Thai Solutions Engineering Joint Stock Company',
     'pump_tang_ap_inline' => 'Inline booster pump',
+    'address_1' => '10th Floor, CEO Tower Building, Lot HH2-1, Me Tri Ha Urban Area, Pham Hung Street, Me Tri Ward, Nam Tu Liem District, Hanoi City',
+    'address_2' => 'Office: 6th Floor, No. 78 Me Tri Ha, Me Tri Ward, Nam Tu Liem District, Hanoi City',
+    'company_slogan' => 'EQUIPMENT SOLUTIONS FOR WATER TREATMENT',
 ];

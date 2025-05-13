@@ -29,7 +29,7 @@ return [
     'frequently_asked_questions' => 'Câu hỏi thường gặp',
     'policy_terms' => 'Chính sách - Điều khoản',
     'business_customer_care' => 'Kinh doanh - CSKH',
-    'technical_operation' => 'Kỹ thuật - Vậ n hành',
+    'technical_operation' => 'Kỹ thuật - Vận hành',
     'designed_by' => 'Thiết kế bởi',
     'new_news' => 'Tin tức mới',
     'load_more' => 'Tải thêm',
@@ -100,6 +100,6 @@ return [
     'lien_he' => 'Liên hệ',
     'bom_cong_nghiep' => 'Bơm công nghiệp',
     'bom_thoat_nuoc_chong_ngap_tuoi' => 'Bơm thoát nước, chống ngập, tưới tiêu',
-    'contact_mst' => 'Marketing',
+    'contact_mst' => 'Mã số thuế',
     'Công ty cổ phần giải pháp kỹ thuật Phú Thái' => 'Công ty cổ phần giải pháp kỹ thuật Phú Thái'
 ];

@@ -37,6 +37,13 @@ class MenuService
                         'children' => []
                     ],
                     [
+                        'title' => __('common.pump_tang_ap_inline'),
+                        'url' => '/san-pham/danh-muc/bom-tang-ap-inline',
+                        'icon' => '',
+                        'target' => '_self',
+                        'children' => []
+                    ],
+                    [
                         'title' => __('common.pump_grundfos'),
                         'url' => '/san-pham/danh-muc/bom-dinh-luong',
                         'icon' => '',

@@ -90,7 +90,7 @@ return [
     'van_va_duong_ong_g_f_plus' => 'Van and Pipe +GF+',
     'pump_dinh_luong_ky_thuat_so' => 'Pump Dosing Technology',
     'he_thong_clo_khu_trung' => 'Clo Disinfection System',
-    'pump_tang_ap_inline' => 'Inline Pump',
+    'pump_tang_ap_inline' => 'Inline booster pump',
     'phu_kien' => 'Accessories',
     'giai_phap' => 'Solutions',
     'du_an' => 'Projects',
@@ -98,6 +98,7 @@ return [
     'lien_he' => 'Contact',
     'bom_cong_nghiep' => 'Industrial Pumps',
     'bom_thoat_nuoc_chong_ngap_tuoi' => 'Pump for Sewage, Flood Control, Irrigation',
-    'contact_mst' => 'Marketing',
-    'Công ty cổ phần giải pháp kỹ thuật Phú Thái' => 'Phu Thai  Solutions Engineering  Joint Stock  Company'
+    'contact_mst' => 'Tax Code',
+    'Công ty cổ phần giải pháp kỹ thuật Phú Thái' => 'Phu Thai  Solutions Engineering  Joint Stock  Company',
+    'pump_tang_ap_inline' => 'Inline booster pump',
 ];

@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CareerResource\Pages;
-use App\Filament\Resources\CareerResource\RelationManagers;
 use App\Models\Career;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -11,7 +10,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class CareerResource extends Resource
@@ -30,29 +28,49 @@ class CareerResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $locales = config('app.locales', [config('app.locale')]);
         return $form
             ->schema([
                 Forms\Components\Group::make()
                     ->schema([
                         Forms\Components\Section::make()
                             ->schema([
-                                Forms\Components\TextInput::make('title')
-                                    ->label('Tiêu đề')
-                                    ->required()
-                                    ->live(onBlur: true)
-                                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
-                                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
-                                    ),
+                                Forms\Components\Tabs::make('Tiêu đề')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("title.{$locale}")
+                                                    ->label('Tiêu đề')
+                                                    ->required()
+                                                    ->live(onBlur: true)
+                                                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
+                                                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
+                                                    ),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
                                 Forms\Components\TextInput::make('slug')
                                     ->label('Đường dẫn')
                                     ->required()
                                     ->unique(ignoreRecord: true),
-                                Forms\Components\TextInput::make('department')
-                                    ->label('Phòng ban')
-                                    ->required(),
-                                Forms\Components\TextInput::make('location')
-                                    ->label('Địa điểm')
-                                    ->required(),
+                                Forms\Components\Tabs::make('Phòng ban')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("department.{$locale}")
+                                                    ->label('Phòng ban')
+                                                    ->required(),
+                                            ]);
+                                    })->toArray()),
+                                Forms\Components\Tabs::make('Địa điểm')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("location.{$locale}")
+                                                    ->label('Địa điểm')
+                                                    ->required(),
+                                            ]);
+                                    })->toArray()),
                                 Forms\Components\Select::make('type')
                                     ->label('Loại hình')
                                     ->required()
@@ -68,25 +86,49 @@ class CareerResource extends Resource
 
                         Forms\Components\Section::make('Mô tả')
                             ->schema([
-                                Forms\Components\TextInput::make('short_description')
-                                    ->label('Mô tả ngắn')
-                                    ->required()
-                                    ->maxLength(255),
-                                Forms\Components\RichEditor::make('description')
-                                    ->label('Mô tả chi tiết')
-                                    ->required()
+                                Forms\Components\Tabs::make('Mô tả ngắn')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("short_description.{$locale}")
+                                                    ->label('Mô tả ngắn')
+                                                    ->maxLength(255),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
+                                Forms\Components\Tabs::make('Mô tả chi tiết')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\RichEditor::make("description.{$locale}")
+                                                    ->label('Mô tả chi tiết')
+                                                    ->columnSpanFull(),
+                                            ]);
+                                    })->toArray())
                                     ->columnSpanFull(),
                             ]),
 
                         Forms\Components\Section::make('Yêu cầu & Quyền lợi')
                             ->schema([
-                                Forms\Components\RichEditor::make('requirements')
-                                    ->label('Yêu cầu')
-                                    ->required()
+                                Forms\Components\Tabs::make('Yêu cầu')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\RichEditor::make("requirements.{$locale}")
+                                                    ->label('Yêu cầu')
+                                                    ->columnSpanFull(),
+                                            ]);
+                                    })->toArray())
                                     ->columnSpanFull(),
-                                Forms\Components\RichEditor::make('benefits')
-                                    ->label('Quyền lợi')
-                                    ->required()
+                                Forms\Components\Tabs::make('Quyền lợi')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\RichEditor::make("benefits.{$locale}")
+                                                    ->label('Quyền lợi')
+                                                    ->columnSpanFull(),
+                                            ]);
+                                    })->toArray())
                                     ->columnSpanFull(),
                             ]),
                     ])

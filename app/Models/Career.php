@@ -6,31 +6,54 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Spatie\Translatable\HasTranslations;
 
 class Career extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasTranslations;
 
-    protected $fillable = [
+    /**
+     * The attributes that should be translatable.
+     *
+     * @var array
+     */
+    public $translatable = [
         'title',
-        'slug',
-        'department',
-        'location',
-        'type',
         'short_description',
         'description',
         'requirements',
         'benefits',
-        'salary_min',
-        'salary_max',
-        'deadline',
-        'is_active'
+        'location',
+        'department',
     ];
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'slug',
+        'short_description',
+        'description',
+        'requirements',
+        'benefits',
+        'job_type',
+        'location',
+        'salary',
+        'deadline',
+        'image',
+        'is_active',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
     protected $casts = [
         'deadline' => 'date',
-        'salary_min' => 'decimal:2',
-        'salary_max' => 'decimal:2',
         'is_active' => 'boolean',
     ];
 
@@ -45,28 +68,35 @@ class Career extends Model
         });
     }
 
-    // Scope for active jobs
+    /**
+     * Scope a query to only include active careers.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeActive($query)
     {
-        return $query->where('is_active', true)
-            ->where(function ($q) {
-                $q->whereNull('deadline')
-                    ->orWhere('deadline', '>=', now());
-            });
+        return $query->where('is_active', true);
     }
 
-    // Get salary range
-    public function getSalaryRangeAttribute()
+    /**
+     * Get the applications for the career.
+     */
+    public function applications()
     {
-        if (!$this->salary_min && !$this->salary_max) {
-            return 'Thương lượng';
+        return $this->hasMany(Application::class);
+    }
+
+    /**
+     * Get the image URL attribute.
+     *
+     * @return string|null
+     */
+    public function getImageUrlAttribute()
+    {
+        if ($this->image) {
+            return asset('storage/careers/' . $this->image);
         }
-        if (!$this->salary_max) {
-            return 'Từ ' . number_format($this->salary_min) . ' đ';
-        }
-        if (!$this->salary_min) {
-            return 'Đến ' . number_format($this->salary_max) . ' đ';
-        }
-        return number_format($this->salary_min) . ' đ - ' . number_format($this->salary_max) . ' đ';
+        return null;
     }
 }

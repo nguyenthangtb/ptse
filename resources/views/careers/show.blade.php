@@ -71,7 +71,7 @@
 
                             <!-- Benefits -->
                             <div class="mb-8">
-                                <h2 class="text-xl font-semibold mb-4 text-gray-900">{{ __('common.benefits') }}</h2>
+                                <h2 class="text-xl font-semibold mb-4 text-gray-900">{{ __('common.benefits_description') }}</h2>
                                 <div class="prose max-w-none">
                                     {!! $career->benefits !!}
                                 </div>

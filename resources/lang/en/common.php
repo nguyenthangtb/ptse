@@ -143,5 +143,8 @@ return [
     'connect_zalo' => 'Connect Zalo',
     'connect_facebook' => 'Connect Facebook',
     'call_phone' => 'Call Phone',
-
+    'no_other_openings' => 'No other openings',
+    'job_summary' => 'Job Summary',
+    'job_description' => 'Job Description',
+    'requirements' => 'Requirements',
 ];

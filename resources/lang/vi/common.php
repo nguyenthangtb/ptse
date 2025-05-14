@@ -144,4 +144,8 @@ return [
     'connect_zalo' => 'Kết nối Zalo',
     'connect_facebook' => 'Kết nối Facebook',
     'call_phone' => 'Gọi điện',
+    'job_summary' => 'Tóm tắt công việc',
+    'job_description' => 'Mô tả công việc',
+    'requirements' => 'Yêu cầu',
+    'no_other_openings' => 'Không có vị trí tuyển dụng khác',
 ];

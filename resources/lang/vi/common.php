@@ -128,7 +128,7 @@ return [
     'growth_description' => 'Mô tả về cơ hội phát triển',
     'team_description' => 'Mô tả về đội ngũ',
     'benefits_description' => 'Mô tả về lợi ích',
-    'apply_online' => 'Ứng tuyển online',
+    'apply_online' => 'Ứng tuyển',
     'apply_online_description' => 'Mô tả về việc ứng tuyển online',
     'screening' => 'Sàng lọc',
     'screening_description' => 'Mô tả về sàng lọc',

@@ -56,6 +56,7 @@
                     <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.customer_care') }}</a></li>
                     <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.frequently_asked_questions') }}</a></li>
                     <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.policy_terms') }}</a></li>
+                    <li><a href="{{ route('careers.index') }}" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.careers') }}</a></li>
                 </ul>
             </div>
 

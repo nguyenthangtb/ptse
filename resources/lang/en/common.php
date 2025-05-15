@@ -103,7 +103,7 @@ return [
     'pump_tang_ap_inline' => 'Inline booster pump',
     'address_1' => '10th Floor, CEO Tower Building, Lot HH2-1, Me Tri Ha Urban Area, Pham Hung Street, Me Tri Ward, Nam Tu Liem District, Hanoi City',
     'address_2' => 'Office: 6th Floor, No. 78 Me Tri Ha, Me Tri Ward, Nam Tu Liem District, Hanoi City',
-    'company_slogan' => 'EQUIPMENT SOLUTIONS FOR WATER TREATMENT',
+    'company_slogan' => 'Equipment solutions for the water industry',
     'careers' => 'Careers',
     'no_openings_available' => 'No Openings Available',
     'check_back_later' => 'Check back later for new opportunities.',

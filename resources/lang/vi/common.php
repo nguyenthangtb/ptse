@@ -104,7 +104,7 @@ return [
     'company_name' => 'Công ty cổ phần giải công nghiệp Phú Thái',
     'address_1' => 'Tầng 10, tòa nhà CEO Tower, Lô HH2-1 Khu đô thị Mễ Trì Hạ, đường Phạm Hùng, Phường Mễ Trì, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam',
     'address_2' => 'VPGD: Tầng 6, số 78 Mễ Trì Hạ, P. Mễ Trì, Q. Nam Từ Liêm, TP. Hà Nội',
-    'company_slogan' => 'Giải pháp bơm & van cho ngành nước',
+    'company_slogan' => 'Giải pháp thiết bị cho ngành nước',
     'careers' => 'Tuyển dụng',
     'no_openings_available' => 'Không có vị trí tuyển dụng',
     'check_back_later' => 'Kiểm tra lại sau để tìm kiếm cơ hội',

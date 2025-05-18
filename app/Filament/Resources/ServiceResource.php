@@ -66,10 +66,16 @@ class ServiceResource extends Resource
                             ->maxLength(255)
                             ->helperText('Nhập URL YouTube (VD: https://www.youtube.com/watch?v=ABCDEFG)'),
 
-                        Forms\Components\Textarea::make('description')
-                            ->label('Mô tả')
-                            ->rows(3)
-                            ->columnSpanFull(),
+                        Forms\Components\Tabs::make('Mô tả')
+                            ->tabs(collect($locales)->map(function ($locale) {
+                                return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                    ->schema([
+                                        Forms\Components\Textarea::make("description.{$locale}")
+                                            ->label('Mô tả')
+                                            ->rows(3)
+                                            ->columnSpanFull(),
+                                    ]);
+                            })->toArray()),
 
                         Forms\Components\FileUpload::make('thumbnail')
                             ->label('Hình thu nhỏ')

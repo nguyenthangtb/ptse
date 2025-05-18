@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Translatable\HasTranslations;
 class Service extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
+
+    public $translatable = ['title', 'description'];
 
     protected $fillable = [
         'title',
@@ -26,12 +29,17 @@ class Service extends Model
         'images' => 'array',
     ];
 
-    // Tự động tạo slug
-    public function setTitleAttribute($value)
+    protected static function boot()
     {
-        $this->attributes['title'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
+        parent::boot();
+        static::creating(function ($service) {
+            if (!$service->slug) {
+                $title = $service->getTranslation('title', app()->getLocale(), false) ?? '';
+                $service->slug = Str::slug($title);
+            }
+        });
     }
+
 
     // Lấy YouTube Video ID từ URL
     public function getYoutubeIdAttribute()

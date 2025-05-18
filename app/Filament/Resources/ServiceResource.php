@@ -38,16 +38,27 @@ class ServiceResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $locales = config('app.locales', [config('app.locale')]);
         return $form
             ->schema([
                 Forms\Components\Section::make('Thông tin Video')
                     ->schema([
-                        Forms\Components\TextInput::make('title')
-                            ->label('Tiêu đề')
-                            ->required()
-                            ->maxLength(255)
-                            ->live(onBlur: true),
+                        Forms\Components\Tabs::make('Tiêu đề')
+                            ->tabs(collect($locales)->map(function ($locale) {
+                                return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                    ->schema([
+                                        Forms\Components\TextInput::make("title.{$locale}")
+                                            ->label('Tiêu đề')
+                                            ->required()
+                                            ->maxLength(255)
+                                            ->live(onBlur: true),
+                                    ]);
+                            })->toArray()),
+                    ])
+                    ->columns(2),
 
+                Forms\Components\Section::make('Thông tin Video')
+                    ->schema([
                         Forms\Components\TextInput::make('video_url')
                             ->label('URL Video')
                             ->required()

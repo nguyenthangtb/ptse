@@ -23,10 +23,9 @@
                             <i class="fas fa-building mt-1 text-orange-400"></i>
                             <span class="font-medium">{{ __('common.address_2') }}</span>
                         </p>
-                        <p class="text-blue-300 font-medium mb-1">{{ __('common.contact_mst') }}</p>
                         <p class="text-white flex items-start gap-2 group">
                             <i class="fas fa-file-invoice-dollar text-orange-400 mt-1"></i>
-                            <a href="tel:{{ $config['contact_mst'] }}" class="hover:text-orange-300 transition-colors">{{ $config['contact_mst'] }}</a>
+                            <span class="hover:text-orange-300 transition-colors">{{ $config['contact_mst'] }}</span>
                         </p>
                         <p class="text-white flex items-start gap-2 group">
                             <i class="fas fa-envelope text-orange-400 mt-1"></i>

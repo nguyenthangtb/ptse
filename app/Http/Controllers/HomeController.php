@@ -53,9 +53,10 @@ class HomeController extends Controller
         $sliders = Cache::remember('home_sliders', 60*24, function () {
             return HomeSlider::active()
                 ->orderBy('order')
-                ->take(4)
+                ->take(3)
                 ->get();
         });
+
 
         return view('welcome', compact('categories', 'featuredProducts', 'news', 'services', 'sliders'));
     }

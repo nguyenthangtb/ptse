@@ -39,6 +39,7 @@ class ViewServiceProvider extends ServiceProvider
                 'connect_facebook' => WebsiteConfig::get('connect_facebook', ''),
                 'contact_mst' => WebsiteConfig::get('contact_mst', ''),
                 'gioi_thieu' => WebsiteConfig::get('gioi_thieu', ''),
+                'about_us' => WebsiteConfig::get('about_us', ''),
             ];
             $view->with('config', $configs);
         });

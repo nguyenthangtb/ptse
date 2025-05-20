@@ -7,9 +7,21 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <!-- Header Section -->
                 <div class="max-w-3xl mx-auto text-center mb-12 md:mb-20 mt-[150px] md:mt-10">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Giới thiệu về PTSE</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                        @if(app()->getLocale() == 'vi')
+                            Giới thiệu về PTSE
+                        @else
+                            About PTSE
+                        @endif
+                    </h2>
                     <div class="w-20 h-1 bg-primary mx-auto mb-4 md:mb-6"></div>
-                    <p class="text-base md:text-lg text-gray-600">Giải pháp thiết bị cho ngành nước</p>
+                    <p class="text-base md:text-lg text-gray-600">
+                        @if(app()->getLocale() == 'vi')
+                            Giải pháp thiết bị cho ngành nước
+                        @else
+                            Equipment solutions for the water industry
+                        @endif
+                    </p>
                 </div>
 
                 <!-- Company Overview -->
@@ -26,12 +38,26 @@
                     </div>
                     <div class="space-y-6 reveal">
                         <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary">
-                            <h3 class="text-xl md:text-2xl font-bold text-primary mb-4">Về Chúng Tôi</h3>
+                            <h3 class="text-xl md:text-2xl font-bold text-primary mb-4">
+                                @if(app()->getLocale() == 'vi')
+                                    Về Chúng Tôi
+                                @else
+                                    About Us
+                                @endif
+                            </h3>
                             <p class="text-gray-700 leading-relaxed">
-                                Công ty Cổ phần Giải pháp Kỹ thuật Phú Thái (Tên giao dịch Quốc tế: PTSE.,JSC), thành lập từ tháng 4 năm 2022, là đơn vị chuyên cung cấp các giải pháp thiết bị công nghệ cao trong lĩnh vực xử lý nước sạch, nước thải và khí thải. Được sáng lập bởi chuyên gia có hơn 17 năm kinh nghiệm trong ngành, PTSE ra đời với sứ mệnh mang đến các giải pháp kỹ thuật tối ưu, đáp ứng yêu cầu đặc thù của từng công trình, hướng tới hiệu quả vận hành và chi phí hợp lý.
+                                @if(app()->getLocale() == 'vi')
+                                    Công ty Cổ phần Giải pháp Kỹ thuật Phú Thái (Tên giao dịch Quốc tế: PTSE.,JSC), thành lập từ tháng 4 năm 2022, là đơn vị chuyên cung cấp các giải pháp thiết bị công nghệ cao trong lĩnh vực xử lý nước sạch, nước thải và khí thải. Được sáng lập bởi chuyên gia có hơn 17 năm kinh nghiệm trong ngành, PTSE ra đời với sứ mệnh mang đến các giải pháp kỹ thuật tối ưu, đáp ứng yêu cầu đặc thù của từng công trình, hướng tới hiệu quả vận hành và chi phí hợp lý.
+                                @else
+                                Phu Thai Technical Solutions Joint Stock Company (International Trading Name: PTSE.,JSC), established in April 2022, is a unit specializing in providing high-tech equipment solutions in the field of clean water, wastewater and exhaust gas treatment. Founded by experts with more than 17 years of experience in the industry, PTSE was born with the mission of providing optimal technical solutions, meeting the specific requirements of each project, aiming for operational efficiency and reasonable costs.
+                                @endif
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
-                                Chúng tôi là đối tác phân phối chính thức của nhiều thương hiệu hàng đầu thế giới như Grundfos, +GF+ (Georg Fischer), ALIA, Dorot, AVK, Ebro và ACO… Với danh mục sản phẩm đa dạng, PTSE không chỉ cung cấp thiết bị chất lượng cao mà còn đồng hành cùng khách hàng trong suốt quá trình thiết kế, tích hợp, vận hành và bảo trì hệ thống – đảm bảo hiệu suất ổn định và tuổi thọ dài lâu cho toàn bộ giải pháp.
+                            <p class="text-gray-700 leading-relaxed mt-4">
+                                @if(app()->getLocale() == 'vi')
+                                    Chúng tôi là đối tác phân phối chính thức của nhiều thương hiệu hàng đầu thế giới như Grundfos, +GF+ (Georg Fischer), ALIA, Dorot, AVK, Ebro và ACO… Với danh mục sản phẩm đa dạng, PTSE không chỉ cung cấp thiết bị chất lượng cao mà còn đồng hành cùng khách hàng trong suốt quá trình thiết kế, tích hợp, vận hành và bảo trì hệ thống – đảm bảo hiệu suất ổn định và tuổi thọ dài lâu cho toàn bộ giải pháp.
+                                @else
+                                    We are the official distribution partner of many world-leading brands such as Grundfos, +GF+ (Georg Fischer), ALIA, Dorot, AVK, Ebro and ACO… With a diverse product portfolio, PTSE not only provides high-quality equipment but also accompanies customers throughout the process of designing, integrating, operating and maintaining the system – ensuring stable performance and long life for the entire solution.
+                                @endif
                             </p>
                         </div>
                     </div>
@@ -42,19 +68,39 @@
                     <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-6 rounded-xl">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-bullseye text-primary text-2xl mr-3"></i>
-                            <h3 class="text-lg md:text-xl font-bold">Sứ Mệnh</h3>
+                            <h3 class="text-lg md:text-xl font-bold">
+                                @if(app()->getLocale() == 'vi')
+                                    Sứ Mệnh
+                                @else
+                                    Mission
+                                @endif
+                            </h3>
                         </div>
                         <p class="text-gray-700 leading-relaxed">
-                            Lấy "Giải pháp kỹ thuật là trọng tâm" làm kim chỉ nam, PTSE tập trung phát triển dịch vụ tư vấn chuyên sâu, lưu trữ lịch sử thiết bị và nhắc nhở bảo trì định kỳ. Mô hình này giúp khách hàng phòng ngừa rủi ro kỹ thuật, tối ưu hóa chi phí vận hành và đảm bảo tuân thủ các tiêu chuẩn ESG (Môi trường – Xã hội – Quản trị).
+                            @if(app()->getLocale() == 'vi')
+                                Lấy "Giải pháp kỹ thuật là trọng tâm" làm kim chỉ nam, PTSE tập trung phát triển dịch vụ tư vấn chuyên sâu, lưu trữ lịch sử thiết bị và nhắc nhở bảo trì định kỳ. Mô hình này giúp khách hàng phòng ngừa rủi ro kỹ thuật, tối ưu hóa chi phí vận hành và đảm bảo tuân thủ các tiêu chuẩn ESG (Môi trường – Xã hội – Quản trị).
+                            @else
+                                With "Technical solutions at the core" as a guiding principle, PTSE focuses on developing in-depth consulting services, equipment history storage and periodic maintenance reminders. This model helps customers prevent technical risks, optimize operating costs and ensure compliance with ESG (Environmental – Social – Governance) standards.
+                            @endif
                         </p>
                     </div>
                     <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-6 rounded-xl">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-lightbulb text-primary text-2xl mr-3"></i>
-                            <h3 class="text-lg md:text-xl font-bold">Tầm Nhìn</h3>
+                            <h3 class="text-lg md:text-xl font-bold">
+                                @if(app()->getLocale() == 'vi')
+                                    Tầm Nhìn
+                                @else
+                                    Vision
+                                @endif
+                            </h3>
                         </div>
                         <p class="text-gray-700 leading-relaxed">
-                            Với tầm nhìn dài hạn, PTSE định hướng trở thành đơn vị tiên phong trong việc cung cấp các giải pháp tổng thể về xử lý nước và môi trường tại Việt Nam – nơi công nghệ, hiệu quả và phát triển bền vững được hội tụ để tạo ra giá trị thiết thực cho cộng đồng và thế hệ tương lai.
+                            @if(app()->getLocale() == 'vi')
+                                Với tầm nhìn dài hạn, PTSE định hướng trở thành đơn vị tiên phong trong việc cung cấp các giải pháp tổng thể về xử lý nước và môi trường tại Việt Nam – nơi công nghệ, hiệu quả và phát triển bền vững được hội tụ để tạo ra giá trị thiết thực cho cộng đồng và thế hệ tương lai.
+                            @else
+                                With a long-term vision, PTSE aims to become a pioneer in providing comprehensive solutions for water and environmental treatment in Vietnam - where technology, efficiency and sustainable development converge to create practical values ​​for the community and future generations.
+                            @endif
                         </p>
                     </div>
                 </div>
@@ -70,12 +116,26 @@
                         <div class="inline-block p-3 bg-primary/10 rounded-full mb-6">
                             <i class="fas fa-handshake text-primary text-2xl"></i>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold mb-6">Cam Kết Của Chúng Tôi</h3>
+                        <h3 class="text-xl md:text-2xl font-bold mb-6">
+                            @if(app()->getLocale() == 'vi')
+                                Cam Kết Của Chúng Tôi
+                            @else
+                                Our Commitment
+                            @endif
+                        </h3>
                         <p class="text-gray-700 leading-relaxed mb-6">
-                            Chúng tôi cam kết xây dựng văn hóa doanh nghiệp dựa trên sự chuyên nghiệp, đổi mới và trách nhiệm. PTSE không ngừng mở rộng hợp tác với các đối tác trong và ngoài nước nhằm kiến tạo những giá trị bền vững – góp phần xây dựng hệ thống hạ tầng môi trường xanh, hiện đại và phát triển lâu dài.
+                            @if(app()->getLocale() == 'vi')
+                                Chúng tôi cam kết xây dựng văn hóa doanh nghiệp dựa trên sự chuyên nghiệp, đổi mới và trách nhiệm. PTSE không ngừng mở rộng hợp tác với các đối tác trong và ngoài nước nhằm kiến tạo những giá trị bền vững – góp phần xây dựng hệ thống hạ tầng môi trường xanh, hiện đại và phát triển lâu dài.
+                            @else
+                            We are committed to building a corporate culture based on professionalism, innovation and responsibility. PTSE constantly expands cooperation with domestic and foreign partners to create sustainable values ​​- contributing to the construction of a green, modern and sustainable environmental infrastructure system.
+                            @endif
                         </p>
                         <div class="inline-block bg-primary text-white px-6 py-3 rounded-full font-semibold">
-                            PTSE – Giải pháp thiết bị tối ưu, đồng hành vì tương lai bền vững!
+                            @if(app()->getLocale() == 'vi')
+                                PTSE – Giải pháp thiết bị tối ưu, đồng hành vì tương lai bền vững!
+                            @else
+                                PTSE – Optimal equipment solutions, accompanying for a sustainable future!
+                            @endif
                         </div>
                     </div>
                 </div>

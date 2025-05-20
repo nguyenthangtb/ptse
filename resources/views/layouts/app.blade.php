@@ -86,12 +86,14 @@
     {{-- @vite('resources/css/app.css') --}}
     @yield('styles')
 </head>
-<body class="font-sans text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-100">
+<body class="font-sans text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
     <!-- Header -->
     @include('layouts.partials.header')
 
     <!-- Main Content -->
-    @yield('content')
+    <main class="flex-grow">
+        @yield('content')
+    </main>
 
     <!-- Footer -->
     @include('layouts.partials.footer')

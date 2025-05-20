@@ -17,6 +17,13 @@ class MenuService
                 'children' => []
             ],
             [
+                'title' => __('common.about'),
+                'url' => '/gioi-thieu',
+                'icon' => '',
+                'target' => '_self',
+                'children' => []
+            ],
+            [
                 'title' => __('common.products'),
                 'url' => '/san-pham',
                 'icon' => '',

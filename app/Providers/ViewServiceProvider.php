@@ -38,6 +38,7 @@ class ViewServiceProvider extends ServiceProvider
                 'connect_zalo' => WebsiteConfig::get('connect_zalo', 'https://zalo.me/0968750388'),
                 'connect_facebook' => WebsiteConfig::get('connect_facebook', ''),
                 'contact_mst' => WebsiteConfig::get('contact_mst', ''),
+                'gioi_thieu' => WebsiteConfig::get('gioi_thieu', ''),
             ];
             $view->with('config', $configs);
         });

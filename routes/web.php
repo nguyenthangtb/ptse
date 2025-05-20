@@ -30,6 +30,7 @@ Route::get('/tim-kiem/autocomplete', [HomeController::class, 'autocomplete'])->n
 Route::get('/dich-vu', [ServicesController::class, 'index'])->name('services.index');
 Route::get('/dich-vu/load-more', [ServicesController::class, 'loadMore'])->name('services.load-more');
 Route::get('/dich-vu/{slug}', [ServicesController::class, 'show'])->name('services.show');
+Route::get('/gioi-thieu', [HomeController::class, 'gioiThieu'])->name('gioi-thieu');
 
 // Career Routes
 Route::get('/tuyen-dung', [CareerController::class, 'index'])->name('careers.index');

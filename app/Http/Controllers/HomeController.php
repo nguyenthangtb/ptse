@@ -65,6 +65,10 @@ class HomeController extends Controller
         return view('contact');
     }
 
+    public function gioiThieu(){
+        return view('about');
+    }
+
 
     public function contact(Request $request)
     {

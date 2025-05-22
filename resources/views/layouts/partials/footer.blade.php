@@ -50,11 +50,7 @@
                     <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
                 <ul class="space-y-3 text-base">
-                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.consultation_service') }}</a></li>
-                    {{-- <li><a href="#" class="text-white hover:text-gray-200 block">Tìm cửa hàng gần nhất</a></li> --}}
-                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.customer_care') }}</a></li>
-                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.frequently_asked_questions') }}</a></li>
-                    <li><a href="#" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.policy_terms') }}</a></li>
+                    <li><a href="{{ route('gioi-thieu') }}" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.about') }}</a></li>
                     <li><a href="{{ route('careers.index') }}" class="text-white hover:text-orange-300 transition-colors flex items-center gap-2 group"><i class="fas fa-angle-right text-blue-300 group-hover:text-orange-400 transition-transform group-hover:translate-x-1"></i> {{ __('common.careers') }}</a></li>
                 </ul>
             </div>
@@ -154,7 +150,6 @@
         </span>
     </a>
 </div>
-
 <!-- Pulse Animation for Hotline -->
 <style>
     @keyframes pulse-ring {

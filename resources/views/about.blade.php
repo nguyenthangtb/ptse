@@ -31,9 +31,9 @@
                             <img
                                 src="{{ asset('images/logo_chuan.png') }}"
                                 alt="PTSE Company"
-                                class="rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 w-full"
+                                class="duration-300 w-full"
                             />
-                            <div class="absolute inset-0 bg-primary/10 rounded-lg"></div>
+                            <div class="absolute inset-0 "></div>
                         </div>
                     </div>
                     <div class="space-y-6 reveal">

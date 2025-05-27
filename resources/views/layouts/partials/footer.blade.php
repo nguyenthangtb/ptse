@@ -28,6 +28,12 @@
                             <span class="hover:text-orange-300 transition-colors">{{ $config['contact_mst'] }}</span>
                         </p>
                         <p class="text-white flex items-start gap-2 group">
+                            <i class="fas fa-phone text-orange-400 mt-1"></i>
+                            <span class="hover:text-orange-300 transition-colors">
+                                <a href="tel:{{ $config['phone'] }}" class="hover:text-orange-300 transition-colors">{{ $config['phone'] }}</a>
+                            </span>
+                        </p>
+                        <p class="text-white flex items-start gap-2 group">
                             <i class="fas fa-envelope text-orange-400 mt-1"></i>
                             <span class="contact-info">
                                 <a href="mailto:{{ $config['email'] }}" class="hover:text-orange-300 transition-colors">{{ $config['email'] }}</a>

@@ -30,19 +30,27 @@ class HomeSliderResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $locales = config('app.locales', [config('app.locale')]);
         return $form
             ->schema([
                 Forms\Components\Section::make('Thông tin slide')
                     ->schema([
-                        Forms\Components\TextInput::make('title')
-                            ->label('Tiêu đề')
-                            ->maxLength(255),
-                        Forms\Components\TextInput::make('subtitle')
-                            ->label('Tiêu đề phụ')
-                            ->maxLength(255),
-                        Forms\Components\TextInput::make('button_text')
-                            ->label('Nội dung nút')
-                            ->maxLength(255),
+                        Forms\Components\Tabs::make('Tiêu đề')
+                            ->tabs(collect($locales)->map(function ($locale) {
+                                return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                    ->schema([
+                                        Forms\Components\TextInput::make("title.{$locale}")
+                                            ->label('Tiêu đề')
+                                            ->maxLength(255),
+                                        Forms\Components\TextInput::make("subtitle.{$locale}")
+                                            ->label('Tiêu đề phụ')
+                                            ->maxLength(255),
+                                        Forms\Components\TextInput::make("button_text.{$locale}")
+                                            ->label('Nội dung nút')
+                                            ->maxLength(255),
+                                    ]);
+                            })->toArray())
+                            ->columnSpanFull(),
                         Forms\Components\TextInput::make('button_url')
                             ->label('Liên kết nút')
                             ->maxLength(255),

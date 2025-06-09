@@ -25,7 +25,13 @@
                         </p>
                         <p class="text-white flex items-start gap-2 group">
                             <i class="fas fa-file-invoice-dollar text-orange-400 mt-1"></i>
-                            <span class="hover:text-orange-300 transition-colors">{{ $config['contact_mst'] }}</span>
+                            <span class="hover:text-orange-300 transition-colors">
+                                @if(app()->getLocale() == 'en')
+                                    {{ $config['contact_mst_en'] }}
+                                @else
+                                    {{ $config['contact_mst'] }}
+                                @endif
+                            </span>
                         </p>
                         <p class="text-white flex items-start gap-2 group">
                             <i class="fas fa-phone text-orange-400 mt-1"></i>

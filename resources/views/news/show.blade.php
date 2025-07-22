@@ -12,7 +12,7 @@
                         @if($news->image)
                             <div class="aspect-video w-full">
                                 <img src="{{ Storage::url($news->image) }}" alt="{{ $news->title }}"
-                                    class="w-full h-full object-cover">
+                                    class="w-full h-full object-contain">
                             </div>
                         @endif
                         <div class="p-6">

@@ -131,7 +131,8 @@
                         }
 
                         if (!response.hasMore) {
-                            $('.load-more-btn').parent().remove();
+                            //$('.load-more-btn').parent().remove();
+                            $('.load-more-btn').closest('.flex').hide();
                         }
                     },
                     error: function(xhr, status, error) {

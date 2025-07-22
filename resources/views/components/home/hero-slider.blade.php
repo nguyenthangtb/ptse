@@ -64,7 +64,7 @@
     </div>
 
     <!-- Scroll Down Button -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center z-20">
+    {{-- <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center z-20">
         <a href="#categories"
             class="inline-flex flex-col items-center text-white hover:text-green-400 transition-all duration-300 ease-in-out"
             onclick="event.preventDefault(); document.getElementById('categories').scrollIntoView({
@@ -77,7 +77,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
         </a>
-    </div>
+    </div> --}}
 </div>
 
 @push('styles')

@@ -20,7 +20,7 @@ class CareerController extends Controller
     public function index()
     {
         $careers = Career::active()
-            ->where('deadline', '>=', Carbon::today())
+            ->where('is_active', 1)
             ->orderBy('created_at', 'desc')
             ->paginate(10);
         return view('careers.index', compact('careers'));
@@ -37,7 +37,9 @@ class CareerController extends Controller
         // Get related job openings
         $relatedCareers = Career::active()
             ->where('id', '!=', $career->id)
-            ->where('deadline', '>=', Carbon::today())
+            // ->where('deadline', '>=', Carbon::today())
+            ->where('is_active', 1)
+            ->orderBy('created_at', 'desc')
             ->take(3)
             ->get();
 

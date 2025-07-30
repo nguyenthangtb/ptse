@@ -146,139 +146,108 @@
                 $("html, body").animate({ scrollTop: 0 }, "slow");
             });
 
+        // Mobile menu variables
         const $menuToggle = $('#menuToggle');
         const $closeMenu = $('#closeMenu');
         const $mobileMenu = $('#mobileMenu');
         const $menuContent = $mobileMenu.find('.absolute');
         let isOpen = false;
 
-        function toggleMenu() {
+        // Hàm mở/đóng menu chính
+        function toggleMainMenu() {
             isOpen = !isOpen;
 
             if (isOpen) {
-                // Open menu
-                $mobileMenu.removeClass('invisible opacity-0');
+                $mobileMenu
+                    .removeClass('invisible')
+                    .removeClass('opacity-0');
                 $menuContent.removeClass('translate-x-full');
                 $('body').css('overflow', 'hidden');
                 $menuToggle.css('visibility', 'hidden');
             } else {
-                // Close menu
                 $mobileMenu.addClass('opacity-0');
                 $menuContent.addClass('translate-x-full');
                 $menuToggle.css('visibility', 'visible');
+
                 setTimeout(() => {
                     $mobileMenu.addClass('invisible');
                 }, 300);
+
                 $('body').css('overflow', '');
+
+                // Reset all submenus when closing main menu
+                $('.mobile-submenu').slideUp();
+                $('.menu-arrow').removeClass('rotate-180');
             }
         }
 
-        $menuToggle.on('click', toggleMenu);
-        $closeMenu.on('click', toggleMenu);
+        // Xử lý click menu chính
+        $menuToggle.on('click', toggleMainMenu);
+        $closeMenu.on('click', toggleMainMenu);
         $mobileMenu.on('click', function(e) {
             if (e.target === this) {
-                toggleMenu();
+                toggleMainMenu();
             }
         });
 
-        // Close menu on window resize
+        // Xử lý submenu cấp 1 - Sửa để xử lý cả href="#" và javascript:void(0)
+        $(document).on('click', '.menu-item > a[href="#"], .menu-item > a[href="javascript:void(0)"]', function(e) {
+            e.preventDefault();
+            const $this = $(this);
+            const $submenu = $this.siblings('.mobile-submenu');
+            const $arrow = $this.find('.menu-arrow');
+
+            // Chỉ xử lý trên mobile
+            if ($(window).width() >= 768) {
+                return;
+            }
+
+            // Đóng các submenu khác cùng cấp
+            $this.closest('.menu-item')
+                .siblings()
+                .find('.mobile-submenu')
+                .slideUp()
+                .end()
+                .find('.menu-arrow')
+                .removeClass('rotate-180');
+
+            // Toggle submenu hiện tại
+            $submenu.slideToggle(300);
+            $arrow.toggleClass('rotate-180');
+        });
+
+        // Xử lý submenu cấp 2 - Sửa để xử lý cả href="#" và javascript:void(0)
+        $(document).on('click', '.submenu-item > a[href="#"], .submenu-item > a[href="javascript:void(0)"]', function(e) {
+            e.preventDefault();
+            const $this = $(this);
+            const $nestedSubmenu = $this.siblings('.nested-submenu');
+            const $arrow = $this.find('.menu-arrow');
+
+            // Chỉ xử lý trên mobile
+            if ($(window).width() >= 768) {
+                return;
+            }
+
+            // Đóng các nested submenu khác
+            $this.closest('.submenu-item')
+                .siblings()
+                .find('.nested-submenu')
+                .slideUp()
+                .end()
+                .find('.menu-arrow')
+                .removeClass('rotate-180');
+
+            // Toggle nested submenu hiện tại
+            $nestedSubmenu.slideToggle(300);
+            $arrow.toggleClass('rotate-180');
+        });
+
+        // Đóng menu khi resize
         $(window).on('resize', function() {
             if ($(window).width() >= 768 && isOpen) {
-                toggleMenu();
+                toggleMainMenu();
             }
         });
-        });
-         // Menu mobile toggle
-    const $menuToggle = $('#menuToggle');
-    const $closeMenu = $('#closeMenu');
-    const $mobileMenu = $('#mobileMenu');
-    const $menuContent = $mobileMenu.find('.absolute');
-    let isOpen = false;
-
-    // Hàm mở/đóng menu chính
-    function toggleMainMenu() {
-        isOpen = !isOpen;
-
-        if (isOpen) {
-            $mobileMenu
-                .removeClass('invisible')
-                .removeClass('opacity-0');
-            $menuContent.removeClass('translate-x-full');
-            $('body').css('overflow', 'hidden');
-            $menuToggle.css('visibility', 'hidden');
-        } else {
-            $mobileMenu.addClass('opacity-0');
-            $menuContent.addClass('translate-x-full');
-            $menuToggle.css('visibility', 'visible');
-
-            setTimeout(() => {
-                $mobileMenu.addClass('invisible');
-            }, 300);
-
-            $('body').css('overflow', '');
-
-            // Reset all submenus when closing main menu
-            $('.mobile-submenu').slideUp();
-            $('.menu-arrow').removeClass('rotate-180');
-        }
-    }
-
-    // Xử lý click menu chính
-    $menuToggle.on('click', toggleMainMenu);
-    $closeMenu.on('click', toggleMainMenu);
-    $mobileMenu.on('click', function(e) {
-        if (e.target === this) {
-            toggleMainMenu();
-        }
-    });
-
-    // Xử lý submenu cấp 1
-    $(document).on('click', '.menu-item > a[href="#"]', function(e) {
-        e.preventDefault();
-        const $this = $(this);
-        const $submenu = $this.siblings('.mobile-submenu');
-        const $arrow = $this.find('.menu-arrow');
-
-        // Đóng các submenu khác cùng cấp
-        $this.closest('.menu-item')
-            .siblings()
-            .find('.mobile-submenu')
-            .slideUp()
-            .end()
-            .find('.menu-arrow')
-            .removeClass('rotate-180');
-
-        // Toggle submenu hiện tại
-        $submenu.slideToggle(300);
-        $arrow.toggleClass('rotate-180');
-    });
-
-    // Xử lý submenu cấp 2
-    $(document).on('click', '.submenu-item > a[href="#"]', function(e) {
-        e.preventDefault();
-        const $this = $(this);
-        const $nestedSubmenu = $this.siblings('.nested-submenu');
-        const $arrow = $this.find('.menu-arrow');
-
-        // Đóng các nested submenu khác
-        $this.closest('.submenu-item')
-            .siblings()
-            .find('.nested-submenu')
-            .slideUp()
-            .end()
-            .find('.menu-arrow')
-            .removeClass('rotate-180');
-
-        // Toggle nested submenu hiện tại
-        $nestedSubmenu.slideToggle(300);
-        $arrow.toggleClass('rotate-180');
-    });
-
-    // Đóng menu khi resize
-    $(window).on('resize', function() {
-        if ($(window).width() >= 768 && isOpen) {
-            toggleMainMenu();
-        }
     });
     </script>
     <script src="{{ asset('js/scrollreveal.js') }}"></script>

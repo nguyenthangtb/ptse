@@ -4,7 +4,10 @@
             'relative group menu-item' => true,
             'w-full md:w-auto' => true
         ])>
-            <a href="{{ $item->children->isEmpty() ? $item->url : '#' }}"
+            @php
+                $menuUrl = $item->children->isEmpty() ? $item->url : 'javascript:void(0)';
+            @endphp
+            <a href="{{ $menuUrl }}"
                @if($item->children->isEmpty()) target="{{ $item->target }}" @endif
                @class([
                    'block text-[#FFCA35] font-medium relative py-3 transition-all duration-300
@@ -28,7 +31,10 @@
                     <ul class="flex flex-col bg-[#1E4ED8] rounded-lg shadow-lg overflow-hidden">
                         @foreach($item->children as $child)
                             <li class="relative group/child submenu-item">
-                                <a href="{{ $child->children && $child->children->isNotEmpty() ? '#' : $child->url }}"
+                                @php
+                                    $childUrl = ($child->children && $child->children->isNotEmpty()) ? 'javascript:void(0)' : $child->url;
+                                @endphp
+                                <a href="{{ $childUrl }}"
                                    @if(!$child->children || $child->children->isEmpty()) target="{{ $child->target }}" @endif
                                    @class([
                                        'flex items-center py-2 px-4 text-[#FFCA35] hover:bg-white/20 transition-all duration-300 relative justify-between',

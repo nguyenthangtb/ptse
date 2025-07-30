@@ -5,13 +5,13 @@
 
         @if($services && $services->count() > 0)
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                @foreach($services->take(3) as $service)
+                @foreach($services->take(6) as $service)
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 h-[400px]">
                         <div class="aspect-w-9 aspect-h-16 relative overflow-hidden h-full">
                             <img
                                 src="{{ $service->thumbnail ? asset('storage/' . $service->thumbnail) : 'https://img.youtube.com/vi/' . $service->youtube_id . '/maxresdefault.jpg' }}"
                                 alt="{{ $service->title }}"
-                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                             />
                             <!-- Play button overlay -->
                             <a href="javascript:void(0)"

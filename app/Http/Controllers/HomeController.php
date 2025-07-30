@@ -46,7 +46,7 @@ class HomeController extends Controller
         $services = Cache::remember('home_services', 60*24, function () {
             return Service::active()
                 ->orderBy('order')
-                ->take(4)
+                ->take(6)
                 ->get();
         });
 

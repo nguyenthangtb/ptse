@@ -22,7 +22,7 @@
                                     <img
                                         src="{{ $service->thumbnail ? asset('storage/' . $service->thumbnail) : 'https://img.youtube.com/vi/' . $service->youtube_id . '/maxresdefault.jpg' }}"
                                         alt="{{ $service->title }}"
-                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                                     />
 
                                     <!-- Overlay đen mờ và text -->

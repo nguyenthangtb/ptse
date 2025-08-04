@@ -41,10 +41,11 @@ class Career extends Model
         'benefits',
         'type',
         'location',
-        'salary',
+        'salary_min',
         'deadline',
         'image',
         'is_active',
+        'department',
     ];
 
     /**

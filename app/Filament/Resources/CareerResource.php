@@ -147,7 +147,7 @@ class CareerResource extends Resource
 
                         Forms\Components\Section::make('Mức lương')
                             ->schema([
-                                Forms\Components\TextInput::make('salary')
+                                Forms\Components\TextInput::make('salary_min')
                                     ->label('Mức lương')
                                     ->numeric()
                                     ->prefix('$'),
@@ -178,7 +178,7 @@ class CareerResource extends Resource
                     ->label('Loại hình')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('salary') // Thay đổi từ 'salary_range' thành 'salary'
+                Tables\Columns\TextColumn::make('salary')
                     ->label('Mức lương')
                     ->searchable()
                     ->sortable(),
@@ -201,11 +201,29 @@ class CareerResource extends Resource
                     ->label('Đã xoá'),
                 Tables\Filters\SelectFilter::make('department')
                     ->label('Phòng ban')
-                    ->options(fn () => Career::distinct()->pluck('department', 'department')->toArray())
+                    ->options(function () {
+                        $departments = Career::whereNotNull('department')
+                            ->where('department', '!=', '')
+                            ->distinct()
+                            ->pluck('department', 'department')
+                            ->filter()
+                            ->toArray();
+
+                        return $departments;
+                    })
                     ->searchable(),
                 Tables\Filters\SelectFilter::make('location')
                     ->label('Địa điểm')
-                    ->options(fn () => Career::distinct()->pluck('location', 'location')->toArray())
+                    ->options(function () {
+                        $locations = Career::whereNotNull('location')
+                            ->where('location', '!=', '')
+                            ->distinct()
+                            ->pluck('location', 'location')
+                            ->filter()
+                            ->toArray();
+
+                        return $locations;
+                    })
                     ->searchable(),
                 Tables\Filters\SelectFilter::make('type')
                     ->label('Loại hình')

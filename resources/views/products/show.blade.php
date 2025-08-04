@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', $product->name)
+@section('meta_description', $product->meta_description)
+@section('meta_keywords', $product->meta_keywords)
+
 @section('content')
     <!-- Mobile Title (visible only on mobile) -->
     <div class="block lg:hidden pt-[170px] px-4">

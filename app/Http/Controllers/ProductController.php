@@ -77,7 +77,6 @@ class ProductController extends Controller
                 ->get();
         });
 
-
         return view('products.show', compact('product', 'relatedProducts'));
     }
 

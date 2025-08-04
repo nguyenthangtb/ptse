@@ -15,9 +15,20 @@
 
     <meta name="theme-color" content="#1976d2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chuyên cung cấp giải pháp bơm và van cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
-    <meta name="keywords" content="bơm công nghiệp, bơm nước, van nước, giải pháp bơm, thiết bị bơm, Phú Thái">
-    <meta name="author" content="{{ $config['company_name'] }}">
+    <meta name="description" content="@yield('meta_description', 'Chuyên cung cấp giải pháp bơm và van cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'bơm công nghiệp, bơm nước, van nước, giải pháp bơm, thiết bị bơm, Phú Thái, PTSE')">
+    <meta name="author" content="{{ $config['company_name'] ?? 'PTSE' }}">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="language" content="{{ app()->getLocale() }}">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="coverage" content="worldwide">
+    <meta name="target" content="all">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">

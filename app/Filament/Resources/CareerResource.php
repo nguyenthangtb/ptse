@@ -71,7 +71,7 @@ class CareerResource extends Resource
                                                     ->required(),
                                             ]);
                                     })->toArray()),
-                                Forms\Components\Select::make('type')
+                                Forms\Components\Select::make('job_type')
                                     ->label('Loại hình')
                                     ->required()
                                     ->options([
@@ -147,12 +147,8 @@ class CareerResource extends Resource
 
                         Forms\Components\Section::make('Mức lương')
                             ->schema([
-                                Forms\Components\TextInput::make('salary_min')
-                                    ->label('Lương tối thiểu')
-                                    ->numeric()
-                                    ->prefix('$'),
-                                Forms\Components\TextInput::make('salary_max')
-                                    ->label('Lương tối đa')
+                                Forms\Components\TextInput::make('salary')
+                                    ->label('Mức lương')
                                     ->numeric()
                                     ->prefix('$'),
                             ]),
@@ -178,11 +174,11 @@ class CareerResource extends Resource
                     ->label('Địa điểm')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('type')
+                Tables\Columns\TextColumn::make('job_type')
                     ->label('Loại hình')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('salary_range')
+                Tables\Columns\TextColumn::make('salary')
                     ->label('Mức lương')
                     ->searchable()
                     ->sortable(),
@@ -205,13 +201,31 @@ class CareerResource extends Resource
                     ->label('Đã xoá'),
                 Tables\Filters\SelectFilter::make('department')
                     ->label('Phòng ban')
-                    ->options(fn () => Career::distinct()->pluck('department', 'department')->toArray())
+                    ->options(function () {
+                        $departments = Career::whereNotNull('department')
+                            ->where('department', '!=', '')
+                            ->distinct()
+                            ->pluck('department', 'department')
+                            ->filter()
+                            ->toArray();
+
+                        return $departments;
+                    })
                     ->searchable(),
                 Tables\Filters\SelectFilter::make('location')
                     ->label('Địa điểm')
-                    ->options(fn () => Career::distinct()->pluck('location', 'location')->toArray())
+                    ->options(function () {
+                        $locations = Career::whereNotNull('location')
+                            ->where('location', '!=', '')
+                            ->distinct()
+                            ->pluck('location', 'location')
+                            ->filter()
+                            ->toArray();
+
+                        return $locations;
+                    })
                     ->searchable(),
-                Tables\Filters\SelectFilter::make('type')
+                Tables\Filters\SelectFilter::make('job_type')
                     ->label('Loại hình')
                     ->options([
                         'full-time' => 'Toàn thời gian',

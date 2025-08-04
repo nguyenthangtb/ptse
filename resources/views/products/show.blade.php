@@ -100,7 +100,7 @@
                                 <div id="product-description" class="prose prose-sm">
                                     {!! $product->description !!}
                                 </div>
-                                <div class="mt-4 text-center">
+                                {{-- <div class="mt-4 text-center">
                                     <button id="show-more-btn"
                                             class="text-[#1E4ED8] hover:text-[#1E4ED8]/90 text-sm font-medium flex items-center mx-auto border border-[#1E4ED8] px-4 py-2 rounded-lg">
                                         {{ __('common.read_more') }}
@@ -108,7 +108,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                         </svg>
                                     </button>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

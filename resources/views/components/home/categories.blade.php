@@ -35,7 +35,7 @@
         </div>
     </div>
     <!-- Scroll Down Button -->
-    <div class="text-center pb-8">
+    {{-- <div class="text-center pb-8">
         <a href="#featured-products"
            class="inline-flex flex-col items-center text-gray-600 hover:text-gray-900 transition-all duration-300 ease-in-out"
            onclick="event.preventDefault(); document.getElementById('featured-products').scrollIntoView({
@@ -48,5 +48,5 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
         </a>
-    </div>
+    </div> --}}
 </div>

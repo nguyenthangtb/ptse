@@ -71,7 +71,7 @@ class CareerResource extends Resource
                                                     ->required(),
                                             ]);
                                     })->toArray()),
-                                Forms\Components\Select::make('job_type')
+                                Forms\Components\Select::make('type')
                                     ->label('Loại hình')
                                     ->required()
                                     ->options([
@@ -174,11 +174,11 @@ class CareerResource extends Resource
                     ->label('Địa điểm')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('job_type')
+                Tables\Columns\TextColumn::make('type')
                     ->label('Loại hình')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('salary')
+                Tables\Columns\TextColumn::make('salary') // Thay đổi từ 'salary_range' thành 'salary'
                     ->label('Mức lương')
                     ->searchable()
                     ->sortable(),
@@ -201,31 +201,13 @@ class CareerResource extends Resource
                     ->label('Đã xoá'),
                 Tables\Filters\SelectFilter::make('department')
                     ->label('Phòng ban')
-                    ->options(function () {
-                        $departments = Career::whereNotNull('department')
-                            ->where('department', '!=', '')
-                            ->distinct()
-                            ->pluck('department', 'department')
-                            ->filter()
-                            ->toArray();
-
-                        return $departments;
-                    })
+                    ->options(fn () => Career::distinct()->pluck('department', 'department')->toArray())
                     ->searchable(),
                 Tables\Filters\SelectFilter::make('location')
                     ->label('Địa điểm')
-                    ->options(function () {
-                        $locations = Career::whereNotNull('location')
-                            ->where('location', '!=', '')
-                            ->distinct()
-                            ->pluck('location', 'location')
-                            ->filter()
-                            ->toArray();
-
-                        return $locations;
-                    })
+                    ->options(fn () => Career::distinct()->pluck('location', 'location')->toArray())
                     ->searchable(),
-                Tables\Filters\SelectFilter::make('job_type')
+                Tables\Filters\SelectFilter::make('type')
                     ->label('Loại hình')
                     ->options([
                         'full-time' => 'Toàn thời gian',

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', $project->title)
-
+@section('title', $project->meta_title)
+@section('meta_description', $project->meta_description)
+@section('meta_keywords', $project->meta_keywords)
 @section('content')
 
     <section class="py-12 md:py-8 mt-[170px]">

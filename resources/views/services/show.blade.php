@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $service->title)
-
+@section('meta_description', $service->description)
 @section('content')
     <section class="py-12 md:py-8 mt-[170px]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

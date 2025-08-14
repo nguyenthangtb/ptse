@@ -43,7 +43,7 @@
 
                             <!-- Social Share -->
                             <div class="mt-8 pt-6 border-t border-gray-100">
-                                <h3 class="text-lg font-semibold mb-4">{{ __('common.share_solution') }}</h3>
+                                <h3 class="text-lg font-semibold mb-4">{{ __('common.share_post') }}</h3>
                                 <div class="flex gap-2">
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}"
                                     target="_blank"

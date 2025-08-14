@@ -37,7 +37,8 @@
                             </div>
 
                             <div class="prose max-w-none">
-                                {!! str($solution->description)->sanitizeHtml() !!}
+                                {{-- {!! str($solution->description)->sanitizeHtml() !!} --}}
+                                {!! $solution->description !!}
                             </div>
 
                             <!-- Social Share -->

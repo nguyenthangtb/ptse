@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Filament\Notifications\Notification;
-
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 class NewsResource extends Resource
 {
     protected static ?string $model = News::class;
@@ -69,8 +69,9 @@ class NewsResource extends Resource
                                 ->tabs(collect($locales)->map(function ($locale) {
                                     return Forms\Components\Tabs\Tab::make(strtoupper($locale))
                                         ->schema([
-                                            Forms\Components\RichEditor::make("content.{$locale}")
+                                            TinyEditor::make("content.{$locale}")
                                                 ->label('Nội dung')
+                                                ->showMenuBar()
                                                 ->required($locale === config('app.locale')),
                                         ]);
                                 })->toArray())
@@ -81,9 +82,10 @@ class NewsResource extends Resource
                                 ->tabs(collect($locales)->map(function ($locale) {
                                     return Forms\Components\Tabs\Tab::make(strtoupper($locale))
                                         ->schema([
-                                            Forms\Components\Textarea::make("excerpt.{$locale}")
+                                            TinyEditor::make("excerpt.{$locale}")
                                                 ->label('Tóm tắt')
-                                                ->rows(3),
+                                                ->showMenuBar()
+                                                ->required($locale === config('app.locale')),
                                         ]);
                                 })->toArray())
                                 ->columnSpanFull(),

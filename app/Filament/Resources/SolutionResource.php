@@ -105,7 +105,21 @@ class SolutionResource extends Resource
                                     ->label('Thư viện ảnh')
                                     ->multiple()
                                     ->image()
+                                    ->panelLayout('grid')
+                                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
                                     ->directory('solutions/gallery')
+                                    ->reorderable(),
+                            ]),
+
+                        Forms\Components\Section::make('Tài liệu')
+                            ->schema([
+                                Forms\Components\FileUpload::make('documents')
+                                    ->label('Tài liệu')
+                                    ->multiple()
+                                    ->preserveFilenames()
+                                    ->panelLayout('grid')
+                                    ->acceptedFileTypes(['application/pdf', 'application/msword'])
+                                    ->directory('solutions/documents')
                                     ->reorderable(),
                             ]),
 

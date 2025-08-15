@@ -66,8 +66,60 @@
                 </div>
 
                 <!-- Sidebar -->
-                <div class="lg:col-span-1">
-                    <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
+                <div class="lg:col-span-1 sticky">
+                    <div class="border rounded-lg bg-white shadow-sm">
+                        <div class="p-4">
+                            <h2 class="text-xl font-bold pb-4 border-b border-gray-100">{{ __('common.documents') }}</h2>
+                        </div>
+                        <div class="divide-y">
+                            @if($solution->documents && is_array($solution->documents))
+                                @foreach($solution->documentUrls as $document)
+                                    @php
+                                        $filename = $document['original_name'];
+                                        $extension = $document['extension'];
+                                        $fileIcon = match(strtolower($extension)) {
+                                            'pdf' => '<svg class="w-6 h-6 text-red-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>',
+                                            'doc', 'docx' => '<svg class="w-6 h-6 text-blue-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>',
+                                            'xls', 'xlsx' => '<svg class="w-6 h-6 text-green-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>',
+                                            'zip', 'rar', '7z' => '<svg class="w-6 h-6 text-orange-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>',
+                                            default => '<svg class="w-6 h-6 text-gray-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg>'
+                                        };
+                                        $fileSize = $document['size'] > 0 ? round($document['size'] / 1024, 2) . ' KB' : '';
+                                    @endphp
+                                    <div class="py-3 px-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="flex-shrink-0">
+                                                {!! $fileIcon !!}
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-bold text-gray-900 truncate">
+                                                    {{ $filename }}
+                                                </p>
+                                                <p class="text-xs text-gray-500">
+                                                    {{ strtoupper($extension) }} {{ $fileSize ? ' · ' . $fileSize : '' }}
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <a href="{{ $document['url'] }}"
+                                                  class="inline-flex items-center px-3 py-1.5 border border-[#1E4ED8] rounded-lg text-xs font-medium text-[#1E4ED8] hover:bg-[#1E4ED8] hover:text-white transition-colors"
+                                                  target="_blank">
+                                                    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                                    </svg>
+                                                    {{ __('common.download') }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="py-3 px-4">
+                                    <p class="text-sm text-gray-500">{{ __('common.no_documents') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24 mt-4">
                         <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-100">{{ __('common.related_solutions') }}</h2>
                         <div class="space-y-6">
                             @foreach($relatedSolutions as $related)

@@ -5,6 +5,7 @@ namespace App\Filament\Resources\SolutionResource\Pages;
 use App\Filament\Resources\SolutionResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Facades\Cache;
 
 class EditSolution extends EditRecord
 {
@@ -15,5 +16,15 @@ class EditSolution extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterUpdate(): void
+    {
+        $this->clearSolutionCache();
+    }
+
+    protected function clearSolutionCache(): void
+    {
+        Cache::flush();
     }
 }

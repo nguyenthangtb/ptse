@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Solution;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
 
 class SolutionController extends Controller
 {
@@ -19,11 +20,21 @@ class SolutionController extends Controller
                 ->paginate(6);
         });
 
+        //check login
+        if (Auth::check()) {
+            Cache::forget('solutions_page_' . $page);
+        }
+
         return view('solutions.index', compact('solutions'));
     }
 
     public function show($slug)
     {
+        //check login
+        if (Auth::check()) {
+            Cache::forget('solution_' . $slug);
+        }
+
         $solution = Cache::remember('solution_' . $slug, 60*24, function () use ($slug) {
             return Solution::query()
                 ->where('slug', $slug)
@@ -45,14 +56,20 @@ class SolutionController extends Controller
     public function loadMore(Request $request)
     {
         $page = $request->page;
+
+        //check login
+        if (Auth::check()) {
+            Cache::forget('solutions_loadmore_page_' . $page);
+        }
+
         $solutions = Cache::remember('solutions_loadmore_page_' . $page, 60*24, function () use ($request) {
             $perPage = 10;
             return Solution::latest()
                 ->paginate($perPage, ['*'], 'page', $request->page);
         });
-    
+
         $html = view('solutions._list', ['solutions' => $solutions])->render();
-    
+
         return response()->json([
             'html' => $html,
             'hasMore' => $solutions->hasMorePages()
@@ -63,10 +80,10 @@ class SolutionController extends Controller
     {
         // Clear individual solution cache
         Cache::forget('solution_' . $solution->slug);
-        
+
         // Clear related solutions cache
         Cache::forget('related_solutions_' . $solution->id);
-        
+
         // Clear paginated pages cache
         for ($i = 1; $i <= 10; $i++) {
             Cache::forget('solutions_page_' . $i);

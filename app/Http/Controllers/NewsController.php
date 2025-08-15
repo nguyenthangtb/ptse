@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache; // Add this at the top with other uses
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
     public function index()
     {
         $page = request()->get('page', 1);
+
+        //check login
+        if (Auth::check()) {
+            Cache::forget('news_page_' . $page);
+        }
+
         $news = Cache::remember('news_page_' . $page, 60*6, function () {
             return News::query()
                 ->where('is_active', true)
@@ -22,19 +29,30 @@ class NewsController extends Controller
 
     public function show(News $news)
     {
+        //check login
+        if (Auth::check()) {
+            Cache::forget('recent_news_except_' . $news->id);
+        }
+
         $recentNews = Cache::remember('recent_news_except_' . $news->id, 60*6, function () use ($news) {
             return News::where('id', '!=', $news->id)
                 ->latest()
                 ->take(5)
                 ->get();
         });
-            
+
         return view('news.show', compact('news', 'recentNews'));
     }
 
     public function loadMore(Request $request)
     {
         $page = $request->input('page', 1);
+
+        //check login
+        if (Auth::check()) {
+            Cache::forget('news_loadmore_page_' . $page);
+        }
+
         $news = Cache::remember('news_loadmore_page_' . $page, 60*6, function () use ($page) {
             return News::query()
                 ->where('is_active', true)
@@ -57,8 +75,8 @@ class NewsController extends Controller
         ]);
     }
 
-    private function clearNewsCache()
+    protected function clearNewsCache(): void
     {
-        Cache::tags(['news'])->flush();
+        Cache::flush();
     }
 }

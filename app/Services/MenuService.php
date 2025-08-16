@@ -138,6 +138,13 @@ class MenuService
                 'children' => []
             ],
             [
+                'title' => __('common.careers'),
+                'url' => '/tuyen-dung',
+                'icon' => '',
+                'target' => '_self',
+                'children' => []
+            ],
+            [
                 'title' => __('common.lien_he'),
                 'url' => '/lien-he',
                 'icon' => '',

@@ -3,6 +3,21 @@
 @section('title', $news->meta_title)
 @section('meta_description', $news->meta_description)
 @section('meta_keywords', $news->meta_keywords)
+@section('styles')
+    <style>
+        .content { font-size: 16px; line-height: 1.75; color: #111827; }
+        .content h1,h2,h3 { font-weight: 700; line-height: 1.6; margin: 1.6em 0 .6em; }
+        .content h1 { font-size: 2rem; }
+        .content h2 { font-size: 1.5rem; }
+        .content h3 { font-size: 1.25rem; }
+
+        .content p { margin: 0 0 1.25em; }
+        .content ul { list-style: disc; padding-left: 1.625em; margin: 0 0 1.25em; }
+        .content ol { list-style: decimal; padding-left: 1.625em; margin: 0 0 1.25em; }
+        .content li { margin: .5em 0; }
+        .content img { max-width: 100%; height: auto; }
+    </style>
+@endsection
 @section('content')
     <section class="py-12 md:py-8 mt-[170px]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -34,7 +49,7 @@
                                 </span>
                             </div>
 
-                            <div class="prose max-w-none">
+                            <div class="content">
                                 {!! $news->content !!}
                             </div>
 

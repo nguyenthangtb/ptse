@@ -6,12 +6,16 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public function index(Request $request)
     {
         $page = request()->get('page', 1);
+        if (Auth::check()) {
+            Cache::forget('products_page_' . $page);
+        }
         $products = Cache::remember('products_page_' . $page, 60*24, function () {
             return Product::query()
                 ->where('is_active', true)
@@ -38,6 +42,9 @@ class ProductController extends Controller
     public function productCategory(Category $category, Request $request)
     {
         $page = $request->get('page', 1);
+        if (Auth::check()) {
+            Cache::forget('category_products_' . $category->id . '_page_' . $page);
+        }
         $products = Cache::remember('category_products_' . $category->id . '_page_' . $page, 60*24, function () use ($category) {
             return Product::where('category_id', $category->id)
                 ->latest()
@@ -61,6 +68,9 @@ class ProductController extends Controller
 
     public function show($slug)
     {
+        if (Auth::check()) {
+            Cache::forget('product_' . $slug);
+        }
         $product = Cache::remember('product_' . $slug, 60*24, function () use ($slug) {
             return Product::query()
                 ->where('slug', $slug)

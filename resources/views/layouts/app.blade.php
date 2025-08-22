@@ -51,6 +51,17 @@
     <link rel="canonical" href="{{ url()->current() }}">
 
     <title>@yield('title', 'Giải pháp bơm & van cho ngành nước')</title>
+    <style>
+       html, body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        }
+
+        * {
+        background-color: inherit;
+        color: inherit;
+        }
+    </style>
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",

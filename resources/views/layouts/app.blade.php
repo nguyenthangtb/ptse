@@ -43,7 +43,8 @@
     <meta property="twitter:title" content="@yield('title', 'Giải pháp bơm & van cho ngành nước')">
     <meta property="twitter:description" content="Chuyên cung cấp giải pháp bơm và van cho ngành nước. Đơn vị hàng đầu trong lĩnh vực thiết bị bơm công nghiệp tại Việt Nam.">
     <meta property="twitter:image" content="{{ asset('images/logo_chuan.png') }}">
-
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
     <!-- Additional SEO tags -->
     <meta name="robots" content="index, follow">
     <meta name="language" content="Vietnamese">

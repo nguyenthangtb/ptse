@@ -11,7 +11,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 class CareerResource extends Resource
 {
     protected static ?string $model = Career::class;
@@ -90,7 +90,7 @@ class CareerResource extends Resource
                                     ->tabs(collect($locales)->map(function ($locale) {
                                         return Forms\Components\Tabs\Tab::make(strtoupper($locale))
                                             ->schema([
-                                                Forms\Components\TextInput::make("short_description.{$locale}")
+                                                TinyEditor::make("short_description.{$locale}")
                                                     ->label('Mô tả ngắn')
                                                     ->maxLength(255),
                                             ]);
@@ -100,7 +100,7 @@ class CareerResource extends Resource
                                     ->tabs(collect($locales)->map(function ($locale) {
                                         return Forms\Components\Tabs\Tab::make(strtoupper($locale))
                                             ->schema([
-                                                Forms\Components\RichEditor::make("description.{$locale}")
+                                                TinyEditor::make("description.{$locale}")
                                                     ->label('Mô tả chi tiết')
                                                     ->columnSpanFull(),
                                             ]);
@@ -114,7 +114,7 @@ class CareerResource extends Resource
                                     ->tabs(collect($locales)->map(function ($locale) {
                                         return Forms\Components\Tabs\Tab::make(strtoupper($locale))
                                             ->schema([
-                                                Forms\Components\RichEditor::make("requirements.{$locale}")
+                                                TinyEditor::make("requirements.{$locale}")
                                                     ->label('Yêu cầu')
                                                     ->columnSpanFull(),
                                             ]);
@@ -124,7 +124,7 @@ class CareerResource extends Resource
                                     ->tabs(collect($locales)->map(function ($locale) {
                                         return Forms\Components\Tabs\Tab::make(strtoupper($locale))
                                             ->schema([
-                                                Forms\Components\RichEditor::make("benefits.{$locale}")
+                                                TinyEditor::make("benefits.{$locale}")
                                                     ->label('Quyền lợi')
                                                     ->columnSpanFull(),
                                             ]);

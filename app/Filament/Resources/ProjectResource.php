@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Filament\Notifications\Notification;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
+
 class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
@@ -61,11 +63,11 @@ class ProjectResource extends Resource
 
                         Forms\Components\Section::make('Nội dung')
                             ->schema([
-                                Forms\Components\TextInput::make('short_description')
+                                TinyEditor::make('short_description')
                                     ->label('Mô tả ngắn')
                                     ->required()
                                     ->maxLength(255),
-                                Forms\Components\RichEditor::make('description')
+                                TinyEditor::make('description')
                                     ->label('Mô tả chi tiết')
                                     ->columnSpanFull(),
                                 // Forms\Components\RichEditor::make('challenge')

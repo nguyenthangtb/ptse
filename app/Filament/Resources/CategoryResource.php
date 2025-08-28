@@ -3,17 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CategoryResource\Pages;
-use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Filament\Notifications\Notification;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class CategoryResource extends Resource
 {
@@ -75,11 +73,12 @@ class CategoryResource extends Resource
                                     ->tabs(collect($locales)->map(function ($locale) {
                                         return Forms\Components\Tabs\Tab::make(strtoupper($locale))
                                             ->schema([
-                                                Forms\Components\Textarea::make("short_description.{$locale}")
+                                                TinyEditor::make("short_description.{$locale}")
                                                     ->label('Mô tả ngắn')
-                                                    ->rows(3),
-                                                Forms\Components\RichEditor::make("description.{$locale}")
+                                                    ->showMenuBar(),
+                                                TinyEditor::make("description.{$locale}")
                                                     ->label('Mô tả chi tiết')
+                                                    ->showMenuBar()
                                                     ->columnSpanFull(),
                                             ]);
                                     })->toArray())

@@ -3,17 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SolutionResource\Pages;
-use App\Filament\Resources\SolutionResource\RelationManagers;
 use App\Models\Solution;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Filament\Notifications\Notification;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 class SolutionResource extends Resource
 {
     protected static ?string $model = Solution::class;
@@ -69,11 +67,11 @@ class SolutionResource extends Resource
                                     ->tabs(collect($locales)->map(function ($locale) {
                                         return Forms\Components\Tabs\Tab::make(strtoupper($locale))
                                             ->schema([
-                                                Forms\Components\TextInput::make("short_description.{$locale}")
+                                                TinyEditor::make("short_description.{$locale}")
                                                     ->label('Mô tả ngắn')
                                                     ->required()
                                                     ->maxLength(255),
-                                                Forms\Components\RichEditor::make("description.{$locale}")
+                                                TinyEditor::make("description.{$locale}")
                                                     ->label('Mô tả chi tiết')
                                                     ->required()
                                                     ->columnSpanFull(),

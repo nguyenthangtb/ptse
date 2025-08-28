@@ -3,17 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Str;
 use Filament\Notifications\Notification;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class ProductResource extends Resource
 {
@@ -87,10 +84,10 @@ class ProductResource extends Resource
                                     ->schema([
                                         Forms\Components\Section::make('Mô tả')
                                             ->schema([
-                                                Forms\Components\TextInput::make("short_description.{$locale}")
+                                                TinyEditor::make("short_description.{$locale}")
                                                     ->label('Mô tả ngắn')
                                                     ->maxLength(255),
-                                                Forms\Components\RichEditor::make("description.{$locale}")
+                                                TinyEditor::make("description.{$locale}")
                                                     ->label('Mô tả chi tiết')
                                                     ->columnSpanFull(),
                                             ]),
@@ -104,7 +101,7 @@ class ProductResource extends Resource
                                     ->schema([
                                         Forms\Components\Section::make('Tính năng')
                                             ->schema([
-                                                Forms\Components\RichEditor::make("features.{$locale}")
+                                                TinyEditor::make("features.{$locale}")
                                                     ->label('Tính năng')
                                                     ->columnSpanFull(),
                                             ]),

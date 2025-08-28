@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
 
 class ServicesController extends Controller
 {
     public function index()
     {
         $page = request()->get('page', 1);
+        if (Auth::check()) {
+            Cache::forget('services_page_' . $page);
+        }
         $services = Cache::remember('services_page_' . $page, 60*6, function () {
             return Service::query()
                 ->where('status', true)
@@ -22,6 +26,9 @@ class ServicesController extends Controller
 
     public function show(Service $service)
     {
+        if (Auth::check()) {
+            Cache::forget('recent_services_except_' . $service->id);
+        }
         $recentServices = Cache::remember('recent_services_except_' . $service->id, 60*6, function () use ($service) {
             return Service::where('id', '!=', $service->id)
                 ->latest()
@@ -35,6 +42,10 @@ class ServicesController extends Controller
     public function loadMore(Request $request)
     {
         $page = $request->input('page', 1);
+
+        if (Auth::check()) {
+            Cache::forget('services_loadmore_page_' . $page);
+        }
         $services = Cache::remember('services_loadmore_page_' . $page, 60*6, function () use ($page) {
             return Service::query()
                 ->where('status', true)

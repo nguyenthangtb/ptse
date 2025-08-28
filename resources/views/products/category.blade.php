@@ -1,5 +1,19 @@
 @extends('layouts.app')
+@section('styles')
+    <style>
+        .content { font-size: 16px; line-height: 1.75; color: #111827; }
+        .content h1,h2,h3 { font-weight: 700; line-height: 1.6; margin: 1.6em 0 .6em; }
+        .content h1 { font-size: 2rem; }
+        .content h2 { font-size: 1.5rem; }
+        .content h3 { font-size: 1.25rem; }
 
+        .content p { margin: 0 0 1.25em; }
+        .content ul { list-style: disc; padding-left: 1.625em; margin: 0 0 1.25em; }
+        .content ol { list-style: decimal; padding-left: 1.625em; margin: 0 0 1.25em; }
+        .content li { margin: .5em 0; }
+        .content img { max-width: 100%; height: auto; }
+    </style>
+@endsection
 @section('content')
 <div class="pt-[72px] md:pt-[116px]">
     <!-- Mobile Title -->

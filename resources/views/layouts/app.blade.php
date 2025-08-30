@@ -45,7 +45,7 @@
     <meta property="twitter:image" content="{{ asset('images/logo_chuan.png') }}">
     <!-- <meta name="color-scheme" content="light">
     <meta name="supported-color-schemes" content="light"> -->
-    <meta name="google-site-verification" content="tdqrpA9kOEZ5wksqu0BpYHmHVwc7sIEIU02ZkZcComg" />
+    <meta name="google-site-verification" content="lxQ97dDhGdIG32BifgSezgw7c7J6eM_OT2WaEaTrpRA" />
     <!-- Additional SEO tags -->
     <meta name="robots" content="index, follow">
     <meta name="language" content="Vietnamese">

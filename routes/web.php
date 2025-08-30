@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\SitemapController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/contact', [HomeController::class, 'contact'])->name('contact.store');
@@ -37,3 +38,5 @@ Route::get('/tuyen-dung', [CareerController::class, 'index'])->name('careers.ind
 Route::get('/tuyen-dung/{career:slug}', [CareerController::class, 'show'])->name('careers.show');
 Route::post('/tuyen-dung/{career}/apply', [CareerController::class, 'apply'])->name('careers.apply');
 Route::get('/tuyen-dung-cam-on', [CareerController::class, 'thanks'])->name('careers.thanks');
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');

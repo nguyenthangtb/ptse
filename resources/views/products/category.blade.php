@@ -65,7 +65,7 @@
             <!-- Product Description -->
             <div class="mb-8">
                 <p class="text-gray-600 mb-4">
-                   {{ $category->short_description}}
+                   {!! $category->short_description !!}
                 </p>
             </div>
 

@@ -52,7 +52,6 @@
                             </div>
 
                             <div class="content">
-                                {{-- {!! str($solution->description)->sanitizeHtml() !!} --}}
                                 {!! $solution->description !!}
                             </div>
 

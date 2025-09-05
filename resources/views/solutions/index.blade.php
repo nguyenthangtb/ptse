@@ -47,7 +47,7 @@
                                     {{ $solution->title }}
                                 </a>
                             </h3>
-                            <p class="text-gray-600 mb-4 line-clamp-3">{{ $solution->short_description }}</p>
+                            <p class="text-gray-600 mb-4 line-clamp-3">{!! $solution->short_description  !!}</p>
                             <a href="{{ route('solutions.show', $solution->slug) }}"
                                class="inline-flex items-center text-sm text-primary hover:text-primary/80 font-medium">
                                 {{ __('common.read_more') }}

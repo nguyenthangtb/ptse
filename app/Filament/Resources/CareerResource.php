@@ -92,6 +92,7 @@ class CareerResource extends Resource
                                             ->schema([
                                                 TinyEditor::make("short_description.{$locale}")
                                                     ->label('Mô tả ngắn')
+                                                    ->showMenuBar()
                                                     ->maxLength(255),
                                             ]);
                                     })->toArray())
@@ -102,6 +103,7 @@ class CareerResource extends Resource
                                             ->schema([
                                                 TinyEditor::make("description.{$locale}")
                                                     ->label('Mô tả chi tiết')
+                                                    ->showMenuBar()
                                                     ->columnSpanFull(),
                                             ]);
                                     })->toArray())
@@ -116,6 +118,7 @@ class CareerResource extends Resource
                                             ->schema([
                                                 TinyEditor::make("requirements.{$locale}")
                                                     ->label('Yêu cầu')
+                                                    ->showMenuBar()
                                                     ->columnSpanFull(),
                                             ]);
                                     })->toArray())
@@ -126,6 +129,7 @@ class CareerResource extends Resource
                                             ->schema([
                                                 TinyEditor::make("benefits.{$locale}")
                                                     ->label('Quyền lợi')
+                                                    ->showMenuBar()
                                                     ->columnSpanFull(),
                                             ]);
                                     })->toArray())

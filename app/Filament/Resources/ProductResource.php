@@ -11,6 +11,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Notifications\Notification;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
+use Illuminate\Support\Str;
 
 class ProductResource extends Resource
 {
@@ -86,9 +87,11 @@ class ProductResource extends Resource
                                             ->schema([
                                                 TinyEditor::make("short_description.{$locale}")
                                                     ->label('Mô tả ngắn')
+                                                     ->showMenuBar()
                                                     ->maxLength(255),
                                                 TinyEditor::make("description.{$locale}")
                                                     ->label('Mô tả chi tiết')
+                                                     ->showMenuBar()
                                                     ->columnSpanFull(),
                                             ]),
                                     ]);
@@ -103,6 +106,7 @@ class ProductResource extends Resource
                                             ->schema([
                                                 TinyEditor::make("features.{$locale}")
                                                     ->label('Tính năng')
+                                                    ->showMenuBar()
                                                     ->columnSpanFull(),
                                             ]),
                                     ]);

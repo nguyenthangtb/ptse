@@ -66,9 +66,11 @@ class ProjectResource extends Resource
                                 TinyEditor::make('short_description')
                                     ->label('Mô tả ngắn')
                                     ->required()
+                                    ->showMenuBar()
                                     ->maxLength(255),
                                 TinyEditor::make('description')
                                     ->label('Mô tả chi tiết')
+                                    ->showMenuBar()
                                     ->columnSpanFull(),
                                 // Forms\Components\RichEditor::make('challenge')
                                 //     ->label('Thách thức')

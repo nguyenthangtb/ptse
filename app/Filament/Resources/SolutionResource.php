@@ -70,10 +70,12 @@ class SolutionResource extends Resource
                                                 TinyEditor::make("short_description.{$locale}")
                                                     ->label('Mô tả ngắn')
                                                     ->required()
+                                                    ->showMenuBar()
                                                     ->maxLength(255),
                                                 TinyEditor::make("description.{$locale}")
                                                     ->label('Mô tả chi tiết')
                                                     ->required()
+                                                    ->showMenuBar()
                                                     ->columnSpanFull(),
                                             ]);
                                     })->toArray())

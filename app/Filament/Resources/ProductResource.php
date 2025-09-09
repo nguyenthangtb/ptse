@@ -87,8 +87,7 @@ class ProductResource extends Resource
                                             ->schema([
                                                 TinyEditor::make("short_description.{$locale}")
                                                     ->label('Mô tả ngắn')
-                                                     ->showMenuBar()
-                                                    ->maxLength(255),
+                                                     ->showMenuBar(),
                                                 TinyEditor::make("description.{$locale}")
                                                     ->label('Mô tả chi tiết')
                                                      ->showMenuBar()

@@ -144,6 +144,7 @@ class NewsResource extends Resource
                             Forms\Components\FileUpload::make('image')
                                 ->label('Hình ảnh')
                                 ->image()
+                                ->previewable(true)
                                 ->directory('news')
                                 ->columnSpanFull(),
                             Forms\Components\DateTimePicker::make('published_at')

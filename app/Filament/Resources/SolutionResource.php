@@ -100,12 +100,16 @@ class SolutionResource extends Resource
                                 Forms\Components\FileUpload::make('image')
                                     ->label('Ảnh đại diện')
                                     ->image()
+                                    ->previewable(true)
                                     ->directory('solutions'),
                                 Forms\Components\FileUpload::make('gallery')
                                     ->label('Thư viện ảnh')
                                     ->multiple()
                                     ->image()
                                     ->panelLayout('grid')
+                                    ->downloadable()
+                                    ->openable()
+                                    ->previewable(true)
                                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
                                     ->directory('solutions/gallery')
                                     ->reorderable(),

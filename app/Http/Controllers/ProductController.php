@@ -46,13 +46,18 @@ class ProductController extends Controller
             Cache::forget('category_products_' . $category->id . '_page_' . $page);
         }
         $products = Cache::remember('category_products_' . $category->id . '_page_' . $page, 60*24, function () use ($category) {
-            return Product::where('category_id', $category->id)
+            return Product::query()
+                ->where('category_id', $category->id)
+                ->where('is_active', true)
                 ->latest()
                 ->paginate(12);
         });
 
         $categories = Cache::remember('all_categories', 60*24, function () {
-            return Category::all();
+            return Category::query()
+                ->where('is_active', true)
+                ->orderBy('order', 'asc')
+                ->get();
         });
 
         if ($request->ajax()) {

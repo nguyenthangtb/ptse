@@ -102,11 +102,15 @@ class ProjectResource extends Resource
                                 Forms\Components\FileUpload::make('image')
                                     ->label('Ảnh đại diện')
                                     ->image()
+                                    ->previewable(true)
                                     ->directory('projects'),
                                 Forms\Components\FileUpload::make('gallery')
                                     ->label('Thư viện ảnh')
                                     ->multiple()
                                     ->image()
+                                    ->downloadable()
+                                    ->openable()
+                                    ->previewable(true)
                                     ->panelLayout('grid')
                                     ->directory('projects/gallery')
                                     ->reorderable(),

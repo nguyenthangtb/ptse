@@ -158,6 +158,7 @@ class ProductResource extends Resource
                                 Forms\Components\FileUpload::make('image')
                                     ->label('Ảnh đại diện')
                                     ->image()
+                                    ->previewable(true)
                                     ->directory('products'),
                             ]),
 
@@ -168,6 +169,9 @@ class ProductResource extends Resource
                                     ->multiple()
                                     ->panelLayout('grid')
                                     ->directory('products/gallery')
+                                    ->downloadable()
+                                    ->openable()
+                                    ->previewable(true)
                                     ->reorderable(),
                             ]),
 

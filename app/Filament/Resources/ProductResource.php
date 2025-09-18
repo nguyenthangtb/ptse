@@ -170,9 +170,9 @@ class ProductResource extends Resource
                                     ->panelLayout('grid')
                                     ->directory('products/gallery')
                                     ->downloadable()
-                                    ->openable()
+                                    ->openable(true)
                                     ->previewable(true)
-                                    ->reorderable(),
+                                    // ->reorderable(),
                             ]),
 
                         Forms\Components\Section::make('Tài liệu')

@@ -66,7 +66,7 @@ class MenuService
                     ],
                     [
                         'title' => __('common.van_avk'),
-                        'url' => '/san-pham/danh-muc/van-va-moi-noi',
+                        'url' => '/san-pham/danh-muc/van-avk',
                         'icon' => '',
                         'target' => '_self',
                         'children' => [

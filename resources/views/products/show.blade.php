@@ -16,6 +16,9 @@
         .content ol { list-style: decimal; padding-left: 1.625em; margin: 0 0 1.25em; }
         .content li { margin: .5em 0; }
         .content img { max-width: 100%; height: auto; }
+        .w-px{
+            width: 100% !important;
+        }
     </style>
 @endsection
 @section('content')

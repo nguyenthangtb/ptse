@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Contact;
 use App\Models\HomeSlider;
-
+use App\Models\Introduce;
 class HomeController extends Controller
 {
     public function index()
@@ -66,7 +66,14 @@ class HomeController extends Controller
     }
 
     public function gioiThieu(){
-        return view('about');
+        $introduces = Introduce::where('status', 1)
+            ->orderBy('section')
+            ->orderBy('sort_order')
+            ->get()
+            ->groupBy('section');
+
+
+        return view('about', compact('introduces'));
     }
 
 

@@ -88,7 +88,7 @@ return [
     'pump_and_valve_solutions_for_the_water_industry' => 'Giải pháp bơm & van cho ngành nước',
     'pump_grundfos' => 'Bơm định lượng Grundfos',
     'van_avk' => 'Van trong ngành nước - AVK',
-    'van_ebro' => 'Van Công Nghiệp - EBRO',
+    'van_ebro' => 'Van ông công nghiệp - EBRO',
     'van_va_duong_ong_g_f_plus' => 'Van và đường ống +GF+',
     'pump_dinh_luong_ky_thuat_so' => 'Bơm định lượng kỹ thuật số',
     'he_thong_clo_khu_trung' => 'Hệ thống Clo khử trùng',

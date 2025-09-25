@@ -223,9 +223,9 @@
                     @foreach($relatedProducts as $relatedProduct)
                         <div class="group relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                             @if($relatedProduct->image)
-                                <img src="{{ Storage::url($relatedProduct->image) }}" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75">
+                                <img src="{{ Storage::url($relatedProduct->image) }}" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-contain group-hover:opacity-75">
                             @else
-                                <img src="https://placehold.co/800x400" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-cover group-hover:opacity-75">
+                                <img src="https://placehold.co/800x400" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-contain group-hover:opacity-75">
                             @endif
                             <div class="p-4">
                                 <h3 class="text-sm font-semibold text-center text-gray-900">

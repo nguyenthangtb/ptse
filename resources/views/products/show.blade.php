@@ -108,7 +108,7 @@
                         <div class="border-b border-gray-200">
                             <nav class="flex" aria-label="Tabs">
                                 <button type="button"
-                                        class="tab-btn active py-4 px-1 w-full text-center border-b-2 border-[#1E4ED8] text-[#1E4ED8] font-medium text-xl font-bold"
+                                        class="tab-btn active py-4 px-1 w-full text-center border-b-2 border-[#1E4ED8] text-[#1E4ED8] text-xl font-bold"
                                         data-target="description-panel">
                                     {{ __('common.product_description') }}
                                 </button>

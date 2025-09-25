@@ -48,7 +48,6 @@
     <meta name="supported-color-schemes" content="light">
     <meta name="google-site-verification" content="lxQ97dDhGdIG32BifgSezgw7c7J6eM_OT2WaEaTrpRA" />
     <!-- Additional SEO tags -->
-    <meta name="robots" content="index, follow">
     <meta name="language" content="Vietnamese">
     <link rel="canonical" href="{{ url()->current() }}">
 

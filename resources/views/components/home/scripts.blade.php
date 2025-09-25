@@ -26,43 +26,43 @@ const heroSlider = new Swiper('.hero-slider', {
     },
 });
 
-// Handle header spacing dynamically
-let lastScrollTop = 0;
-const heroSection = document.querySelector('.hero-slider').closest('section');
-const header = document.querySelector('header');
+// // Handle header spacing dynamically
+// let lastScrollTop = 0;
+// const heroSection = document.querySelector('.hero-slider').closest('section');
+// const header = document.querySelector('header');
 
-// Initial adjustment
-adjustHeroSpacing();
+// // Initial adjustment
+// adjustHeroSpacing();
 
-// Adjust spacing when window loads
-window.addEventListener('load', adjustHeroSpacing);
+// // Adjust spacing when window loads
+// window.addEventListener('load', adjustHeroSpacing);
 
-// Adjust spacing when window resizes
-window.addEventListener('resize', adjustHeroSpacing);
+// // Adjust spacing when window resizes
+// window.addEventListener('resize', adjustHeroSpacing);
 
-// Adjust spacing when scrolling
-window.addEventListener('scroll', function() {
-    adjustHeroSpacing();
-});
+// // Adjust spacing when scrolling
+// window.addEventListener('scroll', function() {
+//     adjustHeroSpacing();
+// });
 
-function adjustHeroSpacing() {
-    if (header && heroSection) {
-        const headerHeight = header.offsetHeight;
-        heroSection.style.paddingTop = headerHeight + 'px';
-        // Add console log to help debug
-        console.log('Header height:', headerHeight);
+// function adjustHeroSpacing() {
+//     if (header && heroSection) {
+//         const headerHeight = header.offsetHeight;
+//         heroSection.style.paddingTop = headerHeight + 'px';
+//         // Add console log to help debug
+//         console.log('Header height:', headerHeight);
 
-        // Add a resize observer to handle dynamic header height changes
-        if (!window.headerResizeObserver) {
-            window.headerResizeObserver = new ResizeObserver(() => {
-                const newHeaderHeight = header.offsetHeight;
-                heroSection.style.paddingTop = newHeaderHeight + 'px';
-                console.log('Header height updated:', newHeaderHeight);
-            });
-            window.headerResizeObserver.observe(header);
-        }
-    }
-}
+//         // Add a resize observer to handle dynamic header height changes
+//         if (!window.headerResizeObserver) {
+//             window.headerResizeObserver = new ResizeObserver(() => {
+//                 const newHeaderHeight = header.offsetHeight;
+//                 heroSection.style.paddingTop = newHeaderHeight + 'px';
+//                 console.log('Header height updated:', newHeaderHeight);
+//             });
+//             window.headerResizeObserver.observe(header);
+//         }
+//     }
+// }
 
 // Initialize Notyf
 const notyf = new Notyf({

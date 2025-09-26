@@ -31,7 +31,7 @@ class MenuService
                 'children' => [
                     [
                         'title' => __('common.bom_cong_nghiep'),
-                        'url' => '/san-pham/danh-muc/bom-cong-nghiep-grundfos',
+                        'url' => '/san-pham/danh-muc/bom-cong-nghiep',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []

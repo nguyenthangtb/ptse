@@ -1,0 +1,28 @@
+/* Fix mobile menu z-index on contact page */
+@media (max-width: 768px) {
+    /* Ensure mobile menu is always on top */
+    #mobileMenu {
+        z-index: 99999 !important;
+    }
+
+    #mobileMenu .absolute {
+        z-index: 100000 !important;
+    }
+
+    /* Disable iframe interactions when mobile menu is open */
+    body.menu-open iframe {
+        pointer-events: none !important;
+        z-index: 1 !important;
+    }
+
+    /* Ensure iframe doesn't interfere with mobile menu */
+    iframe {
+        z-index: 1 !important;
+        position: relative !important;
+    }
+
+    /* Force mobile menu to be on top of everything */
+    #mobileMenu * {
+        z-index: inherit !important;
+    }
+}

@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="pt-[72px] md:pt-[116px]">
+@section('styles')
+<style>
+  iframe {
+    width: 100% !important;
+    height: 300px !important; /* hoặc height phù hợp */
+    max-width: 100%;
+}
+</style>
+@endsection
+<div class="relative">
+    <div class="pt-4 md:pt-[150px]">
         <!-- Mobile Title -->
         <div class="block lg:hidden mt-[120px] mb-8 px-4">
             <h1 class="text-2xl md:text-3xl font-bold text-center">{{ __('common.contact_us') }}</h1>
@@ -20,7 +30,7 @@
                     <!-- Map & Info -->
                     <div class="bg-white rounded-xl shadow-lg p-6 backdrop-blur-sm bg-white/90 hover:shadow-xl transition-shadow">
                         <div class="mb-6">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.484273230518!2d105.78180379999999!3d21.0133005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345355526ca2af%3A0xc70c207fb93ac632!2zNzggUC4gTeG7hSBUcsOsIEjhuqEsIE3hu4UgVHLDrCwgTmFtIFThu6sgTGnDqm0sIEjDoCBO4buZaQ!5e0!3m2!1sen!2s!4v1747151370549!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.484273230518!2d105.78180379999999!3d21.0133005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345355526ca2af%3A0xc70c207fb93ac632!2zNzggUC4gTeG7hSBUcsOsIEjhuqEsIE3hu4UgVHLDrCwgTmFtIFThu6sgTGnDqm0sIEjDoCBO4buZaQ!5e0!3m2!1sen!2s!4v1747151370549!5m2!1sen!2s"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
 
                         <div class="space-y-6">

@@ -147,4 +147,5 @@ return [
     'job_summary' => 'Job Summary',
     'job_description' => 'Job Description',
     'requirements' => 'Requirements',
+    'van_xa_khi' => 'Air release valve',
 ];

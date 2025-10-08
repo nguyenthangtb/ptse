@@ -79,6 +79,13 @@ class MenuService
                         'target' => '_self',
                         'children' => []
                     ],
+                    [
+                        'title' => __('common.van_xa_khi'),
+                        'url' => '/san-pham/danh-muc/van-xa-khi',
+                        'icon' => '',
+                        'target' => '_self',
+                        'children' => []
+                    ],
                     // [
                     //     'title' => __('common.van_va_duong_ong_g_f_plus'),
                     //     'url' => '#',

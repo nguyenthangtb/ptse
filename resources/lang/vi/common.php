@@ -148,4 +148,5 @@ return [
     'job_description' => 'Mô tả công việc',
     'requirements' => 'Yêu cầu',
     'no_other_openings' => 'Không có vị trí tuyển dụng khác',
+    'van_xa_khi' => 'Van xa khí',
 ];

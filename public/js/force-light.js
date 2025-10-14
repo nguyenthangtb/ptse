@@ -8,9 +8,9 @@
     // Force light mode styles
     function forceLightMode() {
         document.documentElement.style.backgroundColor = '#ffffff';
-        document.documentElement.style.color = '#000000';
+        // document.documentElement.style.color = '#000000';
         document.body.style.backgroundColor = '#ffffff';
-        document.body.style.color = '#000000';
+        // document.body.style.color = '#000000';
 
         // Mobile specific fixes
         if (window.innerWidth <= 768) {
@@ -22,7 +22,7 @@
                     el.style.color === 'white' ||
                     el.classList.contains('text-white') ||
                     el.classList.contains('dark:text-gray-100')) {
-                    el.style.color = '#000000';
+                    // el.style.color = '#000000';
                 }
 
                 // Override any dark backgrounds

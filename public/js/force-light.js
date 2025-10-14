@@ -5,43 +5,49 @@
     // Set color scheme to light only
     document.documentElement.style.setProperty('color-scheme', 'light');
 
+    let isProcessing = false;
+
     // Force light mode styles
     function forceLightMode() {
+        if (isProcessing) return; // Ngăn chặn vòng lặp
+        isProcessing = true;
+
         document.documentElement.style.backgroundColor = '#ffffff';
-        // document.documentElement.style.color = '#000000';
         document.body.style.backgroundColor = '#ffffff';
-        // document.body.style.color = '#000000';
 
         // Mobile specific fixes
         if (window.innerWidth <= 768) {
-            const allElements = document.querySelectorAll('*');
-            allElements.forEach(el => {
-                // Override any dark text colors
-                if (el.style.color === '' ||
-                    el.style.color === 'rgb(255, 255, 255)' ||
-                    el.style.color === 'white' ||
-                    el.classList.contains('text-white') ||
-                    el.classList.contains('dark:text-gray-100')) {
-                    // el.style.color = '#000000';
-                }
-
-                // Override any dark backgrounds
-                if (el.classList.contains('bg-gray-900') ||
-                    el.classList.contains('bg-black') ||
-                    el.classList.contains('dark:bg-gray-900')) {
-                    el.style.backgroundColor = '#ffffff';
-                }
+            // CHỈ target các elements CẦN THIẾT, không loop hết
+            const darkBackgrounds = document.querySelectorAll('.bg-gray-900, .bg-black, .dark\\:bg-gray-900');
+            darkBackgrounds.forEach(el => {
+                el.style.backgroundColor = '#ffffff';
             });
         }
+
+        setTimeout(() => {
+            isProcessing = false;
+        }, 100);
     }
 
     // Run on load
     forceLightMode();
 
-    // Run on resize (mobile orientation change)
-    window.addEventListener('resize', forceLightMode);
+    // Run on resize (debounced)
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(forceLightMode, 250);
+    });
 
-    // Run when DOM changes
-    const observer = new MutationObserver(forceLightMode);
-    observer.observe(document.body, { childList: true, subtree: true });
+    // Throttle MutationObserver
+    const observer = new MutationObserver(function() {
+        if (!isProcessing) {
+            requestAnimationFrame(forceLightMode);
+        }
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: false // CHỈ observe direct children, không deep
+    });
 })();

@@ -324,6 +324,6 @@
     @yield('scripts')
 
     <!-- Force light mode JavaScript -->
-    <script src="{{ asset('js/force-light.js') }}"></script>
+    {{-- <script src="{{ asset('js/force-light.js') }}"></script> --}}
 </body>
 </html>

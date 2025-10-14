@@ -53,41 +53,14 @@
 
     <title>@yield('title', 'Giải pháp bơm & van cho ngành nước')</title>
     <style>
-        /* Force light mode - override mọi dark mode */
+        /* Chỉ force background, KHÔNG force color */
         html, body {
             background-color: #ffffff !important;
-            color: #000000 !important;
         }
 
-        /* Override dark mode classes */
-        .dark\:bg-gray-900 {
-            background-color: #ffffff !important;
-        }
-
-        .dark\:text-gray-100 {
-            color: #000000 !important;
-        }
-
-        /* Mobile specific - đảm bảo text luôn hiển thị */
-        @media (max-width: 768px) {
-            * {
-                color: #000000 !important;
-            }
-
-            body {
-                background-color: #ffffff !important;
-            }
-        }
-
-        /* Override system dark mode */
         @media (prefers-color-scheme: dark) {
             html, body {
                 background-color: #ffffff !important;
-                color: #000000 !important;
-            }
-
-            * {
-                color: #000000 !important;
             }
         }
     </style>

@@ -139,6 +139,14 @@ class NewsResource extends Resource
                                 ->default(true),
                         ]),
 
+
+                        Forms\Components\Section::make('Số lượt xem')
+                        ->schema([
+                            Forms\Components\TextInput::make('number_views')
+                                ->label('Số lượt xem')
+                                ->default(0),
+                        ]),
+
                         Forms\Components\Section::make('Hình ảnh & Thời gian')
                         ->schema([
                             Forms\Components\FileUpload::make('image')

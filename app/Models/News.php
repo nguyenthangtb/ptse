@@ -25,12 +25,14 @@ class News extends Model
         'meta_title',
         'meta_description',
         'meta_keywords',
+        'number_views',
         'is_active',
         'published_at'
     ];
 
     protected $casts = [
         'date' => 'datetime',
+        'number_views' => 'integer',
         'is_active' => 'boolean',
         'published_at' => 'datetime'
     ];

@@ -141,7 +141,7 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
-            const categorySlug = '{{ $category->slug }}';
+            const categorySlug = '{{ $category->slug }}'; // Chỉ lấy slug, không phải full route
             const hasMorePages = {{ $hasMorePages ? 'true' : 'false' }};
 
             if (hasMorePages) {
@@ -162,7 +162,8 @@
                 $('.load-more-btn').hide();
 
                 $.ajax({
-                    url: `/san-pham/${categorySlug}/?page=${page + 1}`,
+                    // Sử dụng slug để tạo URL đúng
+                    url: `/san-pham/${categorySlug}?page=${page + 1}`,
                     method: 'GET',
                     success: function(response) {
                         if (response.html) {

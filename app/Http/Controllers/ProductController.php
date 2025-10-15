@@ -68,7 +68,10 @@ class ProductController extends Controller
             ]);
         }
 
-        return view('products.category', compact('products', 'categories', 'category'));
+        $hasMorePages = $products->hasMorePages();
+        $totalPages = $products->lastPage();
+
+        return view('products.category', compact('products', 'categories', 'category', 'hasMorePages', 'totalPages'));
     }
 
     public function show($slug)

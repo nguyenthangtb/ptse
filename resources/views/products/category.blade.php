@@ -106,17 +106,18 @@
                 @endforeach
             </div>
 
-            <!-- Pagination -->
-            <div class="flex justify-center mt-12">
-                <button class="load-more-btn px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors">
-                    {{ __('common.load_more') }}
-                </button>
-                <div class="loading-indicator hidden flex items-center gap-2">
-                    <div class="w-6 h-6 border-2 border-t-primary border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-                    <span class="text-gray-600">{{ __('common.loading') }}</span>
+            @if($hasMorePages)
+                <!-- Pagination -->
+                <div class="flex justify-center mt-12">
+                    <button class="load-more-btn px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors">
+                        {{ __('common.load_more') }}
+                    </button>
+                    <div class="loading-indicator hidden flex items-center gap-2">
+                        <div class="w-6 h-6 border-2 border-t-primary border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+                        <span class="text-gray-600">{{ __('common.loading') }}</span>
+                    </div>
                 </div>
-            </div>
-
+            @endif
             <!-- Additional Product Information -->
             <div class="mt-12 prose prose-lg max-w-none">
                 <div class="bg-white rounded-lg p-6">
@@ -141,11 +142,14 @@
     <script type="text/javascript">
         $(document).ready(function() {
             const categorySlug = '{{ $category->slug }}';
+            const hasMorePages = {{ $hasMorePages ? 'true' : 'false' }};
 
-            $('.load-more-btn').on('click', {page: 1}, function(e) {
-                e.preventDefault();
-                loadMore();
-            });
+            if (hasMorePages) {
+                $('.load-more-btn').on('click', {page: 1}, function(e) {
+                    e.preventDefault();
+                    loadMore();
+                });
+            }
 
             let page = 1;
             let loading = false;
@@ -167,12 +171,11 @@
                         }
 
                         if (!response.hasMore) {
-                            //$('.load-more-btn').parent().remove();
                             $('.load-more-btn').closest('.flex').hide();
                         }
                     },
                     error: function(xhr, status, error) {
-                        console.error('Error loading more solutions:', error);
+                        console.error('Error loading more products:', error);
                     },
                     complete: function() {
                         loading = false;

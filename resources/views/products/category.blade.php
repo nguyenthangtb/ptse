@@ -163,7 +163,7 @@
 
                 $.ajax({
                     // Sử dụng slug để tạo URL đúng
-                    url: `/san-pham/${categorySlug}?page=${page + 1}`,
+                    url: `/san-pham/danh-muc/${categorySlug}?page=${page + 1}`,
                     method: 'GET',
                     success: function(response) {
                         if (response.html) {

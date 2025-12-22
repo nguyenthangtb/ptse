@@ -222,11 +222,13 @@
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                     @foreach($relatedProducts as $relatedProduct)
                         <div class="group relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                            @if($relatedProduct->image)
-                                <img src="{{ Storage::url($relatedProduct->image) }}" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-contain group-hover:opacity-75">
-                            @else
-                                <img src="https://placehold.co/800x400" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-contain group-hover:opacity-75">
-                            @endif
+                            <a href="{{ route('products.show', $relatedProduct->slug) }}" class="block">
+                                @if($relatedProduct->image)
+                                    <img src="{{ Storage::url($relatedProduct->image) }}" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-contain group-hover:opacity-75 cursor-pointer">
+                                @else
+                                    <img src="https://placehold.co/800x400" alt="{{ $relatedProduct->name }}" class="aspect-square w-full bg-gray-200 object-contain group-hover:opacity-75 cursor-pointer">
+                                @endif
+                            </a>
                             <div class="p-4">
                                 <h3 class="text-sm font-semibold text-center text-gray-900">
                                     <a href="{{ route('products.show', $relatedProduct->slug) }}" class="hover:text-[#1E4ED8]">
@@ -255,8 +257,8 @@
 <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 @endpush
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     // Function to update main image
     function updateMainImage(src) {
         document.getElementById('mainImage').src = src;

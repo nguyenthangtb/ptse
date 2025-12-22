@@ -95,6 +95,19 @@
                         primary: '#1976d2',
                         secondary: '#f0f7ff',
                         dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'sans-serif'],
+                    },
+                    fontSize: {
+                        'xs': ['0.75rem', { lineHeight: '1.5' }],
+                        'sm': ['0.875rem', { lineHeight: '1.5' }],
+                        'base': ['1rem', { lineHeight: '1.5' }],
+                        'lg': ['1.125rem', { lineHeight: '1.5' }],
+                        'xl': ['1.25rem', { lineHeight: '1.4' }],
+                        '2xl': ['1.5rem', { lineHeight: '1.3' }],
+                        '3xl': ['1.875rem', { lineHeight: '1.25' }],
+                        '4xl': ['2.25rem', { lineHeight: '1.2' }],
                     }
                 }
             }
@@ -113,8 +126,50 @@
 
     <!-- Force light mode CSS -->
     <link rel="stylesheet" href="{{ asset('css/force-light.css') }}">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Font family nhất quán */
+        html {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        /* Đồng nhất font size cho các thẻ heading */
+        h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.2; }
+        h2 { font-size: 1.875rem; font-weight: 600; line-height: 1.25; }
+        h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.3; }
+        h4 { font-size: 1.25rem; font-weight: 500; line-height: 1.4; }
+        h5 { font-size: 1.125rem; font-weight: 500; line-height: 1.4; }
+        h6 { font-size: 1rem; font-weight: 500; line-height: 1.5; }
+
+        /* Responsive font size */
+        @media (max-width: 768px) {
+            html { font-size: 15px; }
+            h1 { font-size: 1.875rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.25rem; }
+        }
+
+        /* Đồng nhất font cho các element khác */
+        p, span, a, li, td, th, label, input, button, select, textarea {
+            font-family: inherit;
+        }
+    </style>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50 min-h-screen flex flex-col">
+<body class="font-sans text-gray-800 bg-gray-50 min-h-screen flex flex-col" style="font-family: 'Inter', sans-serif;">
     <!-- Header -->
     @include('layouts.partials.header')
 

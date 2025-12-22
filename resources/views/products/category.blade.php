@@ -89,14 +89,14 @@
                         <div class="group relative reveal">
                             @if($product->image)
                                 <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"
-                                    class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75">
+                                    class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 cursor-pointer">
                             @else
                                 <img src="https://placehold.co/800x400" alt="{{ $product->name }}"
-                                    class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75">
+                                    class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 cursor-pointer">
                             @endif
                             <div class="mt-4">
                                 <h3 class="text-[14px] font-bold text-center text-gray-700">
-                                    <span href="{{ route('products.show', $product->slug) }}" class="hover:text-[#1E4ED8] transition-colors">
+                                    <span class="hover:text-[#1E4ED8] transition-colors">
                                         {{ $product->name ?? __('common.product_name') }}
                                     </span>
                                 </h3>
@@ -141,11 +141,11 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
-            const categorySlug = '{{ $category->slug }}'; // Chỉ lấy slug, không phải full route
-            const hasMorePages = {{ $hasMorePages ? 'true' : 'false' }};
+            const categorySlug = '{{ $category->slug }}';
+            let hasMore = {{ $hasMorePages ? 'true' : 'false' }};
 
-            if (hasMorePages) {
-                $('.load-more-btn').on('click', {page: 1}, function(e) {
+            if (hasMore) {
+                $('.load-more-btn').on('click', function(e) {
                     e.preventDefault();
                     loadMore();
                 });
@@ -155,15 +155,14 @@
             let loading = false;
 
             function loadMore() {
-                if (loading) return;
+                if (loading || !hasMore) return;
 
                 loading = true;
                 $('.loading-indicator').show();
                 $('.load-more-btn').hide();
 
                 $.ajax({
-                    // Sử dụng slug để tạo URL đúng
-                    url: `/san-pham/danh-muc/${categorySlug}?page=${page + 1}`,
+                    url: '/san-pham/danh-muc/' + categorySlug + '?page=' + (page + 1),
                     method: 'GET',
                     success: function(response) {
                         if (response.html) {
@@ -171,7 +170,9 @@
                             page++;
                         }
 
-                        if (!response.hasMore) {
+                        hasMore = response.hasMore;
+
+                        if (!hasMore) {
                             $('.load-more-btn').closest('.flex').hide();
                         }
                     },
@@ -181,7 +182,10 @@
                     complete: function() {
                         loading = false;
                         $('.loading-indicator').hide();
-                        $('.load-more-btn').show();
+                        // Chỉ hiển thị button nếu còn trang tiếp theo
+                        if (hasMore) {
+                            $('.load-more-btn').show();
+                        }
                     }
                 });
             }

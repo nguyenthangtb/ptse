@@ -18,7 +18,10 @@ class ProjectController extends Controller
         $projects = Cache::remember('projects_page_' . $page, 60*24, function () {
             return Project::latest()->paginate(10);
         });
-        return view('projects.index', compact('projects'));
+
+        $hasMorePages = $projects->hasMorePages();
+
+        return view('projects.index', compact('projects', 'hasMorePages'));
     }
 
     public function show($slug)

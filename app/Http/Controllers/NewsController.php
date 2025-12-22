@@ -24,7 +24,10 @@ class NewsController extends Controller
                 ->orderBy('date', 'desc')
                 ->paginate(12);
         });
-        return view('news.index', compact('news'));
+
+        $hasMorePages = $news->hasMorePages();
+
+        return view('news.index', compact('news', 'hasMorePages'));
     }
 
     public function show(News $news)

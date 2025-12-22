@@ -21,7 +21,10 @@ class ServicesController extends Controller
                 ->orderBy('order', 'asc')
                 ->paginate(9);
         });
-        return view('services.index', compact('services'));
+
+        $hasMorePages = $services->hasMorePages();
+
+        return view('services.index', compact('services', 'hasMorePages'));
     }
 
     public function show(Service $service)

@@ -61,6 +61,7 @@
             </div>
 
             <!-- Pagination -->
+            @if($hasMorePages)
             <div class="flex justify-center mt-12">
                 <button class="load-more-btn-solutions px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors">
                     {{ __('common.load_more') }}
@@ -70,6 +71,7 @@
                     <span class="text-gray-600">{{ __('common.loading') }}</span>
                 </div>
             </div>
+            @endif
         </div>
     </section>
 </div>
@@ -78,8 +80,9 @@
 @section('scripts')
 <script type="text/javascript">
    $(document).ready(function() {
+        let hasMore = true;
 
-        $('.load-more-btn-solutions').on('click', {page: 1}, function(e) {
+        $('.load-more-btn-solutions').on('click', function(e) {
             e.preventDefault();
             loadMore();
         });
@@ -88,14 +91,14 @@
        let loading = false;
 
        function loadMore() {
-           if (loading) return;
+           if (loading || !hasMore) return;
 
            loading = true;
            $('.loading-indicator').show();
            $('.load-more-btn-solutions').hide();
 
            $.ajax({
-               url: `/solutions/load-more?page=${page + 1}`,
+               url: '/solutions/load-more?page=' + (page + 1),
                method: 'GET',
                success: function(response) {
                    if (response.html) {
@@ -103,8 +106,10 @@
                        page++;
                    }
 
-                   if (!response.hasMore) {
-                       $('.pagination-container').remove();
+                   hasMore = response.hasMore;
+
+                   if (!hasMore) {
+                       $('.load-more-btn-solutions').closest('.flex').hide();
                    }
                },
                error: function(xhr, status, error) {
@@ -113,7 +118,9 @@
                complete: function() {
                    loading = false;
                    $('.loading-indicator').hide();
-                   $('.load-more-btn-solutions').show();
+                   if (hasMore) {
+                       $('.load-more-btn-solutions').show();
+                   }
                }
            });
        }

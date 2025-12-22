@@ -90,6 +90,7 @@
             </div>
 
             <!-- Load More -->
+            @if($hasMorePages)
             <div class="flex justify-center mt-12">
                 <button class="load-more-btn px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors">
                     {{ __('common.load_more') }}
@@ -99,6 +100,7 @@
                     <span class="text-gray-600">{{ __('common.loading') }}</span>
                 </div>
             </div>
+            @endif
         </div>
     </section>
 </div>
@@ -106,7 +108,9 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
-            $('.load-more-btn').on('click', {page: 1}, function(e) {
+            let hasMore = true;
+
+            $('.load-more-btn').on('click', function(e) {
                 e.preventDefault();
                 loadMore();
             });
@@ -115,14 +119,14 @@
             let loading = false;
 
             function loadMore() {
-                if (loading) return;
+                if (loading || !hasMore) return;
 
                 loading = true;
                 $('.loading-indicator').show();
                 $('.load-more-btn').hide();
 
                 $.ajax({
-                    url: `/projects/load-more?page=${page + 1}`,
+                    url: '/projects/load-more?page=' + (page + 1),
                     method: 'GET',
                     success: function(response) {
                         if (response.html) {
@@ -130,18 +134,21 @@
                             page++;
                         }
 
-                        if (!response.hasMore) {
-                            //$('.load-more-btn').parent().remove();
+                        hasMore = response.hasMore;
+
+                        if (!hasMore) {
                             $('.load-more-btn').closest('.flex').hide();
                         }
                     },
                     error: function(xhr, status, error) {
-                        console.error('Error loading more solutions:', error);
+                        console.error('Error loading more projects:', error);
                     },
                     complete: function() {
                         loading = false;
                         $('.loading-indicator').hide();
-                        $('.load-more-btn').show();
+                        if (hasMore) {
+                            $('.load-more-btn').show();
+                        }
                     }
                 });
             }

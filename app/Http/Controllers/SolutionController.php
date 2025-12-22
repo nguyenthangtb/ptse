@@ -25,7 +25,9 @@ class SolutionController extends Controller
             Cache::forget('solutions_page_' . $page);
         }
 
-        return view('solutions.index', compact('solutions'));
+        $hasMorePages = $solutions->hasMorePages();
+
+        return view('solutions.index', compact('solutions', 'hasMorePages'));
     }
 
     public function show($slug)

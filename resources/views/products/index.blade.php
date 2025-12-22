@@ -60,7 +60,7 @@
             </div>
 
             <!-- Filter and Sort -->
-            <div class="flex justify-between items-center mb-6">
+            <!-- <div class="flex justify-between items-center mb-6">
                 <div class="text-sm text-gray-500"></div>
                 <div class="text-sm">
                     <select class="border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -70,7 +70,7 @@
                         <option>Mới nhất</option>
                     </select>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Product Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">

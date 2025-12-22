@@ -102,18 +102,41 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('q');
-        $products = Product::where('name', 'like', "%{$search}%")->get();
+        $locale = app()->getLocale();
+
+        $products = Product::where('is_active', true)
+            ->where(function($query) use ($search, $locale) {
+                $query->whereRaw("json_extract(name, '$.{$locale}') LIKE ?", ["%{$search}%"])
+                    ->orWhereRaw("json_extract(description, '$.{$locale}') LIKE ?", ["%{$search}%"])
+                    ->orWhereRaw("json_extract(short_description, '$.{$locale}') LIKE ?", ["%{$search}%"])
+                    ->orWhere('name', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%");
+            })
+            ->get();
+
         return view('search', compact('products', 'search'));
     }
 
     public function autocomplete(Request $request)
     {
         $term = $request->input('term');
-        $results = Product::where('name', 'like', "%{$term}%")
-            ->orWhere('description', 'like', "%{$term}%")
-            ->select('id', 'name as label', 'name as value')
+        $locale = app()->getLocale();
+
+        $results = Product::where('is_active', true)
+            ->where(function($query) use ($term, $locale) {
+                $query->whereRaw("json_extract(name, '$.{$locale}') LIKE ?", ["%{$term}%"])
+                    ->orWhere('name', 'like', "%{$term}%");
+            })
             ->limit(10)
-            ->get();
+            ->get()
+            ->map(function($product) {
+                return [
+                    'id' => $product->id,
+                    'label' => $product->name,
+                    'value' => $product->name,
+                    'slug' => $product->slug
+                ];
+            });
 
         return response()->json($results);
     }

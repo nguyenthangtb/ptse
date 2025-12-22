@@ -97,7 +97,7 @@
                         dark: '#1a1a1a',
                     },
                     fontFamily: {
-                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'sans-serif'],
+                        sans: ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'sans-serif'],
                     },
                     fontSize: {
                         'xs': ['0.75rem', { lineHeight: '1.5' }],
@@ -127,15 +127,15 @@
     <!-- Force light mode CSS -->
     <link rel="stylesheet" href="{{ asset('css/force-light.css') }}">
 
-    <!-- Google Fonts - Inter -->
+    <!-- Google Fonts - Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <style>
         /* Font family nhất quán */
         html {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
             font-size: 16px;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
@@ -169,7 +169,7 @@
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50 min-h-screen flex flex-col" style="font-family: 'Inter', sans-serif;">
+<body class="font-sans text-gray-800 bg-gray-50 min-h-screen flex flex-col" style="font-family: 'Roboto', sans-serif;">
     <!-- Header -->
     @include('layouts.partials.header')
 

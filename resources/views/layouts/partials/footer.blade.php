@@ -97,16 +97,16 @@
 
             <!-- Support -->
             <div class="md:mx-auto relative z-10">
-                <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
+                <!-- <h3 class="font-bold text-xl mb-4 leading-tight uppercase relative inline-block">
                     <span class="relative z-10">{{ __('common.sign_up_for_news') }}</span>
                     <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
                 <form class="flex flex-wrap gap-2 mt-4">
                     <input type="email" placeholder="{{ __('common.enter_email') }}" class="px-3 py-2 text-gray-800 rounded-lg w-full md:w-auto text-base focus:ring-2 focus:ring-orange-400 focus:outline-none" required>
                     <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg w-full md:w-auto text-base font-medium transition-colors shadow-lg hover:shadow-orange-500/50">{{ __('common.subscribe') }}</button>
-                </form>
+                </form> -->
 
-                {{-- <h3 class="font-bold text-xl mt-8 mb-4 leading-tight uppercase relative inline-block">
+                <!-- <h3 class="font-bold text-xl mt-8 mb-4 leading-tight uppercase relative inline-block">
                     <span class="relative z-10">KẾT NỐI VỚI CHÚNG TÔI</span>
                     <span class="absolute -bottom-1 left-0 w-12 h-1 bg-orange-400"></span>
                 </h3>
@@ -117,7 +117,7 @@
                     <a href="#" class="text-white bg-red-600 hover:bg-red-700 p-3 rounded-full transition-transform hover:-translate-y-1 hover:shadow-lg">
                         <i class="fab fa-youtube text-xl"></i>
                     </a>
-                </div> --}}
+                </div> -->
             </div>
         </div>
 

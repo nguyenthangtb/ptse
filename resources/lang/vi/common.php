@@ -149,4 +149,5 @@ return [
     'requirements' => 'Yêu cầu',
     'no_other_openings' => 'Không có vị trí tuyển dụng khác',
     'van_xa_khi' => 'Van xa khí',
+    'phu_kien_bom_dinh_luong_va_he_thong_clo' => 'Phụ kiện bơm định lượng và hệ thống Clo',
 ];

@@ -108,8 +108,8 @@ class MenuService
                     //     'children' => []
                     // ],
                     [
-                        'title' => __('common.phu_kien'),
-                        'url' => '/san-pham/danh-muc/phu-kien-thiet-bi-moi-khac',
+                        'title' => __('common.phu_kien_bom_dinh_luong_va_he_thong_clo'),
+                        'url' => '/san-pham/danh-muc/phu-kien-bom-dinh-luong-va-he-thong-clo',
                         'icon' => '',
                         'target' => '_self',
                         'children' => []

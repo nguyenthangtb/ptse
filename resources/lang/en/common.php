@@ -148,4 +148,5 @@ return [
     'job_description' => 'Job Description',
     'requirements' => 'Requirements',
     'van_xa_khi' => 'Air release valve',
+    'phu_kien_bom_dinh_luong_va_he_thong_clo' => 'Accessories for pumps and disinfection systems',
 ];

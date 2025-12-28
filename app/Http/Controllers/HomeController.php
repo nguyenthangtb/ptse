@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\Contact;
 use App\Models\HomeSlider;
 use App\Models\Introduce;
+use App\Models\WebsiteConfig;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactInformation;
+
 class HomeController extends Controller
 {
     public function index()
@@ -92,6 +96,12 @@ class HomeController extends Controller
             $contact->phone = $validated['phone'];
             $contact->message = $request->input('message');
             $contact->save();
+
+            // Gửi email thông báo
+            $adminEmail = 'nguyenngocthang1188@gmail.com';
+            if ($adminEmail) {
+                Mail::to($adminEmail)->send(new ContactInformation($contact->toArray()));
+            }
             //ajax
             return response()->json(['status' => 200, 'message' => 'Gửi thông tin thành công!']);
         } catch (\Exception $e) {

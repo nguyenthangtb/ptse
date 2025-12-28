@@ -9,6 +9,8 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
+use Illuminate\Mail\Mailables\Address;
+
 class ContactInformation extends Mailable
 {
     use Queueable, SerializesModels;
@@ -33,6 +35,9 @@ class ContactInformation extends Mailable
     {
         return new Envelope(
             subject: 'Thông tin liên hệ mới từ ' . $this->data['name'],
+            replyTo: [
+                new Address($this->data['email'], $this->data['name']),
+            ],
         );
     }
 

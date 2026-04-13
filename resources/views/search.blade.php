@@ -3,7 +3,7 @@
 @section('title', __('common.search_results') . ': ' . $search)
 
 @section('content')
-<div class="container mx-auto px-4 py-8 mt-32">
+<div class="container mx-auto px-4 py-8 mt-40">
     <div class="max-w-7xl mx-auto">
         <h1 class="text-3xl font-bold mb-6">{{ __('common.search_results') }}: "{{ $search }}"</h1>
 

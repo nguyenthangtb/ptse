@@ -7,10 +7,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\Translatable\HasTranslations;
 
 class Project extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasTranslations;
+
+    public $translatable = [
+        'title',
+        'short_description',
+        'description',
+        'client',
+        'location',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+    ];
 
     protected $fillable = [
         'title',
@@ -49,7 +61,8 @@ class Project extends Model
         parent::boot();
         static::creating(function ($project) {
             if (!$project->slug) {
-                $project->slug = Str::slug($project->title);
+                $title = $project->getTranslation('title', app()->getLocale(), false) ?? '';
+                $project->slug = Str::slug($title);
             }
         });
     }

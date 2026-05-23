@@ -29,19 +29,26 @@ class ProjectResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $locales = config('app.locales', [config('app.locale')]);
+
         return $form
             ->schema([
                 Forms\Components\Group::make()
                     ->schema([
                         Forms\Components\Section::make()
                             ->schema([
-                                Forms\Components\TextInput::make('title')
-                                    ->label('Tiêu đề')
-                                    ->required()
-                                    ->live(onBlur: true)
-                                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
-                                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
-                                    ),
+                                Forms\Components\Tabs::make('Tiêu đề')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("title.{$locale}")
+                                                    ->label('Tiêu đề')
+                                                    ->required($locale === 'vi')
+                                                    ->maxLength(255)
+                                                    ->live(onBlur: true),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
                                 Forms\Components\TextInput::make('slug')
                                     ->label('Đường dẫn')
                                     ->required()
@@ -52,10 +59,26 @@ class ProjectResource extends Resource
                                 //     ->required()
                                 //     ->searchable()
                                 //     ->preload(),
-                                Forms\Components\TextInput::make('client')
-                                    ->label('Khách hàng'),
-                                Forms\Components\TextInput::make('location')
-                                    ->label('Địa điểm'),
+                                Forms\Components\Tabs::make('Khách hàng')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("client.{$locale}")
+                                                    ->label('Khách hàng')
+                                                    ->maxLength(255),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
+                                Forms\Components\Tabs::make('Địa điểm')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("location.{$locale}")
+                                                    ->label('Địa điểm')
+                                                    ->maxLength(255),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
                                 Forms\Components\DatePicker::make('completed_at')
                                     ->label('Ngày hoàn thành'),
                             ])
@@ -63,14 +86,28 @@ class ProjectResource extends Resource
 
                         Forms\Components\Section::make('Nội dung')
                             ->schema([
-                                TinyEditor::make('short_description')
-                                    ->label('Mô tả ngắn')
-                                    ->required()
-                                    ->showMenuBar()
-                                    ->maxLength(255),
-                                TinyEditor::make('description')
-                                    ->label('Mô tả chi tiết')
-                                    ->showMenuBar()
+                                Forms\Components\Tabs::make('Mô tả ngắn')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                TinyEditor::make("short_description.{$locale}")
+                                                    ->label('Mô tả ngắn')
+                                                    ->required($locale === 'vi')
+                                                    ->showMenuBar()
+                                                    ->columnSpanFull(),
+                                            ]);
+                                    })->toArray())
+                                    ->columnSpanFull(),
+                                Forms\Components\Tabs::make('Mô tả chi tiết')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                TinyEditor::make("description.{$locale}")
+                                                    ->label('Mô tả chi tiết')
+                                                    ->showMenuBar()
+                                                    ->columnSpanFull(),
+                                            ]);
+                                    })->toArray())
                                     ->columnSpanFull(),
                                 // Forms\Components\RichEditor::make('challenge')
                                 //     ->label('Thách thức')
@@ -118,12 +155,21 @@ class ProjectResource extends Resource
 
                         Forms\Components\Section::make('SEO')
                             ->schema([
-                                Forms\Components\TextInput::make('meta_title')
-                                    ->label('Tiêu đề SEO'),
-                                Forms\Components\TextInput::make('meta_description')
-                                    ->label('Mô tả SEO'),
-                                Forms\Components\TextInput::make('meta_keywords')
-                                    ->label('Từ khóa SEO'),
+                                Forms\Components\Tabs::make('SEO Tabs')
+                                    ->tabs(collect($locales)->map(function ($locale) {
+                                        return Forms\Components\Tabs\Tab::make(strtoupper($locale))
+                                            ->schema([
+                                                Forms\Components\TextInput::make("meta_title.{$locale}")
+                                                    ->label('Tiêu đề SEO')
+                                                    ->maxLength(255),
+                                                Forms\Components\TextInput::make("meta_description.{$locale}")
+                                                    ->label('Mô tả SEO')
+                                                    ->maxLength(255),
+                                                Forms\Components\TextInput::make("meta_keywords.{$locale}")
+                                                    ->label('Từ khóa SEO')
+                                                    ->maxLength(255),
+                                            ]);
+                                    })->toArray()),
                             ]),
                     ])
                     ->columnSpan(['lg' => 1]),
@@ -196,7 +242,12 @@ class ProjectResource extends Resource
             ->actions([
                 Tables\Actions\ReplicateAction::make()
                     ->beforeReplicaSaved(function (Project $record, Project $replica) {
-                        $replica->title = $record->title . ' (Sao chép)';
+                        foreach (config('app.locales', [config('app.locale')]) as $locale) {
+                            $original = $record->getTranslation('title', $locale, false);
+                            if ($original) {
+                                $replica->setTranslation('title', $locale, $original . ' (Sao chép)');
+                            }
+                        }
                         $replica->slug = $record->slug . '-copy';
                         $replica->save();
                     })

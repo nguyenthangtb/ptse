@@ -48,7 +48,7 @@ return [
     'no_detailed_specifications' => 'Không có thông số chi tiết',
     'documents' => 'Tài liệu',
     'download' => 'Tải xuống',
-    'views' => 'Lượt xem',
+    'number_views' => 'Lượt xem',
     'share_post' => 'Chia sẻ bài viết',
     'related_projects' => 'Dự án liên quan',
     'contact_us' => 'Liên hệ với chúng tôi',

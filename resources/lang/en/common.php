@@ -48,7 +48,7 @@ return [
     'no_detailed_specifications' => 'No detailed specifications',
     'documents' => 'Documents',
     'download' => 'Download',
-    'views' => 'Views',
+    'number_views' => 'Views',
     'share_post' => 'Share Post',
     'related_projects' => 'Related Projects',
     'contact_us' => 'Contact Us',

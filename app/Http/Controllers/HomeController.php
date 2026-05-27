@@ -12,6 +12,7 @@ use App\Models\Contact;
 use App\Models\HomeSlider;
 use App\Models\Introduce;
 use App\Models\WebsiteConfig;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactInformation;
 
@@ -87,6 +88,7 @@ class HomeController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
+            'message' => 'required|string',
         ]);
         try {
             // Lưu thông tin liên hệ vào cơ sở dữ liệu
@@ -94,17 +96,22 @@ class HomeController extends Controller
             $contact->name = $validated['name'];
             $contact->email = $validated['email'];
             $contact->phone = $validated['phone'];
-            $contact->message = $request->input('message');
+            $contact->message = $validated['message'];
             $contact->save();
 
             // Gửi email thông báo
-            $adminEmail = 'nguyenngocthang1188@gmail.com';
+            $adminEmail = config('mail.admin_address');
             if ($adminEmail) {
                 Mail::to($adminEmail)->send(new ContactInformation($contact->toArray()));
             }
             //ajax
             return response()->json(['status' => 200, 'message' => 'Gửi thông tin thành công!']);
         } catch (\Exception $e) {
+            Log::error('Failed to send contact email', [
+                'message' => $e->getMessage(),
+                'email' => $request->input('email'),
+            ]);
+
             return response()->json(['status' => 500,'message' => 'Đã xảy ra lỗi khi gửi thông tin. Vui lòng thử lại sau.']);
         }
     }

@@ -76,7 +76,7 @@
                                     </div>
                                 @endif
                             </div>
-                            <p class="text-gray-600 line-clamp-3 mb-4">{{ strip_tags($project->short_description) }}</p>
+                            <p class="text-gray-600 line-clamp-3 mb-4">{{ html_entity_decode(strip_tags($project->short_description), ENT_QUOTES, 'UTF-8') }}</p>
                             <a href="{{ route('projects.show', $project->slug) }}"
                                class="inline-flex items-center text-sm text-primary hover:text-primary/80 font-medium">
                                 {{ __('common.read_more') }}

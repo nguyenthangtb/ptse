@@ -106,7 +106,7 @@ class ContactResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Ngày gửi')
-                    ->dateTime()
+                    ->dateTime('d/m/Y H:i:s')
                     ->sortable(),
             ])
             ->filters([

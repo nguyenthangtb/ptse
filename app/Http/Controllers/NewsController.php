@@ -20,8 +20,9 @@ class NewsController extends Controller
 
         $news = Cache::remember('news_page_' . $page, 60*6, function () {
             return News::query()
-                ->where('is_active', true)
-                ->orderBy('date', 'desc')
+                ->published()
+                ->orderByDesc('published_at')
+                ->orderByDesc('date')
                 ->paginate(12);
         });
 
@@ -32,14 +33,22 @@ class NewsController extends Controller
 
     public function show(News $news)
     {
+        abort_unless(
+            $news->is_active && $news->published_at?->lte(now()),
+            404
+        );
+
         //check login
         if (Auth::check()) {
             Cache::forget('recent_news_except_' . $news->id);
         }
 
         $recentNews = Cache::remember('recent_news_except_' . $news->id, 60*6, function () use ($news) {
-            return News::where('id', '!=', $news->id)
-                ->latest()
+            return News::query()
+                ->published()
+                ->where('id', '!=', $news->id)
+                ->orderByDesc('published_at')
+                ->orderByDesc('date')
                 ->take(5)
                 ->get();
         });
@@ -58,8 +67,9 @@ class NewsController extends Controller
 
         $news = Cache::remember('news_loadmore_page_' . $page, 60*6, function () use ($page) {
             return News::query()
-                ->where('is_active', true)
-                ->orderBy('date', 'desc')
+                ->published()
+                ->orderByDesc('published_at')
+                ->orderByDesc('date')
                 ->paginate(12, ['*'], 'page', $page);
         });
 

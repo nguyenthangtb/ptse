@@ -69,6 +69,8 @@ return [
     'send_success' => 'Send Success',
     'send_error' => 'Send Error',
     'send_error_message' => 'Send Error Message',
+    'contact_submit_success' => 'Your contact information has been sent successfully. We will contact you as soon as possible.',
+    'contact_submit_error' => 'An error occurred while sending your contact information. Please try again later.',
     'related_solutions' => 'Related Solutions',
     'send_message' => 'Send Message',
     'send_message_success' => 'Send Message Success',

@@ -34,6 +34,7 @@ class ProjectFactory extends Factory
             'completion_date' => fake()->dateTimeBetween('-2 years', 'now'),
             'is_featured' => fake()->boolean(20),
             'is_active' => fake()->boolean(90),
+            'number_view' => fake()->numberBetween(0, 5000),
             // 'testimonials' => fake()->paragraph(),
             'status' => 'active',
             'order' => fake()->numberBetween(1, 100),

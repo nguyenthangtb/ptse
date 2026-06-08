@@ -69,6 +69,8 @@ return [
     'send_success' => 'Gửi liên hệ thành công',
     'send_error' => 'Gửi liên hệ thất bại',
     'send_error_message' => 'Lỗi gửi liên hệ, vui lòng thử lại sau',
+    'contact_submit_success' => 'Gửi thông tin liên hệ thành công. Chúng tôi sẽ liên hệ với bạn sớm nhất có thể.',
+    'contact_submit_error' => 'Đã xảy ra lỗi khi gửi thông tin liên hệ. Vui lòng thử lại sau.',
     'related_solutions' => 'Giải pháp liên quan',
     'send_message' => 'Gửi tin nhắn',
     'send_message_success' => 'Gửi tin nhắn thành công',

@@ -41,6 +41,7 @@ class Project extends Model
         'solution_id',
         'is_featured',
         'is_active',
+        'number_view',
         'completion_date',
         'testimonials',
         'order',
@@ -53,6 +54,7 @@ class Project extends Model
         'completion_date' => 'date',
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
+        'number_view' => 'integer',
     ];
 
     // Generate slug before saving

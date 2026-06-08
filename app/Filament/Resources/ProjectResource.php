@@ -132,6 +132,12 @@ class ProjectResource extends Resource
                                     ->default(true),
                                 Forms\Components\Toggle::make('is_featured')
                                     ->label('Nổi bật'),
+                                Forms\Components\TextInput::make('number_view')
+                                    ->label('Số lượt xem')
+                                    ->numeric()
+                                    ->default(0)
+                                    ->minValue(0)
+                                    ->rule('integer'),
                             ]),
 
                         Forms\Components\Section::make('Hình ảnh')
@@ -211,6 +217,10 @@ class ProjectResource extends Resource
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Kích hoạt')
                     ->boolean()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('number_view')
+                    ->label('Lượt xem')
+                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Ngày tạo')

@@ -105,14 +105,20 @@ class HomeController extends Controller
                 Mail::to($adminEmail)->send(new ContactInformation($contact->toArray()));
             }
             //ajax
-            return response()->json(['status' => 200, 'message' => 'Gửi thông tin thành công!']);
+            return response()->json([
+                'status' => 200,
+                'message' => __('common.contact_submit_success'),
+            ]);
         } catch (\Exception $e) {
             Log::error('Failed to send contact email', [
                 'message' => $e->getMessage(),
                 'email' => $request->input('email'),
             ]);
 
-            return response()->json(['status' => 500,'message' => 'Đã xảy ra lỗi khi gửi thông tin. Vui lòng thử lại sau.']);
+            return response()->json([
+                'status' => 500,
+                'message' => __('common.contact_submit_error'),
+            ]);
         }
     }
 

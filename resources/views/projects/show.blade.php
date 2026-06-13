@@ -100,7 +100,7 @@
                         <div class="space-y-6">
                             @foreach($relatedProjects as $item)
                                 <div class="group">
-                                    <a href="#" class="flex gap-4">
+                                    <a href="{{ route('projects.show', $item->slug) }}" class="flex gap-4">
                                         @if($item->image)
                                             <img src="{{ Storage::url($item->image) }}" alt="{{ $item->title }}"
                                                 class="w-24 h-24 rounded-lg object-cover flex-shrink-0 group-hover:opacity-90 transition-opacity">

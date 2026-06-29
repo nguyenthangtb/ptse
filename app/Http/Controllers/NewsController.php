@@ -3,22 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Support\NewsCache;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache; // Add this at the top with other uses
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function index(NewsCache $newsCache)
     {
         $page = request()->get('page', 1);
 
-        //check login
-        if (Auth::check()) {
-            Cache::forget('news_page_' . $page);
-        }
-
-        $news = Cache::remember('news_page_' . $page, 60*6, function () {
+        $news = Cache::remember($newsCache->pageKey($page), $newsCache->expiresAt(), function () {
             return News::query()
                 ->published()
                 ->orderByDesc('published_at')
@@ -31,19 +26,14 @@ class NewsController extends Controller
         return view('news.index', compact('news', 'hasMorePages'));
     }
 
-    public function show(News $news)
+    public function show(News $news, NewsCache $newsCache)
     {
         abort_unless(
             $news->is_active && $news->published_at?->lte(now()),
             404
         );
 
-        //check login
-        if (Auth::check()) {
-            Cache::forget('recent_news_except_' . $news->id);
-        }
-
-        $recentNews = Cache::remember('recent_news_except_' . $news->id, 60*6, function () use ($news) {
+        $recentNews = Cache::remember($newsCache->recentKey($news->id), $newsCache->expiresAt(), function () use ($news) {
             return News::query()
                 ->published()
                 ->where('id', '!=', $news->id)
@@ -56,16 +46,11 @@ class NewsController extends Controller
         return view('news.show', compact('news', 'recentNews'));
     }
 
-    public function loadMore(Request $request)
+    public function loadMore(Request $request, NewsCache $newsCache)
     {
         $page = $request->input('page', 1);
 
-        //check login
-        if (Auth::check()) {
-            Cache::forget('news_loadmore_page_' . $page);
-        }
-
-        $news = Cache::remember('news_loadmore_page_' . $page, 60*6, function () use ($page) {
+        $news = Cache::remember($newsCache->loadMoreKey($page), $newsCache->expiresAt(), function () use ($page) {
             return News::query()
                 ->published()
                 ->orderByDesc('published_at')
@@ -76,7 +61,7 @@ class NewsController extends Controller
         if ($news->isEmpty()) {
             return response()->json([
                 'html' => '',
-                'hasMore' => false
+                'hasMore' => false,
             ]);
         }
 
@@ -84,12 +69,7 @@ class NewsController extends Controller
 
         return response()->json([
             'html' => $html,
-            'hasMore' => $news->hasMorePages()
+            'hasMore' => $news->hasMorePages(),
         ]);
-    }
-
-    protected function clearNewsCache(): void
-    {
-        Cache::flush();
     }
 }
